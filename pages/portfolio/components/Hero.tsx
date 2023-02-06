@@ -17,6 +17,9 @@ export default function Hero() {
                 if (entry.isIntersecting) {
                     // add the "in-view" class to the element to trigger the animation
                     entry.target.classList.add('in-view');
+                } else {
+                    // remove the "in-view" class to stop the animation
+                    entry.target.classList.remove('in-view');
                 }
             });
         });

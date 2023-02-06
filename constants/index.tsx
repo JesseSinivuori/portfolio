@@ -2,16 +2,12 @@ import { react, javascript, csharp, html5, css3, tailwindcss, typescript, python
 
 export const navLinks = [
   {
-    id: "/dashboard/ecommerce",
-    title: "Dashboard",
-  },
-  {
     id: "/",
     title: "Home",
   },
   {
     id: "/store/home",
-    title: "Store",
+    title: "Ecommerce Project",
   },
   {
     id: "/portfolio/contact",

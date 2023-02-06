@@ -18,9 +18,10 @@ export default function Layout({ children }: any) {
         }
     }
 
-
     return (
-        <div className={`layout ${bgColor()}`}
+        <div className={`${bgColor()} ss:p-4 xs:p-3 xss:p-2 p-1
+         inset-0 overflow-hidden
+        `}
 
         >
             <Head>
@@ -34,7 +35,7 @@ export default function Layout({ children }: any) {
             <main className={`main-container `}>
                 <div className={`${styles.flexCenter} `}>
                     {/**content container */}
-                    <div className={`${styles.boxWidth} `}>
+                    <div className={`${styles.boxWidth}`}>
                         {children}
                     </div>
                 </div>

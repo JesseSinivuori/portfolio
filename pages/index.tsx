@@ -1,5 +1,6 @@
 import styles, { layout } from '../styles/style';
 import { Hero, Footer, Skills, Game, Website, ContactBottom, ScrollArrow } from './portfolio/components';
+import Ecommerce from './portfolio/components/Ecommerce';
 
 
 //return home page
@@ -27,7 +28,7 @@ export default function Home() {
           <Skills />
           <Game />
           <Website />
-          <ContactBottom />
+          <Ecommerce />
           <Footer styles={''} />
         </div>
       </div>

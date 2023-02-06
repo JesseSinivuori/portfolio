@@ -18,11 +18,13 @@ export default function Skills() {
                 My Skills
             </h2>
             <div className={`${styles.paddingY} `}>
-                {mySkills.map((item: any, i) => (
-                    <SlideAnimation content={item[i]} animationClass={"slide-animation-right"}                    />
+                {mySkills.map((item: any) => (
+                    <SlideAnimation content={item}
+                        animationClass={"slide-animation-right"}
+                        key={item.id} />
                 ))}
 
-                
+
             </div>
         </section>
 

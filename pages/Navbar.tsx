@@ -71,8 +71,9 @@ export default function Navbar() {
                                 >
                                     <li key={nav.id} className={`font-poppins font-normal 
                                 cursor-pointer text-[16px] rounded-md p-2 ease-in-out duration-100
-                                ${currentRoute === nav.id && 'text-gray-600'}
+                                ${currentRoute === nav.id && 'text-gray-500'}
                                 ${currentRoute === '/portfolio/contact' && 'border-gray-600'}
+                                ${!currentRoute.startsWith('/store') && nav.id.startsWith('/store') && 'text-gradient-ecommerce border-[1px] border-transparent hover:border-[#ffee00] hover:text-white'}
                                 ${nav.id === '/portfolio/contact' && currentRoute !== '/portfolio/contact' ? ' border-[#ff0000] border-[1px]  hover:text-[#ff0000] hover:animate-pulse' :
                                             'hover:text-primary hover:bg-white'}
                                 ${index === navLinks.length - 1 ? 'mr-[30px]' : 'mr-[25px]'}
@@ -127,7 +128,7 @@ export default function Navbar() {
                                                 font-poppins
                                             cursor-pointer text-[16px] p-2 rounded-md 
                                             ${currentRoute === nav.id && 'text-gray-600'}
-                                            ${currentRoute === '/portfolio/contact' && 'border-gray-600'}
+                                            ${currentRoute === '/portfolio/contact' && 'border-gray-500'}
                                             ${nav.id === '/portfolio/contact' && currentRoute !== '/portfolio/contact' ? ' border-[#ff0000] border-[1px] hover:text-[#ff0000] hover:animate-pulse' :
                                                         'hover:text-primary hover:bg-white'}
                                             ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'}

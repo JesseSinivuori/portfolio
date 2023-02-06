@@ -3,6 +3,7 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 type Props = {
     content: ReactNode;
     animationClass: string;
+    key?: any;
 };
 
 export default function SlideAnimation(props: Props) {
@@ -21,8 +22,12 @@ export default function SlideAnimation(props: Props) {
                     // add the "in-view" class to the element to trigger the animation
                     entry.target.classList.add('in-view');
                 }
+                else {
+                    // remove the "in-view" class to stop the animation
+                    entry.target.classList.remove('in-view');
+                }
             });
-        }, { rootMargin: '0px 0px -150px 0px' });
+        }, { rootMargin: '0px 0px -125px 0px' });
         // get the child elements of the container
         const elements = elementRef.current.children;
 
@@ -35,7 +40,7 @@ export default function SlideAnimation(props: Props) {
 
     return (
 
-        <div ref={elementRef}>
+        <div ref={elementRef} key={props.key}>
             <div className={`${animationClass}`} >
                 {props.content}
             </div>

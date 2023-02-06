@@ -1,5 +1,5 @@
 {
-  "name": "ecommerce",
+  "name": "sanity_ecommerce",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
@@ -19,8 +19,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-is": "latest",
-    "sanity": "latest",
-    "styled-components": "latest"
+    "sanity": "^3.2.6",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^2.0.1",
