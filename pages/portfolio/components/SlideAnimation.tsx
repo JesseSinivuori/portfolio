@@ -40,7 +40,7 @@ export default function SlideAnimation(props: Props) {
 
     return (
 
-        <div ref={elementRef} key={props.key}>
+        <div ref={elementRef} key={props?.key}>
             <div className={`${animationClass}`} >
                 {props.content}
             </div>

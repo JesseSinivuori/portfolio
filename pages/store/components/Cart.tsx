@@ -1,12 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping }
   from 'react-icons/ai'
-import { TiDeleteOutline } from 'react-icons/ti'
 import { useStateContext } from '../../../context/StateContext'
 import { urlFor } from '../../../lib/client'
 import getStripe from '../../../lib/getStripe'
 import toast from 'react-hot-toast'
-import styles from '../../../styles/style'
 
 
 export default function Cart() {
@@ -37,7 +35,7 @@ export default function Cart() {
 
   }
 
-  useEffect(() => {
+  useCallback(() => {
     localStorage.setItem('context', JSON.stringify({
       totalPrice, totalQuantities, cartItems
     }));

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Link from "next/link";
 import { close, menu } from "../public/assets/portfolio"
 import { navLinks } from '../constants/index';
@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { useStateContext } from '../context/StateContext';
 import { AiOutlineShopping } from 'react-icons/ai';
 import { Cart } from '../pages/store/components';
-import router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 //return navbar
 export default function Navbar() {
@@ -67,9 +67,10 @@ export default function Navbar() {
                             {/**map links */}
                             {navLinks.map((nav, index) => (
                                 <Link href={`${nav.id}`}
+                                    key={nav.id}
                                     className={``}
                                 >
-                                    <li key={nav.id} className={`font-poppins font-normal 
+                                    <li className={`font-poppins font-normal 
                                 cursor-pointer text-[16px] rounded-md p-2 ease-in-out duration-100
                                 ${currentRoute === nav.id && 'text-gray-500'}
                                 ${currentRoute === '/portfolio/contact' && 'border-gray-600'}

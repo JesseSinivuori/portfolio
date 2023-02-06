@@ -2,7 +2,6 @@ import Head from "next/head"
 import { useRouter } from "next/router";
 import styles from "../styles/style";
 import Navbar from "./Navbar"
-import { Footer } from "./portfolio/components";
 
 
 export default function Layout({ children }: any) {

@@ -2,8 +2,6 @@ import Link from "next/link"
 import { BsBagX } from 'react-icons/bs'
 import { useStateContext } from '../../context/StateContext'
 import React, { useEffect } from "react";
-import styles from "../../styles/style";
-
 
 
 export default function Canceled() {
