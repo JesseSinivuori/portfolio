@@ -1,4 +1,12 @@
-import { react, javascript, csharp, html5, css3, tailwindcss, typescript, python } from "../public/assets/portfolio"
+import {
+  react,
+  javascript,
+  csharp,
+  html5,
+  css3,
+  tailwindcss,
+  typescript,
+} from "../public/assets/portfolio";
 
 export const navLinks = [
   {
@@ -17,43 +25,38 @@ export const navLinks = [
 
 export const mySkills = [
   {
-    id: 'language 1',
+    id: "react",
     img: react,
-    name: 'React',
+    name: "React",
   },
   {
-    id: 'language 2',
+    id: "javascript",
     img: javascript,
-    name: 'JavaScript',
+    name: "JavaScript",
   },
   {
-    id: 'language 3',
+    id: "typescript",
     img: typescript,
-    name: 'TypeScript',
+    name: "TypeScript",
   },
   {
-    id: 'language 4',
+    id: "html",
     img: html5,
-    name: 'HTML',
+    name: "HTML",
   },
   {
-    id: 'language 5',
+    id: "css",
     img: css3,
-    name: 'CSS',
+    name: "CSS",
   },
   {
-    id: 'language 6',
+    id: "tailwindcss",
     img: tailwindcss,
-    name: 'Tailwind CSS',
+    name: "Tailwind CSS",
   },
   {
-    id: 'language 7',
+    id: "csharp",
     img: csharp,
-    name: 'C Sharp',
-  },
-  {
-    id: 'language 8',
-    img: python,
-    name: 'Python',
+    name: "C Sharp",
   },
 ];

@@ -1,26 +1,29 @@
-import { HeroBanner, FooterBanner, Product, } from './components'
-import { client } from '../../lib/client'
+import {
+  CategoryMenu,
+  HeroBanner,
+  Product,
+  Products,
+} from "../../components/store";
+import { client } from "../../lib/client";
+import Footer from "../../components/portfolio/Footer";
 
 export default function Home({ products, bannerData }: any) {
   return (
     <>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-      <div className="products-heading ">
-        <h2>Best Selling Products</h2>
-        <p>Speakers of many variations</p>
+      <div className="products-heading">
+        <h2>Menu</h2>
+        <p></p>
+        <CategoryMenu products={products} />
       </div>
 
-      <div className="products-container">
-        {products?.map(
-          (product: any) => <Product key={product._id}
-            product={product} />)}
-      </div>
+      <Products products={products} />
 
-      <FooterBanner footerBanner={bannerData && bannerData[0]} />
+      {/**<FooterBanner footerBanner={bannerData && bannerData[0]} />**/}
+      <Footer />
     </>
-  )
+  );
 }
-
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "product"]';
@@ -30,6 +33,6 @@ export const getServerSideProps = async () => {
   const bannerData = await client.fetch(bannerQuery);
 
   return {
-    props: { products, bannerData }
-  }
-}
+    props: { products, bannerData },
+  };
+};

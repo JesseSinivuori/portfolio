@@ -1,0 +1,14 @@
+export { default as ArrowDown } from "./ArrowDown";
+export { default as Button } from "./Button";
+export { default as Contact } from "./Contact";
+export { default as ContactBottom } from "./ContactBottom";
+export { default as ContactButton } from "./ContactButton";
+export { default as Ecommerce } from "./Ecommerce";
+export { default as Footer } from "./Footer";
+export { default as Game } from "./Game";
+export { default as Hero } from "./Hero";
+export { default as MapSkills } from "./MapSkills";
+export { default as ScrollArrow } from "./ScrollArrow";
+export { default as Skills } from "./Skills";
+export { default as SlideAnimation } from "./SlideAnimation";
+export { default as Website } from "./Website";

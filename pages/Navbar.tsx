@@ -1,153 +1,208 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { close, menu } from "../public/assets/portfolio"
-import { navLinks } from '../constants/index';
-import styles, { layout } from "../styles/style";
-import Image from 'next/image'
-import { useStateContext } from '../context/StateContext';
-import { AiOutlineShopping } from 'react-icons/ai';
-import { Cart } from '../pages/store/components';
-import { useRouter } from 'next/router';
+import { close, menu } from "../public/assets/portfolio";
+import { navLinks } from "../constants/index";
+import Image from "next/image";
+import { useStateContext } from "../context/StateContext";
+import { AiOutlineShopping } from "react-icons/ai";
+import Cart from "../components/store/Cart";
+import { useRouter } from "next/router";
+import styles from "../styles/style";
+import CloseOnBack from "../components/store/CloseOnBack";
 
 //return navbar
 export default function Navbar() {
+  const { showCart, setShowCart, totalQuantities } = useStateContext();
+  const router = useRouter();
+  const currentRoute = router.pathname;
 
-    const router = useRouter();
-    const currentRoute = router.asPath;
+  const [showCartIcon, setShowCartIcon] = useState(false);
 
-    const canShowCart = () => {
-        if (router.asPath.startsWith('/store/')) return true;
-        if (router.asPath.startsWith('/product/')) return true;
-        else return false;
+  useEffect(() => {
+    if (currentRoute.startsWith("/store/")) {
+      setShowCartIcon(true);
+    } else {
+      setShowCartIcon(false);
     }
+  }, [currentRoute]);
 
-    const { showCart, setShowCart, totalQuantities } = useStateContext();
+  //toggle mobile menu
+  const [toggle, setToggle] = useState(false);
 
-    //toggle menu on mobile
-    const [toggle, setToggle] = useState(false);
+  const handleClick = () => {
+    setToggle((prev) => !prev);
+  };
 
+  const [navStyles, setNavStyles] = useState(
+    "bg-primary/0 backdrop-blur-[0px]"
+  );
 
-    const handleClick = () => {
-        setToggle((prev) => !prev);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollY > 0) {
+        setNavStyles("bg-primary/50 backdrop-blur-[25px]");
+      } else {
+        setNavStyles("bg-primary/0 backdrop-blur-[0px]");
+      }
     };
 
-    return (
-        //container
-        <div className={`  `}>
+    addEventListener("scroll", handleScroll);
+    return () => {
+      removeEventListener("scroll", handleScroll);
+    };
+  }),
+    [setNavStyles];
 
-            {/**padding and centering*/}
-            <div className={`          `}>
+  useEffect(() => {
+    if (toggle) {
+      const checkWidth = () => {
+        if (window.document.body.offsetWidth > 620) {
+          setToggle((prev) => false);
+        }
+      };
+      addEventListener("resize", checkWidth);
+      return () => {
+        removeEventListener("resize", checkWidth);
+      };
+    }
+  }, [toggle, setToggle]);
 
-                {/**set width */}
-                <div className={` ${styles.boxWidth} py-4 
-                bg-nav bg-opacity-75 backdrop-blur-[25px]
-                `}>
+  return (
+    <div
+      className={`m-auto w-full rounded-b-xl
+      ${showCart && "absolute h-full min-h-[100svh]"}
+    transition-all duration-1000 ${navStyles} max-w-[1400px] `}
+    >
+      <div className={`${styles.flexCenter}`}>
+        <div
+          className={`navbar w-full
+          ${showCart && "blur"} 
+          py-4 
+         transition-all duration-500 
+         `}
+        >
+          {/**nav content container */}
+          <nav className={`flex items-center justify-between `}>
+            {/**make logo a link to home page*/}
+            <Link href={"/"}>
+              {/**logo text */}
+              <p className="ml-[20px] rounded-full bg-transparent p-[10px] font-light text-white hover:scale-[1.2]">
+                <span className={"text-white"}>.</span>
+                &#106;
+                <span
+                  className={`text-[#70ffff] 
+                        ${
+                          currentRoute.startsWith("/store") && "text-[#ff0505]"
+                        }`}
+                >
+                  s
+                </span>
+              </p>
+            </Link>
+            {/**contain links */}
+            <ul className="hidden flex-1 list-none items-center justify-end ss:flex">
+              {/**map links */}
+              {navLinks.map((nav, index) => (
+                <Link href={`${nav.id}`} key={nav.id} className={``}>
+                  <li
+                    className={`cursor-pointer rounded-md border-[1px] border-transparent
+                p-2 font-poppins text-[16px] font-normal text-white
+                duration-100 ease-in-out
+                    ${currentRoute === nav.id && "text-white/50"}
+                    ${
+                      nav.id === "/portfolio/contact" &&
+                      currentRoute !== "/portfolio/contact"
+                        ? " border-[#ff0000]  hover:animate-pulse hover:text-[#ff0000]"
+                        : "hover:text-white/50"
+                    }
+                    ${index === navLinks.length - 1 ? "mr-[30px]" : "mr-[25px]"}
+                    `}
+                  >
+                    {nav.title}
+                  </li>
+                </Link>
+              ))}
+              {showCartIcon && (
+                <button
+                  type="button"
+                  className={`cart-icon flex `}
+                  onClick={() => {
+                    setShowCart((prev: boolean) => !prev);
+                  }}
+                >
+                  <AiOutlineShopping />
+                  <span className="cart-item-qty ">{totalQuantities}</span>
+                </button>
+              )}
+            </ul>
 
-                    {/**nav content container */}
-                    <nav className={` flex justify-between items-center navbar 
-                    
-                    `} >
-
-                        {/**make logo a link to home page*/}
-                        <Link href={'/'}>
-
-                            {/**logo text */}
-                            <p className='text-white font-light hover:scale-[1.2] ml-[30px] 
-                            rounded-full bg-transparent  
-                            '>
-                                <span className={'text-white'}>.</span>
-                                &#106;
-                                <span className={'text-[#70ffff] '}>s</span>
-                            </p>
-                        </Link>
-
-                        {/**contain links */}
-                        <ul className='list-none justify-end items-center flex-1 ss:flex hidden'>
-
-                            {/**map links */}
-                            {navLinks.map((nav, index) => (
-                                <Link href={`${nav.id}`}
-                                    key={nav.id}
-                                    className={``}
-                                >
-                                    <li className={`font-poppins font-normal 
-                                cursor-pointer text-[16px] rounded-md p-2 ease-in-out duration-100
-                                ${currentRoute === nav.id && 'text-gray-500'}
-                                ${currentRoute === '/portfolio/contact' && 'border-gray-600'}
-                                ${!currentRoute.startsWith('/store') && nav.id.startsWith('/store') && 'text-gradient-ecommerce border-[1px] border-transparent hover:border-[#ffee00] hover:text-white'}
-                                ${nav.id === '/portfolio/contact' && currentRoute !== '/portfolio/contact' ? ' border-[#ff0000] border-[1px]  hover:text-[#ff0000] hover:animate-pulse' :
-                                            'hover:text-primary hover:bg-white'}
-                                ${index === navLinks.length - 1 ? 'mr-[30px]' : 'mr-[25px]'}
-                                text-white `}>
-                                        {nav.title}
-                                    </li>
-                                </Link>
-                            ))}
-                            {canShowCart() &&
-                                <button type="button" className={`cart-icon flex`}
-                                    onClick={() => setShowCart(true)}
-                                >
-                                    <AiOutlineShopping />
-                                    <span className="cart-item-qty ">{totalQuantities}</span>
-                                </button>}
-                        </ul>
-
-
-                        {/**menu icon container on mobile(not in use(hidden)) */}
-                        <div className={`ss:hidden mb-0 flex w-[28px] justify-end items-center relative cursor-pointer  `}>
-                            {canShowCart() &&
-                                <button type="button" className={`cart-icon flex `}
-                                    onClick={() => setShowCart(true)}
-                                >
-                                    <AiOutlineShopping />
-                                    <span className="cart-item-qty ">{totalQuantities}</span>
-                                </button>}
-                            {/**menu icons */}
-                            <Image src={toggle ? close : menu}
-                                alt='menu'
-                                className='w-[28px] h-[28px] object-contain mr-[24px] '
-                                onClick={() => handleClick()}
-                            />
-                            {/**menu container*/}
-                            <div className={`${toggle ? 'flex animate-top-visible mt-20' : ' animate-top-hidden '} 
-                             absolute ease-in-out duration-500 top-0
-                             mr-4 min-w-[140px] 
-                            `} >
-                                {/**contain links */}
-                                <ul className='list-none flex-col justify-end items-center
-                                flex-1 bg-[#1b1b1b] 
-                                 rounded-md 
-                                backdrop-blur-[25px] p-1
-                                ' >
-                                    {/**map links */}
-                                    {navLinks.map((nav, index) => (
-                                        //list link titles
-                                        <div className={`  `}>
-                                            <Link href={`${nav.id}`}>
-                                                <li key={nav.id} className={`
-                                                
-                                                font-poppins
-                                            cursor-pointer text-[16px] p-2 rounded-md 
-                                            ${currentRoute === nav.id && 'text-gray-600'}
-                                            ${currentRoute === '/portfolio/contact' && 'border-gray-500'}
-                                            ${nav.id === '/portfolio/contact' && currentRoute !== '/portfolio/contact' ? ' border-[#ff0000] border-[1px] hover:text-[#ff0000] hover:animate-pulse' :
-                                                        'hover:text-primary hover:bg-white'}
-                                            ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'}
-                                            text-white `}
-                                                    onClick={() => handleClick()}
-                                                >
-                                                    {nav.title}
-                                                </li>
-                                            </Link>
-                                        </div>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                        {showCart && <Cart />}
-                    </nav>
+            {/**menu icon container on mobile */}
+            <div
+              className={`relative mb-0 flex w-[28px] cursor-pointer items-center justify-end ss:hidden`}
+            >
+              {showCartIcon && (
+                <button
+                  type="button"
+                  className={`cart-icon flex`}
+                  onClick={() => {
+                    setShowCart((prev: boolean) => !prev);
+                  }}
+                >
+                  <AiOutlineShopping />
+                  <span className="cart-item-qty ">{totalQuantities}</span>
+                </button>
+              )}
+              {/**menu icons */}
+              <Image
+                src={toggle ? close : menu}
+                alt="menu"
+                className={`mr-[24px] h-[28px] w-[28px] object-contain
+              ${
+                toggle ? "rotate-180 transform" : ""
+              } transition-all duration-300`}
+                onClick={() => handleClick()}
+              />
+              {/**menu container*/}
+              <CloseOnBack toggleState={toggle} setToggleState={setToggle}>
+                <div
+                  className={`absolute top-0 mr-4 min-w-[140px] duration-500 ease-in-out
+            ${
+              toggle
+                ? "animate-top-visible mt-20 flex "
+                : " animate-top-hidden "
+            }`}
+                >
+                  {/**contain links */}
+                  <ul className="list-none flex-col items-center rounded-md bg-primary p-1">
+                    {/**map links */}
+                    {navLinks.map((nav, index) => (
+                      //list link titles
+                      <Link href={`${nav.id}`} key={nav.id}>
+                        <li
+                          className={`cursor-pointer rounded-md border-[1px] border-transparent p-2 font-poppins text-[16px] text-white
+                        ${currentRoute === nav.id && "text-white/50"}
+                        ${
+                          nav.id === "/portfolio/contact" &&
+                          currentRoute !== "/portfolio/contact"
+                            ? " border-[1px] border-[#ff0000] hover:animate-pulse hover:text-[#ff0000]"
+                            : "hover:text-white/50"
+                        }
+                        ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}
+                                             `}
+                          onClick={() => handleClick()}
+                        >
+                          {nav.title}
+                        </li>
+                      </Link>
+                    ))}
+                  </ul>
                 </div>
+              </CloseOnBack>
             </div>
+          </nav>
         </div>
-    )
+      </div>
+      <Cart />
+    </div>
+  );
 }
