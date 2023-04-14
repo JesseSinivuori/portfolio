@@ -55,7 +55,7 @@ export default function GradientGenerator() {
           <SlideAnimation animation={"slide-animation-top"}>
             <div className="flex h-full w-full flex-col items-center justify-center">
               <Gradient />
-              <Link href={""} className="">
+              <Link href={"https://gradient-generator-beta.vercel.app/"}>
                 <Image
                   src={gradientcolors}
                   alt={"image of gradient colors settings"}
@@ -64,7 +64,10 @@ export default function GradientGenerator() {
                     hover:border-white xss:ml-72 sm:ml-0"
                 />
               </Link>
-              <Link href={""} className=" hidden w-full justify-center sm:flex">
+              <Link
+                href={"https://gradient-generator-beta.vercel.app/"}
+                className="hidden w-full justify-center sm:flex"
+              >
                 <Image
                   src={gradientoutput}
                   alt={"image of gradient output"}
@@ -78,7 +81,7 @@ export default function GradientGenerator() {
         </section>
       </div>
       <Link
-        href={"/store/home"}
+        href={"https://gradient-generator-beta.vercel.app/"}
         target="blank"
         className={`z-[1] my-24
                 rounded-md border-[1px] border-[#eb51ff] py-2 px-4
