@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  important: true,
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -10,13 +9,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#030303",
+        primary: "#0a0a0a",
         secondary: "#161616",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
         store: "#040404",
         storeSecondary: "#ff7070",
-        nav: "#1b1b1b",
+        nav: "#0f0f0f",
+      },
+      textColor: {
+        textLight: "#ffffff",
+        textDark: "#000000",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

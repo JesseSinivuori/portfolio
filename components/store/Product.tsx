@@ -26,7 +26,7 @@ export default function Product({
           <p className="product-name min-w-[200px]sm:w-[300px] w-[200px]">
             {name}
           </p>
-          <p className="product-price">€{price}</p>
+          <p className="product-price">{price}€</p>
         </div>
       </Link>
     </div>

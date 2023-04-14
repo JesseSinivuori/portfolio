@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 
 type Props = {
   children: ReactNode;
@@ -13,12 +13,9 @@ type Props = {
 export default function SlideAnimation(props: Props) {
   const { animation, children, className } = props;
 
-  const elementRef = useRef<any>();
-
-  const [animationClass, setAnimationClass] = useState("");
+  const elementRef = useRef<any>(null);
 
   useEffect(() => {
-    setAnimationClass(animation);
     // create an intersection observer to detect when the element is in view
     const observer = new IntersectionObserver(
       (entries) => {
@@ -43,6 +40,12 @@ export default function SlideAnimation(props: Props) {
     for (const element of elements) {
       observer.observe(element);
     }
+    return () => {
+      // stop observing the child elements
+      for (const element of elements) {
+        observer.unobserve(element);
+      }
+    };
   }, [elementRef, animation]);
 
   return (

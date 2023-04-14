@@ -7,7 +7,6 @@ import {
   ecommerceitem2,
 } from "../../public/assets/portfolio";
 import styles, { layout } from "../../styles/style";
-import tw from "../../utils/tailwindHelper";
 import ArrowDown from "./ArrowDown";
 import SlideAnimation from "./SlideAnimation";
 import { useEffect, useRef, useState } from "react";
@@ -18,20 +17,22 @@ export default function EcommerceImagesSection() {
   const [imagesInView, setImagesInView] = useState(false);
 
   useEffect(() => {
-    if (!ref.current) return;
+    const imageRef = ref.current;
+    if (!imageRef) return;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setImagesInView(true);
-          } else {
-            setImagesInView(false);
           }
         });
       },
       { rootMargin: "0px 0px -400px 0px" }
     );
-    observer.observe(ref.current);
+    observer.observe(imageRef);
+    return () => {
+      observer.unobserve(imageRef);
+    };
   }, [ref]);
 
   return (
@@ -39,87 +40,97 @@ export default function EcommerceImagesSection() {
       animation={"slide-animation-top"}
       className={`${styles.flexCenter}`}
     >
-      <div className={`${layout.sectionImg} ${styles.flexCenter}`}>
-        <div
-          className={`${styles.flexCenter} relative z-[1] flex-col`}
-          ref={ref}
-        >
-          <ArrowDown styles="animate-bounce m-16" />
-          <Link href={"/store/home"}>
+      <div className={`${styles.flexCenter} flex-col`}>
+        <div className={`${styles.flexCenter} flex-col`} ref={ref}>
+          <Link href={"/store/home"} target="blank">
             <Image
               src={ecommerce}
               alt={"image of ecommerce website"}
-              className={`relative z-[2] m-24 w-[568px] min-w-[270px] rounded-xl border border-transparent
-              object-cover duration-300 ease-in-out hover:border-[#f02d34]
-              xs:max-w-full
+              className={`relative z-[3] m-52 w-[568px] min-w-[270px] rounded-xl border
+              border-transparent object-cover duration-300 ease-in-out
+              hover:border-[#f02d34] xs:max-w-full
               `}
-              width={568}
-              height={414}
             />
           </Link>
-          <Link href={"/store/home"}>
+          <Link href={"/store/home"} target="blank">
             <Image
               src={ecommercecart}
-              alt={"image of ecommerce website"}
+              alt={"image of ecommerce website cart"}
               className={`${
                 imagesInView
                   ? `translate-x-0 translate-y-0 scale-100`
                   : "translate-x-[-100%] translate-y-[25%] scale-0"
               }
-            absolute right-[-100px] top-[80px] z-[1] w-[300px]
-            rounded-xl border border-transparent
-            object-cover opacity-100  duration-300
-            ease-in-out hover:border-[#f02d34] hover:opacity-100 lg:hover:scale-[125%]
+            absolute right-[-100px] top-[50px]
+            z-[2] w-[300px] min-w-[200px] rounded-xl
+            border border-transparent object-cover
+            opacity-100 duration-300 ease-in-out
+            hover:border-[#f02d34] hover:opacity-100
+            md:right-[100px] lg:hover:scale-[125%]
             `}
             />
           </Link>
-          <Link href={"/store/home"}>
+          <Link href={"/store/home"} target="blank">
             <Image
               src={ecommercecategories}
-              alt={"image of ecommerce website"}
+              alt={"image of ecommerce website categories"}
               className={`${
                 imagesInView
                   ? "translate-y-0 scale-100"
                   : " translate-y-[100%] scale-0"
-              } absolute left-[-50px] top-[160px] z-[0] h-20 rounded-xl
+              } absolute left-[-50px] top-[120px] z-[1] h-20 w-[85%] rounded-xl
               border border-transparent object-cover opacity-50 duration-300
               ease-in-out hover:border-[#f02d34] hover:opacity-100
+              
               `}
             />
           </Link>
-          <Link href={"/store/home"}>
+          <Link href={"/store/home"} target="blank">
             <Image
               src={ecommerceitem}
-              alt={"image of ecommerce website"}
+              alt={"image of ecommerce website item"}
               className={`${
                 imagesInView
                   ? "translate-x-0 scale-100"
                   : "translate-x-[25%] scale-0"
-              } absolute left-[-100px] bottom-[140px] z-[1]
-              w-[800px] rounded-xl border border-transparent object-cover opacity-100
-              duration-300 ease-in-out hover:border-[#f02d34] hover:opacity-100 lg:left-[-200px]
-              hover:lg:translate-x-[-25%] hover:lg:scale-[115%]  `}
+              } absolute left-[-60px] bottom-[180px] z-[2] w-[800px] min-w-[300px]
+              rounded-xl border border-transparent object-cover opacity-100 duration-300
+              ease-in-out hover:border-[#f02d34] hover:opacity-100 sm:left-[-100px]
+              hover:lg:translate-x-[-25%] `}
             />
           </Link>
-          <Link href={"/store/home"}>
+          <Link href={"/store/home"} target="blank">
             <Image
               src={ecommerceitem2}
-              alt={"image of ecommerce website"}
+              alt={"image of ecommerce website item"}
               className={`${
                 imagesInView
                   ? `translate-x-0 scale-100 
                   hover:border-[#f02d34] hover:opacity-100`
                   : "translate-x-[25%] scale-0"
-              } absolute bottom-[240px] z-[0] ml-[100px] hidden w-[800px] rounded-xl border border-transparent
-                   object-cover opacity-25 duration-300 ease-in-out hover:z-[0]
-              lg:left-[-200px] lg:block lg:hover:translate-y-[-50%]
-              hover:lg:translate-x-[-25%] hover:lg:scale-[115%]
+              } absolute bottom-[340px] left-[-300px] z-[1] ml-[300px] hidden
+              w-[800px]  rounded-xl border
+                   border-transparent object-cover opacity-25 duration-300 ease-in-out
+              lg:block lg:hover:translate-y-[-15%]
+              hover:lg:translate-x-[-35%]
                 `}
             />
           </Link>
         </div>
+        <Link
+          href={"/store/home"}
+          target="blank"
+          className={`z-[1] rounded-md border-[1px]
+                border-[#ff0000] py-2 px-4 font-poppins text-[18px]
+                font-medium text-white shadow-lg
+                outline-none duration-300
+                ease-in-out hover:border-[#ff0000]
+                hover:text-[#ff0000] hover:shadow-[#bc0d0d25]`}
+        >
+          <span>Try the App</span>
+        </Link>
         <div
-          className={`absolute z-[0] h-full min-h-[1000px] w-full min-w-[600px]
+          className={`absolute z-[0] h-full min-h-[1400px] w-full min-w-[1000px]
               ${
                 imagesInView
                   ? "translate-y-0 scale-100"

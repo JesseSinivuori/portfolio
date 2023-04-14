@@ -2,6 +2,7 @@ import styles, { layout } from "../../styles/style";
 import { mygamegif, unity, csharp } from "../../public/assets/portfolio";
 import Image from "next/image";
 import SlideAnimation from "./SlideAnimation";
+import Skill from "./Skill";
 
 //return game section
 export default function Game() {
@@ -24,7 +25,7 @@ export default function Game() {
     <SlideAnimation animation={"slide-animation-top"}>
       <section
         id="game"
-        className={`${layout.section} ${styles.paddingY} mt-8`}
+        className={`${layout.section} ${styles.paddingY} mt-24`}
       >
         {/**container */}
         <div className={`${layout.sectionInfo} ${styles.flexCenter}`}>
@@ -34,42 +35,21 @@ export default function Game() {
               className={`${styles.heading2} ${styles.flexCenter} mb-6 
                 text-center text-[42px]`}
             >
-              Original Game
+              Infinite Ball Game
             </h2>
 
             {/**text under header*/}
             <p className={`${styles.paragraph} w-full ${styles.flexCenter} `}>
-              Designed and developed from scratch.{" "}
-              <br className="hidden xs:block" />
-              Made in Unity, using C Sharp.
+              Collect yellow things and avoid red ones.
             </p>
           </div>
           {/**container */}
 
           <SlideAnimation animation={"slide-animation-left"}>
-            <div className={`${styles.flexCenter} w-full`}>
+            <div className={`${styles.flexCenter} mb-12 w-full`}>
               {/**map logos */}
               {images.map((img) => (
-                //contain image and name
-                <div
-                  key={img.id}
-                  className={`${styles.flexCenter} 
-                                m-4 flex-row flex-wrap
-                                duration-100 ease-in sm:mb-6 `}
-                >
-                  {/**image */}
-                  <Image
-                    src={img.img}
-                    alt={`image of ${img.id}`}
-                    className={`m-8 w-[80px]
-                                        min-w-[80px] object-contain object-center  ${
-                                          img.id !== "unity" ? "" : "bg-white"
-                                        }
-                                        `}
-                  />
-                  {/**name of image */}
-                  <p className={`${styles.skillText} `}>{img.name}</p>
-                </div>
+                <Skill img={img} key={img.id} />
               ))}
             </div>
           </SlideAnimation>

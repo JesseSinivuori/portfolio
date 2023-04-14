@@ -8,8 +8,19 @@ import HeroGradient from "./HeroGradient";
 import Button from "./Button";
 import Link from "next/link";
 
+type Named = {
+  name: string;
+};
+
+type Greetable = Named & {
+  greet: (phrase: string) => void;
+};
+
 //return hero section
 export default function Hero() {
+  const greet = (person: Greetable) => {
+    console.log("Hello, " + person.name);
+  };
   return (
     //section
     <SlideAnimation animation={"slide-animation-top"}>
@@ -46,24 +57,20 @@ export default function Hero() {
             Software Engineer
           </h1>
           <p className={`${styles.paragraph} mt-5 max-w-[470px]`}>
-            I build websites, apps and games.
+            I 😍 building things.
           </p>
           {/**button */}
           <div className="my-8 flex items-center justify-center">
-            <Link href={"/portfolio/contact"}>
-              <button
-                type="button"
-                className={`rounded-md border-[1px] border-white
+            <Link
+              href={"/portfolio/contact"}
+              className="rounded-md border-[1px] border-[#58f3fe]
                 py-2 px-4 font-poppins text-[18px] 
                 font-medium text-[#ffffff] shadow-lg
                 outline-none duration-300
                 ease-in-out hover:border-[#58f3fe]
-                hover:text-[#58f3fe] hover:shadow-[#58f3fe25]
-                 
-                `}
-              >
-                Contact
-              </button>
+                hover:text-[#58f3fe] hover:shadow-[#58f3fe25]"
+            >
+              <span>Contact</span>
             </Link>
           </div>
         </div>
@@ -82,24 +89,24 @@ export default function Hero() {
           />
 
           {/**gradients */}
+          <div
+            className={`absolute z-[0] h-[800px] min-h-[800px] w-[500px] min-w-[500px]`}
+            style={{ opacity: "100%", filter: "blur(0px) invert(0)" }}
+          >
             <div
-              className={`absolute z-[0] h-[1000px] min-h-[1000px] w-[500px] min-w-[500px]`}
-              style={{ opacity: "100%", filter: "blur(0px) invert(0)" }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  zIndex: "0",
-                  width: "100%",
-                  height: "100%",
-                  background:
-                    "radial-gradient(circle, rgba(0, 4, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(0, 0, 0, 1) 70%, rgba(102, 245, 236, 0) 100%)",
-                  filter: "blur(240px)",
-                  opacity: "0.25",
-                  animation: "false",
-                }}
-              ></div>
-            </div>
+              style={{
+                position: "absolute",
+                zIndex: "0",
+                width: "100%",
+                height: "100%",
+                background:
+                  "radial-gradient(circle, rgba(0, 4, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(0, 0, 0, 1) 70%, rgba(102, 245, 236, 0) 100%)",
+                filter: "blur(240px)",
+                opacity: "0.25",
+                animation: "false",
+              }}
+            ></div>
+          </div>
         </div>
       </section>
     </SlideAnimation>

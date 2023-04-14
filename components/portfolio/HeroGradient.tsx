@@ -1,3 +1,5 @@
+import SlideAnimation from "./SlideAnimation";
+
 type HeroGradientProps = {};
 
 export default function HeroGradient(props: HeroGradientProps) {
@@ -10,8 +12,8 @@ export default function HeroGradient(props: HeroGradientProps) {
         style={{
           position: "absolute",
           zIndex: "0",
-          width: "100%",
-          height: "100%",
+          width: "75%",
+          height: "75%",
           background:
             "linear-gradient(337deg, rgba(253, 133, 255, 1) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(88, 243, 254, 1) 100%)",
           filter: "blur(295px)",

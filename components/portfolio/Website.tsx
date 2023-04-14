@@ -8,6 +8,7 @@ import {
 import styles, { layout } from "../../styles/style";
 import Image from "next/image";
 import SlideAnimation from "./SlideAnimation";
+import Skill from "./Skill";
 
 //return website section
 export default function Website() {
@@ -38,13 +39,13 @@ export default function Website() {
   return (
     //section
     <SlideAnimation animation={"slide-animation-top"}>
-      <section>
+      <section className="pb-32">
         {/**reverse section layout */}
         <section
           id="website"
           className={`${layout.sectionReverse}  
             ${styles.flexCenter} ${styles.boxWidth} flex-col-reverse
-            ${styles.paddingY}
+            ${styles.paddingY} pt-24
             `}
         >
           {/**contain image */}
@@ -103,7 +104,9 @@ export default function Website() {
               <p
                 className={`${styles.paragraph} w-full ${styles.flexCenter} justify-center`}
               >
-                Built originally with Vite, converted to Next.js.
+                {`Built with ❤️, reusable components `}
+                <br />
+                {`+ my gradient generator tool.`}
               </p>
             </div>
             <SlideAnimation animation={"slide-animation-right"}>
@@ -111,25 +114,7 @@ export default function Website() {
                 {/**map languages */}
                 {images.map((img) => (
                   //contain language
-                  <div
-                    key={img.id}
-                    className={`mt-6 
-                            mb-2 items-center justify-start duration-100 ease-in 
-                             sm:mb-6
-                            `}
-                  >
-                    {/**image */}
-                    <Image
-                      src={img.img}
-                      alt={`image of ${img.id}`}
-                      className={`m-10
-                            w-[80px] min-w-[80px] object-contain
-                            ${img.id === "nextjs" && "invert"}
-                            `}
-                    />
-                    {/**name */}
-                    <h2 className={`${styles.skillText} `}>{img.name}</h2>
-                  </div>
+                  <Skill img={img} key={img.id} />
                 ))}
               </div>
             </SlideAnimation>

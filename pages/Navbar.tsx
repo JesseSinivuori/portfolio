@@ -9,10 +9,12 @@ import Cart from "../components/store/Cart";
 import { useRouter } from "next/router";
 import styles from "../styles/style";
 import CloseOnBack from "../components/store/CloseOnBack";
+import OnClickOutside from "../components/helpers/OnClickOutside";
 
 //return navbar
 export default function Navbar() {
-  const { showCart, setShowCart, totalQuantities } = useStateContext();
+  const { showCart, setShowCart, totalQuantities, totalPrice } =
+    useStateContext();
   const router = useRouter();
   const currentRoute = router.pathname;
 
@@ -28,10 +30,6 @@ export default function Navbar() {
 
   //toggle mobile menu
   const [toggle, setToggle] = useState(false);
-
-  const handleClick = () => {
-    setToggle((prev) => !prev);
-  };
 
   const [navStyles, setNavStyles] = useState(
     "bg-primary/0 backdrop-blur-[0px]"
@@ -54,39 +52,30 @@ export default function Navbar() {
     [setNavStyles];
 
   useEffect(() => {
-    if (toggle) {
-      const checkWidth = () => {
-        if (window.document.body.offsetWidth > 620) {
-          setToggle((prev) => false);
-        }
-      };
-      addEventListener("resize", checkWidth);
-      return () => {
-        removeEventListener("resize", checkWidth);
-      };
-    }
+    const checkWidth = () => {
+      if (window.document.body.offsetWidth > 620) {
+        setToggle((prev) => false);
+      }
+    };
+    addEventListener("resize", checkWidth);
+    return () => {
+      removeEventListener("resize", checkWidth);
+    };
   }, [toggle, setToggle]);
 
   return (
     <div
-      className={`m-auto w-full rounded-b-xl
-      ${showCart && "absolute h-full min-h-[100svh]"}
-    transition-all duration-1000 ${navStyles} max-w-[1400px] `}
+      className={`"max-w-[100svw] m-auto w-full overscroll-none rounded-b-xl`}
     >
-      <div className={`${styles.flexCenter}`}>
-        <div
-          className={`navbar w-full
-          ${showCart && "blur"} 
-          py-4 
-         transition-all duration-500 
-         `}
-        >
-          {/**nav content container */}
-          <nav className={`flex items-center justify-between `}>
-            {/**make logo a link to home page*/}
+      <div
+        className={`${styles.flexCenter} m-auto ${navStyles} max-w-[1400px]
+        rounded-b-xl
+        transition-all duration-500 ${showCart && "blur"}`}
+      >
+        <div className={`navbar w-full py-4`}>
+          <nav className={`flex items-center justify-between`}>
             <Link href={"/"}>
-              {/**logo text */}
-              <p className="ml-[20px] rounded-full bg-transparent p-[10px] font-light text-white hover:scale-[1.2]">
+              <p className="ml-[20px] rounded-full bg-transparent p-[10px] font-light text-white hover:opacity-50">
                 <span className={"text-white"}>.</span>
                 &#106;
                 <span
@@ -99,9 +88,8 @@ export default function Navbar() {
                 </span>
               </p>
             </Link>
-            {/**contain links */}
-            <ul className="hidden flex-1 list-none items-center justify-end ss:flex">
-              {/**map links */}
+            {/** nav links */}
+            <ul className="hidden flex-1 list-none items-center justify-end overflow-hidden ss:flex">
               {navLinks.map((nav, index) => (
                 <Link href={`${nav.id}`} key={nav.id} className={``}>
                   <li
@@ -135,8 +123,6 @@ export default function Navbar() {
                 </button>
               )}
             </ul>
-
-            {/**menu icon container on mobile */}
             <div
               className={`relative mb-0 flex w-[28px] cursor-pointer items-center justify-end ss:hidden`}
             >
@@ -149,37 +135,44 @@ export default function Navbar() {
                   }}
                 >
                   <AiOutlineShopping />
-                  <span className="cart-item-qty ">{totalQuantities}</span>
+                  <span className="cart-item-qty">{totalQuantities}</span>
                 </button>
               )}
-              {/**menu icons */}
               <Image
                 src={toggle ? close : menu}
                 alt="menu"
                 className={`mr-[24px] h-[28px] w-[28px] object-contain
-              ${
-                toggle ? "rotate-180 transform" : ""
-              } transition-all duration-300`}
-                onClick={() => handleClick()}
+              ${toggle ? "rotate-180" : ""}  transition-all duration-300`}
+                onClick={() => setToggle(true)}
               />
-              {/**menu container*/}
+              {/** mobile menu */}
               <CloseOnBack toggleState={toggle} setToggleState={setToggle}>
                 <div
-                  className={`absolute top-0 mr-4 min-w-[140px] duration-500 ease-in-out
+                  className={`absolute top-0 mr-4 min-w-[140px] duration-300 ease-in-out
             ${
               toggle
                 ? "animate-top-visible mt-20 flex "
                 : " animate-top-hidden "
             }`}
                 >
-                  {/**contain links */}
-                  <ul className="list-none flex-col items-center rounded-md bg-primary p-1">
-                    {/**map links */}
-                    {navLinks.map((nav, index) => (
-                      //list link titles
-                      <Link href={`${nav.id}`} key={nav.id}>
-                        <li
-                          className={`cursor-pointer rounded-md border-[1px] border-transparent p-2 font-poppins text-[16px] text-white
+                  <OnClickOutside
+                    condition={toggle}
+                    onClickOutside={() => {
+                      if (toggle) {
+                        const timeout = setTimeout(() => {
+                          setToggle(false);
+                        }, 100);
+                        return () => clearTimeout(timeout);
+                      } else {
+                        return;
+                      }
+                    }}
+                  >
+                    <ul className="list-none flex-col items-center rounded-md bg-primary p-1">
+                      {navLinks.map((nav, index) => (
+                        <Link href={`${nav.id}`} key={nav.id}>
+                          <li
+                            className={`cursor-pointer rounded-md border-[1px] border-transparent p-2 font-poppins text-[16px] text-white
                         ${currentRoute === nav.id && "text-white/50"}
                         ${
                           nav.id === "/portfolio/contact" &&
@@ -189,13 +182,14 @@ export default function Navbar() {
                         }
                         ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}
                                              `}
-                          onClick={() => handleClick()}
-                        >
-                          {nav.title}
-                        </li>
-                      </Link>
-                    ))}
-                  </ul>
+                            onClick={() => setToggle((prev) => !prev)}
+                          >
+                            {nav.title}
+                          </li>
+                        </Link>
+                      ))}
+                    </ul>
+                  </OnClickOutside>
                 </div>
               </CloseOnBack>
             </div>

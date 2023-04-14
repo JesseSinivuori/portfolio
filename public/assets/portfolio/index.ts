@@ -24,6 +24,10 @@ export { default as ecommercecart } from "./ecommercecart.png";
 export { default as ecommerceitem } from "./ecommerceitem.png";
 export { default as ecommerceitem2 } from "./ecommerceitem2.png";
 export { default as ecommercecategories } from "./ecommercecategories.png";
+export { default as gradientlayersettings } from "./gradientlayersettings.png";
+export { default as gradientcolors } from "./gradientcolors.png";
+export { default as gradientoutput } from "./gradientoutput.png";
+export * from ".";
 
 export {
   menu,

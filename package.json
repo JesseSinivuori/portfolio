@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
     "@sanity/client": "latest",
     "@sanity/image-url": "latest",
     "@stripe/stripe-js": "latest",
@@ -17,7 +18,9 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "canvas-confetti": "latest",
+    "copy-to-clipboard": "^3.3.3",
     "eslint-config-next": "latest",
+    "headlessui": "^0.0.0",
     "next": "latest",
     "next-sanity-image": "latest",
     "react": "latest",

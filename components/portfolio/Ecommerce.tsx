@@ -17,8 +17,8 @@ import {
   typescript,
 } from "../../public/assets/portfolio";
 import { use, useEffect, useRef, useState } from "react";
-import tw from "../../utils/tailwindHelper";
 import EcommerceImagesSection from "./EcommerceImagesSection";
+import Skill from "./Skill";
 
 type EcommerceProps = {};
 
@@ -71,38 +71,16 @@ export default function Ecommerce(props: EcommerceProps) {
             className={`${styles.paragraph} ${styles.flexStart} w-full max-w-[480px] `}
           >
             A full stack restaurant themed ecommerce website, with Sanity
-            backend and Stripe payment.
+            backend and Stripe payment. 💸
           </p>
-          <SlideAnimation animation={"slide-animation-left"}>
+          <SlideAnimation animation={"slide-animation-top"}>
             <div
               className={`flex-wrap ${styles.flexCenter} w-full
             xs:min-w-[480px] xs:max-w-[680px] lg:max-w-full
           `}
             >
-              {/**map languages */}
               {images.map((img) => (
-                //contain language
-                <div
-                  key={img.id}
-                  className={`mt-6 
-                            mb-2 items-center justify-start duration-100 ease-in 
-                            sm:mb-6
-                            `}
-                >
-                  {/**image */}
-                  <Image
-                    src={img.img}
-                    alt={`image of ${img.id}`}
-                    className={`m-10
-                            h-[80px] min-h-[80px]
-                            w-[80px] min-w-[80px]
-                            object-contain
-                            ${img.id === "nextjs" && "invert"}
-                            `}
-                  />
-                  {/**name */}
-                  <h2 className={`${styles.skillText} `}>{img.name}</h2>
-                </div>
+                <Skill img={img} key={img.id} />
               ))}
             </div>
           </SlideAnimation>

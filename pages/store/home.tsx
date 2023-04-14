@@ -8,6 +8,7 @@ import { client } from "../../lib/client";
 import Footer from "../../components/portfolio/Footer";
 
 export default function Home({ products, bannerData }: any) {
+  
   return (
     <>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />

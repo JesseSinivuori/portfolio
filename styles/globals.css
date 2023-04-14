@@ -381,7 +381,6 @@ span.text-red {
 .cart-wrapper {
   height: 100vh;
   height: 100svh;
-  width: 100%;
   z-index: 9999;
   right: 0;
   top: 0;
@@ -422,14 +421,12 @@ span.text-red {
 }
 
 .cart-heading {
-  display: flex;
   align-items: center;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
   gap: 2px;
   margin-left: 10px;
-  padding-bottom: 20px;
   border: none;
   background-color: transparent;
 }
@@ -544,7 +541,7 @@ span.text-red {
   max-width: 400px;
   padding: 10px 12px;
   border-radius: 15px;
-  border: none;
+  border: 1px solid transparent;
   font-size: 20px;
   margin-top: 40px;
   text-transform: uppercase;
@@ -552,11 +549,13 @@ span.text-red {
   color: #fff;
   cursor: pointer;
   transform: scale(1, 1);
-  @apply duration-500 ease-in-out hover:animate-pulse hover:tracking-widest;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn:hover {
-  transform: scale(1.1, 1.1);
+  background-color: transparent;
+  border-color: #f02d34;
+  border: 1px solid #f02d34;
 }
 
 .product-detail-container {

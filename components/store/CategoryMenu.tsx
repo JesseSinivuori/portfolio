@@ -7,7 +7,7 @@ type CategoryMenuProps = {
 };
 
 export default function CategoryMenu({ products }: CategoryMenuProps) {
-  const { category, setCategory, useCategoryFilter, setUseCategoryFilter } =
+  const { category, setCategory, setUseCategoryFilter } =
     useStateContext();
 
   const [toggleCategories, setToggleCategories] = useState(false);

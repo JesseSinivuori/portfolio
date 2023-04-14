@@ -46,6 +46,7 @@ export default function StateContext({ children }: any) {
     }
 
     toast.success(`${qty} ${product.name} added to the cart.`);
+  
   };
 
   const onRemove = (product: { _id: any }) => {

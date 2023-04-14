@@ -80,7 +80,7 @@ export default function ProductDetails({ products, product }: any) {
           </div>
           <h4></h4>
           <p className="">{details}</p>
-          <p className="price">€{price}</p>
+          <p className="price">{price}€</p>
           <div className="quantity flex-wrap justify-center xss:flex xss:justify-start">
             <div className="justify-start">
               <h3 className="">Quantity: </h3>

@@ -10,6 +10,7 @@ import {
 } from "../components/portfolio";
 import Ecommerce from "../components/portfolio/Ecommerce";
 import DeliveryFeeCalculator from "../components/portfolio/DeliveryFeeCalculator";
+import GradientGenerator from "../components/portfolio/GradientGenerator";
 
 //return home page
 export default function Home() {
@@ -31,10 +32,10 @@ export default function Home() {
         <div className={`${styles.boxWidth}`}>
           <Skills />
           <Website />
-          <div className="relative w-full h-full">
-            <Ecommerce />
-            <DeliveryFeeCalculator />
-          </div>
+          <GradientGenerator />
+          <Ecommerce />
+          <DeliveryFeeCalculator />
+          <Game />
           <ContactBottom />
           <Footer />
         </div>
