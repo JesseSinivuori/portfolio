@@ -65,7 +65,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`"max-w-[100svw] m-auto w-full overscroll-none rounded-b-xl`}
+      className={`"min-w-[100svw] m-auto w-full overscroll-none rounded-b-xl`}
     >
       <div
         className={`${styles.flexCenter} m-auto ${navStyles} max-w-[1400px]
