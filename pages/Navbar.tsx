@@ -70,7 +70,7 @@ export default function Navbar() {
       <div
         className={`${styles.flexCenter} m-auto ${navStyles} max-w-[1400px]
         rounded-b-xl
-        transition-all duration-500 ${showCart && "blur min-h-[100svh] h-full"}`}
+        transition-all duration-500 ${showCart && "blur h-[100svh]"}`}
       >
         <div className={`navbar w-full py-4`}>
           <nav className={`flex items-center justify-between`}>
