@@ -25,6 +25,7 @@ export default function Layout({ children }: any) {
         }`}
       >
         <div className={`${styles.flexCenter} p-1 xss:p-2 xs:p-3 ss:p-4`}>
+          {/**content container */}
           <div className={`${styles.boxWidth}`}>{children}</div>
         </div>
       </main>

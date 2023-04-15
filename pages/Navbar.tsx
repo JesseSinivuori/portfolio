@@ -38,9 +38,9 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       if (scrollY > 0) {
-        setNavStyles("bg-primary/50 backdrop-blur-[25px]");
+        setNavStyles(`bg-primary/50 backdrop-blur-[25px]`);
       } else {
-        setNavStyles("bg-primary/0 backdrop-blur-[0px]");
+        setNavStyles(`bg-primary/0 backdrop-blur-[0px]`);
       }
     };
 
@@ -49,7 +49,7 @@ export default function Navbar() {
       removeEventListener("scroll", handleScroll);
     };
   }),
-    [setNavStyles];
+    [setNavStyles, showCart];
 
   useEffect(() => {
     const checkWidth = () => {
@@ -67,10 +67,8 @@ export default function Navbar() {
     <div className={`m-auto w-full overscroll-none rounded-b-xl`}>
       <div
         className={`${styles.flexCenter} m-auto ${navStyles} max-w-[1400px]
-        rounded-b-xl
-        transition-all duration-500 ${
-          showCart && "min-h-full h-[100vh] blur"
-        }`}
+        rounded-b-xl ${showCart && "h-[100vh] blur"}
+        transition-all duration-500 `}
       >
         <div className={`navbar h-full w-full py-4`}>
           <nav className={`flex items-center justify-between`}>
