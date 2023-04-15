@@ -69,7 +69,7 @@ export default function Navbar() {
         className={`${styles.flexCenter} m-auto ${navStyles} max-w-[1400px]
         rounded-b-xl
         transition-all duration-500 ${
-          showCart && "h-full min-h-[100svh] max-h-[100vh] blur"
+          showCart && "min-h-full h-[100vh] blur"
         }`}
       >
         <div className={`navbar h-full w-full py-4`}>
