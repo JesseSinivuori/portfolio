@@ -64,15 +64,15 @@ export default function Navbar() {
   }, [toggle, setToggle]);
 
   return (
-    <div
-      className={`m-auto w-full overscroll-none rounded-b-xl`}
-    >
+    <div className={`m-auto w-full overscroll-none rounded-b-xl`}>
       <div
         className={`${styles.flexCenter} m-auto ${navStyles} max-w-[1400px]
         rounded-b-xl
-        transition-all duration-500 ${showCart && "blur h-[100svh]"}`}
+        transition-all duration-500 ${
+          showCart && "h-full min-h-[100svh] blur"
+        }`}
       >
-        <div className={`navbar w-full py-4`}>
+        <div className={`navbar h-full w-full py-4`}>
           <nav className={`flex items-center justify-between`}>
             <Link href={"/"}>
               <p className="ml-[20px] rounded-full bg-transparent p-[10px] font-light text-white hover:opacity-50">
