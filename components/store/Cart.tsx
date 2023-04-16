@@ -71,7 +71,9 @@ export default function Cart() {
           className={`cart-wrapper h-[100vh] w-full max-w-[680px]
           ${showCart ? "translate-x-0" : "translate-x-full"}`}
         >
-          <div className={`cart-container relative rounded-md`}>
+          <div
+            className={`cart-container relative h-[100svh] rounded-md ss:h-full`}
+          >
             <button
               type="button"
               className={`cart-heading hidden transition-all duration-100
