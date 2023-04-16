@@ -26,6 +26,8 @@ export default function Cart() {
   } = useStateContext();
 
   const handleCheckout = async () => {
+    handleCopy();
+
     const stripe: any = await getStripe();
 
     const response = await fetch("/api/stripe", {
@@ -40,18 +42,21 @@ export default function Cart() {
 
     const data = await response.json();
 
-    toast.loading("Redirecting...");
+    const timeout = setTimeout(() => {
+      toast.loading("Redirecting...");
 
-    stripe.redirectToCheckout({ sessionId: data.id });
+      stripe.redirectToCheckout({ sessionId: data.id });
 
-    localStorage.setItem(
-      "context",
-      JSON.stringify({
-        totalPrice,
-        totalQuantities,
-        cartItems,
-      })
-    );
+      localStorage.setItem(
+        "context",
+        JSON.stringify({
+          totalPrice,
+          totalQuantities,
+          cartItems,
+        })
+      );
+    }, 1000);
+    return () => clearTimeout(timeout);
   };
 
   const handleCopy = () => {
@@ -68,12 +73,10 @@ export default function Cart() {
         <div
           id="cart"
           data-testid="cart"
-          className={`cart-wrapper h-[100vh] w-full max-w-[680px] bg-nav
+          className={`cart-wrapper h-[100vh] w-full max-w-[680px] overflow-hidden overscroll-none bg-nav
           ${showCart ? "translate-x-0" : "translate-x-full"}`}
         >
-          <div
-            className={`cart-container relative h-[100svh] rounded-md ss:h-full`}
-          >
+          <div className={`cart-container h-[100svh] rounded-md ss:h-full `}>
             <button
               type="button"
               className={`cart-heading hidden pb-8 transition-all duration-100
@@ -99,7 +102,7 @@ export default function Cart() {
                 </button>
               </div>
             )}
-            <div className="product-container h-full overscroll-contain px-4 pb-[220px]">
+            <div className="product-container h-full overflow-auto overscroll-none px-4 pb-[220px] ">
               {cartItems.length >= 1 &&
                 cartItems.map((item: any) => (
                   <div
@@ -182,9 +185,6 @@ export default function Cart() {
                     <h3>{totalPrice.toFixed(2)}€</h3>
                   </div>
                   <div className="btn-container">
-                    <button type="button" className="btn" onClick={handleCopy}>
-                      Copy Stripe test card number
-                    </button>
                     <button
                       type="button"
                       className="btn"

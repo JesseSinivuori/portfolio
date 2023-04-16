@@ -11,7 +11,11 @@ export default function Layout({ children }: any) {
   let darkMode = true;
 
   return (
-    <div className={`${darkMode && "dark"} overflow-hidden bg-primary`}>
+    <div
+      className={`${
+        darkMode && "dark"
+      } overflow-hidden overscroll-none bg-primary`}
+    >
       <Head>
         <title>{"Jesse's Portfolio"}</title>
       </Head>
@@ -19,7 +23,7 @@ export default function Layout({ children }: any) {
         <div className={`navbar-container`}>
           <Navbar />
           <Toaster
-            containerClassName={`mt-8 lg:mt-0 z-[999999]`}
+            containerClassName={`mt-8 lg:mt-0 z-[9999]`}
             toastOptions={{
               style: {
                 padding: "16px",
@@ -30,14 +34,14 @@ export default function Layout({ children }: any) {
           />
         </div>
       </header>
-      <main className={`main-container transition-all duration-300`}>
+      <main className={`main-container transition-all duration-300 `}>
         <div
           className={`${styles.flexCenter} p-1 xss:p-2 xs:p-3 ss:p-4 ${
             showCart && "blur"
           }`}
         >
           {/**content container */}
-          <div className={`${styles.boxWidth}`}>{children}</div>
+          <div className={`${styles.boxWidth} `}>{children}</div>
         </div>
       </main>
     </div>

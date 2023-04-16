@@ -1,7 +1,6 @@
 import {
   CategoryMenu,
   HeroBanner,
-  Product,
   Products,
 } from "../../components/store";
 import { client } from "../../lib/client";

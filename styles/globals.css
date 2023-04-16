@@ -454,7 +454,6 @@ span.text-red {
 .product-container {
   padding-top: 10px;
   width: 100%;
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
 }
