@@ -3,6 +3,7 @@ import { useStateContext } from "../context/StateContext";
 import styles from "../styles/style";
 import Navbar from "./Navbar";
 import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 export default function Layout({ children }: any) {
   const { showCart } = useStateContext();
@@ -17,14 +18,24 @@ export default function Layout({ children }: any) {
       <header>
         <div className={`navbar-container`}>
           <Navbar />
+          <Toaster
+            containerClassName={`mt-8 lg:mt-0 z-[999999]`}
+            toastOptions={{
+              style: {
+                padding: "16px",
+                color: "white",
+                backgroundColor: "#0f0f0f",
+              },
+            }}
+          />
         </div>
       </header>
-      <main
-        className={`main-container transition-all duration-300 ${
-          showCart && "blur"
-        }`}
-      >
-        <div className={`${styles.flexCenter} p-1 xss:p-2 xs:p-3 ss:p-4`}>
+      <main className={`main-container transition-all duration-300`}>
+        <div
+          className={`${styles.flexCenter} p-1 xss:p-2 xs:p-3 ss:p-4 ${
+            showCart && "blur"
+          }`}
+        >
           {/**content container */}
           <div className={`${styles.boxWidth}`}>{children}</div>
         </div>

@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import styles from "../styles/style";
 import CloseOnBack from "../components/store/CloseOnBack";
 import OnClickOutside from "../components/helpers/OnClickOutside";
+import { Toaster } from "react-hot-toast";
 
 //return navbar
 export default function Navbar() {

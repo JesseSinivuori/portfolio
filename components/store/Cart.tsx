@@ -68,15 +68,15 @@ export default function Cart() {
         <div
           id="cart"
           data-testid="cart"
-          className={`cart-wrapper h-[100vh] w-full max-w-[680px]
+          className={`cart-wrapper h-full w-full max-w-[680px] bg-nav
           ${showCart ? "translate-x-0" : "translate-x-full"}`}
         >
           <div
-            className={`cart-container relative h-[100svh] rounded-md ss:h-full`}
+            className={`cart-container ss:[100vh] relative h-[100svh] rounded-md`}
           >
             <button
               type="button"
-              className={`cart-heading hidden transition-all duration-100
+              className={`cart-heading hidden pb-8 transition-all duration-100
               hover:opacity-50 ss:flex`}
               onClick={() => {
                 setShowCart((prev: any) => !prev);
@@ -103,7 +103,7 @@ export default function Cart() {
               {cartItems.length >= 1 &&
                 cartItems.map((item: any) => (
                   <div
-                    className="flex flex-wrap rounded-xl even:bg-primary/50"
+                    className="flex flex-wrap rounded-xl even:bg-primary/75"
                     key={item._id}
                   >
                     <div
@@ -174,7 +174,7 @@ export default function Cart() {
                   </div>
                 ))}
             </div>
-            <div className="cart-bottom w-full xs:max-w-[680px]">
+            <div className="cart-bottom w-full bg-nav xs:max-w-[680px]">
               {cartItems.length >= 1 && (
                 <>
                   <div className="total">
@@ -211,17 +211,6 @@ export default function Cart() {
           </div>
         </div>
       </OnClickOutside>
-      <Toaster
-        containerClassName="mt-16 lg:mt-0"
-        toastOptions={{
-          className: "",
-          style: {
-            padding: "16px",
-            color: "white",
-            backgroundColor: "#030303",
-          },
-        }}
-      />
     </CloseOnBack>
   );
 }

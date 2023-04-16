@@ -9,17 +9,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <div>
       <StateContext>
         <Layout>
-          <Toaster
-            containerClassName="mt-16 lg:mt-0"
-            toastOptions={{
-              className: "",
-              style: {
-                padding: "16px",
-                color: "white",
-                backgroundColor: "#030303",
-              },
-            }}
-          />
           <Component {...pageProps} />
         </Layout>
       </StateContext>

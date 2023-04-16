@@ -389,10 +389,6 @@ span.text-red {
 }
 
 .cart-container {
-  @apply bg-nav;
-  height: 100%;
-  width: 100%;
-  float: right;
   padding: 40px 10px;
   position: relative;
   overflow: hidden;
@@ -519,13 +515,11 @@ span.text-red {
 }
 
 .cart-bottom {
-  position: fixed;
-  z-index: 1;
+  position: absolute;
   width: 100%;
   bottom: 0;
   right: 0;
   padding: 0px 20px 40px 20px;
-  @apply bg-nav;
 }
 
 .btn-container {
@@ -566,7 +560,6 @@ span.text-red {
 
 .product-detail-image {
   border-radius: 15px;
-  cursor: pointer;
   transition: 0.3s ease-in-out;
   object-fit: contain;
 }
