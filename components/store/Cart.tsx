@@ -68,11 +68,11 @@ export default function Cart() {
         <div
           id="cart"
           data-testid="cart"
-          className={`cart-wrapper h-full w-full max-w-[680px] bg-nav
+          className={`cart-wrapper h-[100vh] w-full max-w-[680px] bg-nav
           ${showCart ? "translate-x-0" : "translate-x-full"}`}
         >
           <div
-            className={`cart-container ss:[100vh] relative h-[100svh] rounded-md`}
+            className={`cart-container relative h-[100svh] rounded-md ss:h-full`}
           >
             <button
               type="button"
