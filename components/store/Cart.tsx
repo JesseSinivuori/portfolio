@@ -66,7 +66,9 @@ export default function Cart() {
         onClickOutside={() => setShowCart(false)}
       >
         <div
-          className={`cart-wrapper h-[100svh] w-full max-w-[680px]
+          id="cart"
+          data-testid="cart"
+          className={`cart-wrapper h-[100vh] w-full max-w-[680px]
           ${showCart ? "translate-x-0" : "translate-x-full"}`}
         >
           <div className={`cart-container relative rounded-md`}>

@@ -60,7 +60,6 @@ a {
   left: 0;
   right: 0;
   z-index: 9999;
-  margin: auto;
 }
 
 .marquee-text {
@@ -379,8 +378,6 @@ span.text-red {
 }
 
 .cart-wrapper {
-  height: 100vh;
-  height: 100svh;
   z-index: 9999;
   right: 0;
   top: 0;

@@ -64,10 +64,14 @@ export default function Navbar() {
   }, [toggle, setToggle]);
 
   return (
-    <div className={`m-auto w-full overscroll-none rounded-b-xl`}>
+    <div
+      className={`m-auto w-full overscroll-none rounded-b-xl ${
+        showCart && "h-[100vh]"
+      }`}
+    >
       <div
         className={`${styles.flexCenter} m-auto ${navStyles} max-w-[1400px]
-        rounded-b-xl ${showCart && "h-[100vh] blur"}
+        rounded-b-xl ${showCart && "blur"}
         transition-all duration-500 `}
       >
         <div className={`navbar h-full w-full py-4`}>
@@ -110,6 +114,7 @@ export default function Navbar() {
               ))}
               {showCartIcon && (
                 <button
+                  data-testid="cart-button"
                   type="button"
                   className={`cart-icon flex `}
                   onClick={() => {
@@ -126,6 +131,7 @@ export default function Navbar() {
             >
               {showCartIcon && (
                 <button
+                  data-testid="cart-button-mobile"
                   type="button"
                   className={`cart-icon flex`}
                   onClick={() => {
