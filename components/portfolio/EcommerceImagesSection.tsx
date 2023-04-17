@@ -5,9 +5,8 @@ import {
   ecommercecategories,
   ecommerceitem,
   ecommerceitem2,
-} from "../../public/assets/portfolio";
+} from "../../public";
 import styles, { layout } from "../../styles/style";
-import ArrowDown from "./ArrowDown";
 import SlideAnimation from "./SlideAnimation";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -44,7 +43,7 @@ export default function EcommerceImagesSection() {
         <div className={`${styles.flexCenter} flex-col`} ref={ref}>
           <Link
             href={"/store/home"}
-            target="blank"
+            target="_blank"
             title="Try the App"
             rel="noreferrer noopener"
           >
@@ -59,7 +58,7 @@ export default function EcommerceImagesSection() {
           </Link>
           <Link
             href={"/store/home"}
-            target="blank"
+            target="_blank"
             title="Try the App"
             rel="noreferrer noopener"
           >
@@ -82,7 +81,7 @@ export default function EcommerceImagesSection() {
           </Link>
           <Link
             href={"/store/home"}
-            target="blank"
+            target="_blank"
             title="Try the App"
             rel="noreferrer noopener"
           >
@@ -102,7 +101,7 @@ export default function EcommerceImagesSection() {
           </Link>
           <Link
             href={"/store/home"}
-            target="blank"
+            target="_blank"
             title="Try the App"
             rel="noreferrer noopener"
           >
@@ -121,7 +120,7 @@ export default function EcommerceImagesSection() {
           </Link>
           <Link
             href={"/store/home"}
-            target="blank"
+            target="_blank"
             title="Try the App"
             rel="noreferrer noopener"
           >
@@ -145,7 +144,7 @@ export default function EcommerceImagesSection() {
         <Link
           rel="noreferrer noopener"
           href={"/store/home"}
-          target="blank"
+          target="_blank"
           className={`z-[1] rounded-md border-[1px]
                 border-[#ff0000] py-2 px-4 font-poppins text-[18px]
                 font-medium text-white shadow-lg

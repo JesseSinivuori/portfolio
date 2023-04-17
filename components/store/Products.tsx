@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useStateContext } from "../../context/StateContext";
 import Product from "./Product";
 

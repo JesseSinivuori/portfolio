@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import {
   AiOutlineMinus,
   AiOutlinePlus,
@@ -8,7 +7,7 @@ import {
 import { useStateContext } from "../../context/StateContext";
 import { urlFor } from "../../lib/client";
 import getStripe from "../../lib/getStripe";
-import { Toaster, toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 import Image from "next/image";
 import CloseOnBack from "./CloseOnBack";
 import OnClickOutside from "../helpers/OnClickOutside";

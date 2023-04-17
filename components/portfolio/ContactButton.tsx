@@ -1,8 +1,7 @@
 import styles from "../../styles/style";
-import { arrowUp } from "../../public/assets/portfolio/index";
+import { arrowUp } from "../../public";
 import Link from "next/link";
 import Image from "next/image";
-import HeroGradient from "./HeroGradient";
 
 //return the circle contact button
 export default function ContactButton() {

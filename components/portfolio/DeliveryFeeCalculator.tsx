@@ -8,9 +8,8 @@ import {
   tailwindcss,
   typescript,
   vite,
-} from "../../public/assets/portfolio";
+} from "../../public";
 import Link from "next/link";
-import ArrowDown from "./ArrowDown";
 import { useEffect, useRef, useState } from "react";
 import Skill from "./Skill";
 
@@ -109,7 +108,7 @@ export default function DeliveryFeeCalculator(
                 title="Try the App"
                 rel="noreferrer noopener"
                 href={"https://delivery-fee-nu.vercel.app/"}
-                target="blank"
+                target="_blank"
                 className="relative"
               >
                 <div ref={ref} className="m-8">
@@ -127,7 +126,7 @@ export default function DeliveryFeeCalculator(
               <Link
                 rel="noreferrer noopener"
                 href={"https://delivery-fee-nu.vercel.app/"}
-                target="blank"
+                target="_blank"
                 className={`right-[-180px] z-[1] m-8 flex rounded-md border-[1px] border-[#58f3fe]
             py-2 px-4 font-poppins text-[18px] font-medium
             text-[#ffffff] shadow-lg outline-none
@@ -149,7 +148,7 @@ export default function DeliveryFeeCalculator(
               >
                 <Link
                   href={"https://delivery-fee-nu.vercel.app/"}
-                  target="blank"
+                  target="_blank"
                   title="Try the App"
                   rel="noreferrer noopener"
                 >

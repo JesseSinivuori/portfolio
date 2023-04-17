@@ -1,5 +1,4 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 type CloseOnBackProps = {
   children: React.ReactNode;
@@ -17,7 +16,7 @@ export default function CloseOnBack({
       const handlePopstate = (event: any) => {
         setToggleState((prev) => false);
       };
-      
+
       window.addEventListener("popstate", handlePopstate);
 
       return () => {

@@ -1,9 +1,6 @@
 import Link from "next/link";
 import { urlFor } from "../../lib/client";
 import Image from "next/image";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { useEffect, useState } from "react";
-import { useStateContext } from "../../context/StateContext";
 
 type ProductProps = {
   product: any;

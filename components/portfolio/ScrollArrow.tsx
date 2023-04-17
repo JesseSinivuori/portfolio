@@ -3,11 +3,10 @@ import styles from "../../styles/style";
 import ArrowDown from "./ArrowDown";
 
 type Props = {
-  styles?: string; //add styles
+  styles?: string;
 };
 
 export default function ScrollArrow(props: Props) {
-  const arrowRef = useRef<any>();
 
   const [isVisible, setIsVisible] = useState(true);
 

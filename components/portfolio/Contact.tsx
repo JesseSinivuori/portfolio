@@ -44,7 +44,8 @@ export default function Contact() {
           <div className={`${styles.paragraph} ${styles.flexCenter} p-2`}>
             <a
               href="&#109;a&#105;lt&#111;:s&#105;niv&#117;o&#114;&#105;i&#64;&#103;&#109;&#97;il&#46;c&#111;m"
-              target="blank"
+              target="_blank"
+              rel="noreferrer noopener"
             >
               <p
                 className="text-[18px] text-dimWhite transition-all 

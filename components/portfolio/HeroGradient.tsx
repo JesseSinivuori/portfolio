@@ -1,5 +1,3 @@
-import SlideAnimation from "./SlideAnimation";
-
 type HeroGradientProps = {};
 
 export default function HeroGradient(props: HeroGradientProps) {

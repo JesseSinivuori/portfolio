@@ -1,5 +1,5 @@
 import styles, { layout } from "../../styles/style";
-import { mygamegif, unity, csharp } from "../../public/assets/portfolio";
+import { mygamegif, unity, csharp } from "../../public";
 import Image from "next/image";
 import SlideAnimation from "./SlideAnimation";
 import Skill from "./Skill";

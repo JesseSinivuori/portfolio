@@ -1,4 +1,4 @@
-import { arrowUp } from "../../public/assets/portfolio";
+import { arrowUp } from "../../public";
 import styles from "../../styles/style";
 import Image from "next/image";
 

@@ -6,7 +6,7 @@ import {
   tailwindcss,
   typescript,
   vite,
-} from "../../public/assets/portfolio";
+} from "../../public";
 import styles, { layout } from "../../styles/style";
 import Skill from "./Skill";
 import SlideAnimation from "./SlideAnimation";
@@ -57,7 +57,7 @@ export default function GradientGenerator() {
               <Gradient />
               <Link
                 href={"https://gradient-generator-beta.vercel.app/"}
-                target="blank"
+                target="_blank"
                 title="Try the App"
                 rel="noreferrer noopener"
               >
@@ -71,7 +71,7 @@ export default function GradientGenerator() {
               </Link>
               <Link
                 href={"https://gradient-generator-beta.vercel.app/"}
-                target="blank"
+                target="_blank"
                 className="hidden w-full justify-center sm:flex"
                 title="Try the App"
                 rel="noreferrer noopener"
@@ -90,7 +90,7 @@ export default function GradientGenerator() {
       </div>
       <Link
         href={"https://gradient-generator-beta.vercel.app/"}
-        target="blank"
+        target="_blank"
         className={`z-[1] my-24
                 rounded-md border-[1px] border-[#eb51ff] py-2 px-4
                 font-poppins text-[18px] font-medium

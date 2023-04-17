@@ -1,10 +1,4 @@
-import {
-  react,
-  typescript,
-  tailwindcss,
-  codeimg,
-  nextjs,
-} from "../../public/assets/portfolio";
+import { react, typescript, tailwindcss, codeimg, nextjs } from "../../public";
 import styles, { layout } from "../../styles/style";
 import Image from "next/image";
 import SlideAnimation from "./SlideAnimation";

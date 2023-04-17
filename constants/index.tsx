@@ -6,7 +6,7 @@ import {
   css3,
   tailwindcss,
   typescript,
-} from "../public/assets/portfolio";
+} from "../public";
 
 export const navLinks = [
   {

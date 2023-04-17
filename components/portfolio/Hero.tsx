@@ -1,11 +1,8 @@
 import styles from "../../styles/style";
-import { imgofme } from "../../public/assets/portfolio";
-import ContactButton from "./ContactButton";
+import { imgofme } from "../../public";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 import SlideAnimation from "./SlideAnimation";
 import HeroGradient from "./HeroGradient";
-import Button from "./Button";
 import Link from "next/link";
 
 type Named = {

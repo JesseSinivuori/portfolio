@@ -1,22 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
 import SlideAnimation from "./SlideAnimation";
 import styles, { layout } from "../../styles/style";
-import ArrowDown from "./ArrowDown";
 import {
-  ecommerce,
-  ecommercecart,
-  ecommercecategories,
-  ecommerceitem,
-  ecommerceitem2,
   nextjs,
   react,
   sanity,
   stripe,
   tailwindcss,
   typescript,
-} from "../../public/assets/portfolio";
-import { use, useEffect, useRef, useState } from "react";
+} from "../../public";
 import EcommerceImagesSection from "./EcommerceImagesSection";
 import Skill from "./Skill";
 

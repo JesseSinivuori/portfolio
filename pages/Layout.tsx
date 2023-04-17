@@ -2,7 +2,6 @@ import Head from "next/head";
 import { useStateContext } from "../context/StateContext";
 import styles from "../styles/style";
 import Navbar from "./Navbar";
-import { useState } from "react";
 import { Toaster } from "react-hot-toast";
 
 export default function Layout({ children }: any) {

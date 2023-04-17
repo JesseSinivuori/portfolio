@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { close, menu } from "../public/assets/portfolio";
+import { close, menu } from "../public";
 import { navLinks } from "../constants/index";
 import Image from "next/image";
 import { useStateContext } from "../context/StateContext";
@@ -10,7 +10,6 @@ import { useRouter } from "next/router";
 import styles from "../styles/style";
 import CloseOnBack from "../components/store/CloseOnBack";
 import OnClickOutside from "../components/helpers/OnClickOutside";
-import { Toaster } from "react-hot-toast";
 
 //return navbar
 export default function Navbar() {
@@ -124,7 +123,7 @@ export default function Navbar() {
                     key={nav.id}
                     className={``}
                     target={`${
-                      nav.title === "Gradient Generator" ? "blank" : ""
+                      nav.title === "Gradient Generator" ? "_blank" : ""
                     }`}
                     rel={`${
                       nav.title === "Gradient Generator"
@@ -226,7 +225,7 @@ export default function Navbar() {
                           href={`${nav.id}`}
                           key={nav.id}
                           target={`${
-                            nav.title === "Gradient Generator" ? "blank" : ""
+                            nav.title === "Gradient Generator" ? "_blank" : ""
                           }`}
                           rel={`${
                             nav.title === "Gradient Generator"
