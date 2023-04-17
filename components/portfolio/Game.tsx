@@ -7,12 +7,12 @@ export default function Game() {
   const images = [
     {
       id: "unity",
-      img: "/unity.svg",
+      src: "/unity.svg",
       name: "Unity",
     },
     {
       id: "csharp",
-      img: "/csharp.svg",
+      src: "/csharp.svg",
       name: "C Sharp",
     },
   ];
@@ -37,8 +37,8 @@ export default function Game() {
           </div>
           <SlideAnimation animation={"slide-animation-left"}>
             <div className={`${styles.flexCenter} mb-12 w-full`}>
-              {images.map((img) => (
-                <Skill img={img} key={img.id} />
+              {images.map((skill) => (
+                <Skill skill={skill} key={skill.id} />
               ))}
             </div>
           </SlideAnimation>

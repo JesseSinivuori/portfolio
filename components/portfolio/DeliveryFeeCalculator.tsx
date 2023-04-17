@@ -16,25 +16,25 @@ export default function DeliveryFeeCalculator(
   };
   const { deliveryfeecalculator, deliveryfeecalculatorsettings } =
     calculatorImages;
-  const images = [
+  const skills = [
     {
       id: "react",
-      img: "/react.svg",
+      src: "/react.svg",
       name: "React",
     },
     {
       id: "vite",
-      img: "/vite.svg",
+      src: "/vite.svg",
       name: "Vite",
     },
     {
       id: "typescript",
-      img: "/typescript.svg",
+      src: "/typescript.svg",
       name: "TypeScript",
     },
     {
       id: "tailwindcss",
-      img: "/tailwindcss.svg",
+      src: "/tailwindcss.svg",
       name: "Tailwind CSS",
     },
   ];
@@ -175,9 +175,9 @@ export default function DeliveryFeeCalculator(
         <SlideAnimation animation={"slide-animation-top"}>
           <div className={`flex-wrap ${styles.flexCenter}`}>
             {/**map languages */}
-            {images.map((img) => (
+            {skills.map((skill) => (
               //contain language
-              <Skill img={img} key={img.id} />
+              <Skill skill={skill} key={skill.id} />
             ))}
           </div>
         </SlideAnimation>

@@ -44,8 +44,8 @@ export default function GradientGenerator() {
              mb-12 xs:min-w-[480px] xs:max-w-[680px] lg:max-w-full
           `}
             >
-              {images.map((img) => (
-                <Skill img={img} key={img.id} />
+              {skills.map((skill) => (
+                <Skill skill={skill} key={skill.id} />
               ))}
             </div>
           </SlideAnimation>
@@ -105,25 +105,25 @@ export default function GradientGenerator() {
   );
 }
 
-const images = [
+const skills = [
   {
     id: "react",
-    img: "/react.svg",
+    src: "/react.svg",
     name: "React",
   },
   {
     id: "vite",
-    img: "/vite.svg",
+    src: "/vite.svg",
     name: "Vite",
   },
   {
     id: "typescript",
-    img: "/typescript.svg",
+    src: "/typescript.svg",
     name: "TypeScript",
   },
   {
     id: "tailwindcss",
-    img: "/tailwindcss.svg",
+    src: "/tailwindcss.svg",
     name: "Tailwind CSS",
   },
 ];

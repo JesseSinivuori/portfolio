@@ -22,7 +22,7 @@ export default function Layout({ children }: any) {
         <div className={`navbar-container`}>
           <Navbar />
           <Toaster
-            containerClassName={`mt-8 lg:mt-0 z-[9999]`}
+            containerClassName={`mt-16 lg:mt-0 z-[9999]`}
             toastOptions={{
               style: {
                 padding: "16px",

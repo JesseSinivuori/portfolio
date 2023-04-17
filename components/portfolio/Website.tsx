@@ -4,25 +4,25 @@ import SlideAnimation from "./SlideAnimation";
 import Skill from "./Skill";
 
 export default function Website() {
-  const images = [
+  const skills = [
     {
       id: "react",
-      img: "/react.svg",
+      src: "/react.svg",
       name: "React",
     },
     {
       id: "nextjs",
-      img: "/nextjs.svg",
+      src: "/nextjs.svg",
       name: "Next.js",
     },
     {
       id: "typescript",
-      img: "/typescript.svg",
+      src: "/typescript.svg",
       name: "TypeScript",
     },
     {
       id: "tailwindcss",
-      img: "/tailwindcss.svg",
+      src: "/tailwindcss.svg",
       name: "Tailwind CSS",
     },
   ];
@@ -98,8 +98,8 @@ export default function Website() {
             </div>
             <SlideAnimation animation={"slide-animation-right"}>
               <div className={`flex-wrap ${styles.flexCenter}`}>
-                {images.map((img) => (
-                  <Skill img={img} key={img.id} />
+                {skills.map((skill) => (
+                  <Skill skill={skill} key={skill.id} />
                 ))}
               </div>
             </SlideAnimation>

@@ -6,35 +6,35 @@ import Skill from "./Skill";
 type EcommerceProps = {};
 
 export default function Ecommerce(props: EcommerceProps) {
-  const images = [
+  const skills = [
     {
       id: "react",
-      img: "/react.svg",
+      src: "/react.svg",
       name: "React",
     },
     {
       id: "nextjs",
-      img: "/nextjs.svg",
+      src: "/nextjs.svg",
       name: "Next.js",
     },
     {
       id: "typescript",
-      img: "/typescript.svg",
+      src: "/typescript.svg",
       name: "TypeScript",
     },
     {
       id: "tailwindcss",
-      img: "/tailwindcss.svg",
+      src: "/tailwindcss.svg",
       name: "Tailwind CSS",
     },
     {
       id: "sanity",
-      img: "/sanity.svg",
+      src: "/sanity.svg",
       name: "Sanity",
     },
     {
       id: "stripe",
-      img: "/stripe.svg",
+      src: "/stripe.svg",
       name: "Stripe",
     },
   ];
@@ -62,8 +62,8 @@ export default function Ecommerce(props: EcommerceProps) {
             xs:min-w-[480px] xs:max-w-[680px] lg:max-w-full
           `}
             >
-              {images.map((img) => (
-                <Skill img={img} key={img.id} />
+              {skills.map((skill) => (
+                <Skill skill={skill} key={skill.id} />
               ))}
             </div>
           </SlideAnimation>

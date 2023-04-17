@@ -20,8 +20,8 @@ export default function Skills() {
               className={`flex-wrap ${styles.flexCenter}
               `}
             >
-              {mySkills.map((img) => (
-                <Skill img={img} key={img.id} />
+              {mySkills.map((skill) => (
+                <Skill skill={skill} key={skill.id} />
               ))}
             </div>
           </SlideAnimation>
