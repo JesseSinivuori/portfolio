@@ -1,40 +1,37 @@
-import { react, typescript, tailwindcss, codeimg, nextjs } from "../../public";
 import styles, { layout } from "../../styles/style";
 import Image from "next/image";
 import SlideAnimation from "./SlideAnimation";
 import Skill from "./Skill";
 
-//return website section
 export default function Website() {
-  //array of languages
   const images = [
     {
       id: "react",
-      img: react,
+      img: "/react.svg",
       name: "React",
     },
     {
       id: "nextjs",
-      img: nextjs,
+      img: "/nextjs.svg",
       name: "Next.js",
     },
     {
       id: "typescript",
-      img: typescript,
+      img: "/typescript.svg",
       name: "TypeScript",
     },
     {
       id: "tailwindcss",
-      img: tailwindcss,
+      img: "/tailwindcss.svg",
       name: "Tailwind CSS",
     },
   ];
 
+  const codeimg = "/codeimg.png";
+
   return (
-    //section
     <SlideAnimation animation={"slide-animation-top"}>
       <section className="pb-32">
-        {/**reverse section layout */}
         <section
           id="website"
           className={`${layout.sectionReverse}  
@@ -42,12 +39,10 @@ export default function Website() {
             ${styles.paddingY} pt-24
             `}
         >
-          {/**contain image */}
           <SlideAnimation animation={"slide-animation-top"}>
             <div
               className={`${layout.sectionImgReverse} flex flex-1 ${styles.flexCenter} relative my-10 md:my-0`}
             >
-              {/**image */}
               <Image
                 src={codeimg}
                 alt="Image of my code."
@@ -58,9 +53,10 @@ export default function Website() {
                     lg:w-[570px]
                     lg:max-w-[570px]
                     `}
+                width={570}
+                height={570}
               />
 
-              {/**gradients */}
               <div
                 className={`absolute top-0 right-0 left-0 bottom-0 z-[0]
                 h-[600px] min-h-[600px] w-[400px] min-w-[400px]`}
@@ -81,7 +77,6 @@ export default function Website() {
               </div>
             </div>
           </SlideAnimation>
-          {/**container */}
 
           <div
             className={`${styles.flexCenter} mb-8 mt-8 flex-wrap sm:mb-20
@@ -89,12 +84,10 @@ export default function Website() {
                   `}
           >
             <div className={``}>
-              {/**heading */}
               <h2 className={`${styles.heading2} mb-6 text-center text-[42px]`}>
                 This Website
               </h2>
 
-              {/**text under heading*/}
               <p
                 className={`${styles.paragraph} w-full ${styles.flexCenter} justify-center`}
               >
@@ -105,9 +98,7 @@ export default function Website() {
             </div>
             <SlideAnimation animation={"slide-animation-right"}>
               <div className={`flex-wrap ${styles.flexCenter}`}>
-                {/**map languages */}
                 {images.map((img) => (
-                  //contain language
                   <Skill img={img} key={img.id} />
                 ))}
               </div>

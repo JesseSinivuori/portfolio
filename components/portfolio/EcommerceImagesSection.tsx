@@ -1,17 +1,24 @@
 import Link from "next/link";
-import {
-  ecommerce,
-  ecommercecart,
-  ecommercecategories,
-  ecommerceitem,
-  ecommerceitem2,
-} from "../../public";
-import styles, { layout } from "../../styles/style";
+import styles from "../../styles/style";
 import SlideAnimation from "./SlideAnimation";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export default function EcommerceImagesSection() {
+  const images = {
+    ecommerce: "/ecommerce.png",
+    ecommercecart: "/ecommercecart.png",
+    ecommercecategories: "/ecommercecategories.png",
+    ecommerceitem: "/ecommerceitem.png",
+    ecommerceitem2: "/ecommerceitem2.png",
+  };
+  const {
+    ecommerce,
+    ecommercecart,
+    ecommercecategories,
+    ecommerceitem,
+    ecommerceitem2,
+  } = images;
   const ref = useRef<HTMLDivElement>(null);
   const [imagesInView, setImagesInView] = useState(false);
 
@@ -54,6 +61,8 @@ export default function EcommerceImagesSection() {
               border-transparent object-cover duration-300 ease-in-out
               hover:border-[#f02d34] xs:max-w-full
               `}
+              height={768}
+              width={560}
             />
           </Link>
           <Link
@@ -75,8 +84,9 @@ export default function EcommerceImagesSection() {
             border border-transparent object-cover
             opacity-100 duration-300 ease-in-out
             hover:border-[#f02d34] hover:opacity-100
-            md:right-[100px] lg:hover:scale-[125%]
-            `}
+            md:right-[100px] lg:hover:scale-[125%]`}
+              height={475}
+              width={375}
             />
           </Link>
           <Link
@@ -94,9 +104,9 @@ export default function EcommerceImagesSection() {
                   : " translate-y-[100%] scale-0"
               } absolute left-[-50px] top-[120px] z-[1] h-20 w-[85%] rounded-xl
               border border-transparent object-cover opacity-50 duration-300
-              ease-in-out hover:border-[#f02d34] hover:opacity-100
-              
-              `}
+              ease-in-out hover:border-[#f02d34] hover:opacity-100 `}
+              height={80}
+              width={803}
             />
           </Link>
           <Link
@@ -116,6 +126,8 @@ export default function EcommerceImagesSection() {
               rounded-xl border border-transparent object-cover opacity-100 duration-300
               ease-in-out hover:border-[#f02d34] hover:opacity-100 sm:left-[-100px]
               hover:lg:translate-x-[-25%] `}
+              height={282}
+              width={800}
             />
           </Link>
           <Link
@@ -134,10 +146,11 @@ export default function EcommerceImagesSection() {
                   : "translate-x-[25%] scale-0"
               } absolute bottom-[340px] left-[-300px] z-[1] ml-[300px] hidden
               w-[800px]  rounded-xl border
-                   border-transparent object-cover opacity-25 duration-300 ease-in-out
+              border-transparent object-cover opacity-25 duration-300 ease-in-out
               lg:block lg:hover:translate-y-[-15%]
-              hover:lg:translate-x-[-35%]
-                `}
+              hover:lg:translate-x-[-35%]`}
+              height={282}
+              width={800}
             />
           </Link>
         </div>
@@ -170,7 +183,7 @@ export default function EcommerceImagesSection() {
               width: "100%",
               height: "100%",
               background:
-                "radial-gradient(circle, rgba(255, 0, 0, 1) 0%, rgba(255, 255, 255, 0.1) 30%, rgba(0, 0, 0, 1) 70%, rgba(102, 245, 236, 0) 100%)",
+                "radial-gradient(circle, rgba(255, 0, 0, 1) 0%, rgba(255, 255, 255, 0.1) 30%, rgba(0, 0, 0, 0) 70%, rgba(102, 245, 236, 0) 100%)",
               filter: "blur(240px)",
               opacity: "1",
               animation: "animateOpacity1 5s linear infinite",

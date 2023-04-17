@@ -1,14 +1,6 @@
 import Image from "next/image";
 import styles, { layout } from "../../styles/style";
 import SlideAnimation from "./SlideAnimation";
-import {
-  deliveryfeecalculator,
-  deliveryfeecalculatorsettings,
-  react,
-  tailwindcss,
-  typescript,
-  vite,
-} from "../../public";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Skill from "./Skill";
@@ -18,25 +10,31 @@ type DeliveryFeeCalculatorProps = {};
 export default function DeliveryFeeCalculator(
   props: DeliveryFeeCalculatorProps
 ) {
+  const calculatorImages = {
+    deliveryfeecalculator: "/deliveryfeecalculator.png",
+    deliveryfeecalculatorsettings: "/deliveryfeecalculatorsettings.png",
+  };
+  const { deliveryfeecalculator, deliveryfeecalculatorsettings } =
+    calculatorImages;
   const images = [
     {
       id: "react",
-      img: react,
+      img: "/react.svg",
       name: "React",
     },
     {
       id: "vite",
-      img: vite,
+      img: "/vite.svg",
       name: "Vite",
     },
     {
       id: "typescript",
-      img: typescript,
+      img: "/typescript.svg",
       name: "TypeScript",
     },
     {
       id: "tailwindcss",
-      img: tailwindcss,
+      img: "/tailwindcss.svg",
       name: "Tailwind CSS",
     },
   ];
@@ -84,12 +82,13 @@ export default function DeliveryFeeCalculator(
             style={{
               position: "absolute",
               zIndex: "0",
-              width: "100%",
-              height: "100%",
+              width: "500%",
+              height: "50%",
               background:
-                "radial-gradient(circle, #58f3fe 0%, rgba(255, 255, 255, 0.1) 30%, rgba(0, 0, 0, 1) 70%, rgba(102, 245, 236, 0) 100%)",
+                "radial-gradient(circle, rgba(88, 243, 254, 0.5) 0%, rgba(255, 255, 255, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(102, 245, 236, 0) 100%)",
               filter: "blur(240px)",
               opacity: "1",
+              bottom: "0",
             }}
           ></div>
           <div className={`flex ${styles.flexCenter}`}>
@@ -115,10 +114,10 @@ export default function DeliveryFeeCalculator(
                   <Image
                     src={deliveryfeecalculator}
                     alt="image of delivery fee calculator"
-                    className="border-1 relative z-[1] rounded-xl border-transparent object-cover
+                    className="relative z-[1] rounded-xl border border-transparent object-cover
                transition-all duration-300 hover:border-white
               "
-                    height={240}
+                    height={449}
                     width={240}
                   />
                 </div>
@@ -127,7 +126,7 @@ export default function DeliveryFeeCalculator(
                 rel="noreferrer noopener"
                 href={"https://delivery-fee-nu.vercel.app/"}
                 target="_blank"
-                className={`right-[-180px] z-[1] m-8 flex rounded-md border-[1px] border-[#58f3fe]
+                className={`right-[-180px] z-[1] m-8 flex rounded-md border border-[#58f3fe]
             py-2 px-4 font-poppins text-[18px] font-medium
             text-[#ffffff] shadow-lg outline-none
             duration-300 ease-in-out
@@ -156,11 +155,11 @@ export default function DeliveryFeeCalculator(
                     src={deliveryfeecalculatorsettings}
                     alt="image of delivery fee calculator"
                     className={`
-                   border-1 m-8 rounded-xl
+                   m-8 rounded-xl border
               border-transparent object-cover opacity-75 transition-all
               duration-300 hover:border-white hover:opacity-100
               `}
-                    height={640}
+                    height={291}
                     width={640}
                   />
                 </Link>

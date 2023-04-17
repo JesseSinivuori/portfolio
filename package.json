@@ -1,5 +1,4 @@
 {
-  "homepage": ".",
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
@@ -21,6 +20,7 @@
     "canvas-confetti": "latest",
     "copy-to-clipboard": "^3.3.3",
     "eslint-config-next": "latest",
+    "firebase": "^9.19.1",
     "headlessui": "^0.0.0",
     "next": "latest",
     "next-sanity-image": "latest",

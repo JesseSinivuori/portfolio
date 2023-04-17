@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { close, menu } from "../public";
 import { navLinks } from "../constants/index";
 import Image from "next/image";
 import { useStateContext } from "../context/StateContext";
@@ -17,6 +16,9 @@ export default function Navbar() {
     useStateContext();
   const router = useRouter();
   const currentRoute = router.pathname;
+
+  const close = "/close.svg";
+  const menu = "/menu.svg";
 
   const [showCartIcon, setShowCartIcon] = useState(false);
 
@@ -139,7 +141,7 @@ export default function Navbar() {
                     ${
                       nav.id === "/portfolio/contact" &&
                       currentRoute !== "/portfolio/contact"
-                        ? " border-[#ff0000]  hover:animate-pulse hover:text-[#ff0000]"
+                        ? " border-[#ff0000] hover:text-[#ff0000]"
                         : nav.title !== "Gradient Generator" &&
                           "hover:text-white/50"
                     } 
@@ -195,6 +197,8 @@ export default function Navbar() {
                 className={`mr-[24px] h-[28px] w-[28px] object-contain
               ${toggle ? "rotate-180" : ""}  transition-all duration-300`}
                 onClick={() => setToggle(true)}
+                height={28}
+                width={28}
               />
               {/** mobile menu */}
               <CloseOnBack toggleState={toggle} setToggleState={setToggle}>
@@ -239,13 +243,13 @@ export default function Navbar() {
                         ${
                           nav.id === "/portfolio/contact" &&
                           currentRoute !== "/portfolio/contact"
-                            ? " border-[#ff0000]  hover:animate-pulse hover:text-[#ff0000]"
+                            ? " border-[#ff0000] hover:text-[#ff0000]"
                             : nav.title !== "Gradient Generator" &&
                               "hover:text-white/50"
                         } 
                         ${
                           nav.title === "Gradient Generator" &&
-                          `bg-gradient-to-b from-yellow-400 to-pink-500
+                          `bg-gradient-to-br from-yellow-400 to-pink-500
                           bg-clip-text font-bold text-transparent
                           transition-all duration-100
                           hover:from-yellow-400/75 hover:to-pink-500/75

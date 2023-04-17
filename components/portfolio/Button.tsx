@@ -9,12 +9,8 @@ type Props = {
 //return a button
 export default function Button(props: Props) {
   return (
-    //container
     <div className={`${styles.flexCenter}`}>
-      {/**make the button a link */}
       <Link href={props.to}>
-        {/** button bg-gradient-to-r from-[#70ffff] to-[#7088ff] 
-                hover:from-[#ffdf87] hover:to-[#ff4a4a] */}
         <button
           type="button"
           className={`rounded-md border-[1px] border-[#ff0000]
@@ -22,8 +18,7 @@ export default function Button(props: Props) {
                 font-medium text-[#ffffff] outline-none
                 duration-100 ease-in 
                 hover:border-[#ff0000] hover:text-[#ff0000]
-                 ${props.styles}
-                `}
+                 ${props.styles}`}
         >
           Contact
         </button>

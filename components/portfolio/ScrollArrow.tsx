@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../../styles/style";
 import ArrowDown from "./ArrowDown";
 
@@ -7,7 +7,6 @@ type Props = {
 };
 
 export default function ScrollArrow(props: Props) {
-
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

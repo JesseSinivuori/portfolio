@@ -7,8 +7,7 @@ type CategoryMenuProps = {
 };
 
 export default function CategoryMenu({ products }: CategoryMenuProps) {
-  const { category, setCategory, setUseCategoryFilter } =
-    useStateContext();
+  const { category, setCategory, setUseCategoryFilter } = useStateContext();
 
   const [toggleCategories, setToggleCategories] = useState(false);
 
@@ -56,7 +55,7 @@ export default function CategoryMenu({ products }: CategoryMenuProps) {
         {categories.map((item) => (
           <button
             type="button"
-            className={`m-2 mx-2 rounded-xl border-1 border-primary py-2
+            className={`m-2 mx-2 rounded-xl border border-primary py-2
           px-4 transition-all duration-100
           ${
             category === item

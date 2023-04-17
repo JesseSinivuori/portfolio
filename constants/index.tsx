@@ -1,13 +1,3 @@
-import {
-  react,
-  javascript,
-  csharp,
-  html5,
-  css3,
-  tailwindcss,
-  typescript,
-} from "../public";
-
 export const navLinks = [
   {
     id: "/",
@@ -26,37 +16,37 @@ export const navLinks = [
 export const mySkills = [
   {
     id: "react",
-    img: react,
+    img: "/react.svg",
     name: "React",
   },
   {
     id: "javascript",
-    img: javascript,
+    img: "/javascript.svg",
     name: "JavaScript",
   },
   {
     id: "typescript",
-    img: typescript,
+    img: "/typescript.svg",
     name: "TypeScript",
   },
   {
     id: "html",
-    img: html5,
+    img: "/html5.svg",
     name: "HTML",
   },
   {
     id: "css",
-    img: css3,
+    img: "/css3.svg",
     name: "CSS",
   },
   {
     id: "tailwindcss",
-    img: tailwindcss,
+    img: "/tailwindcss.svg",
     name: "Tailwind CSS",
   },
   {
     id: "csharp",
-    img: csharp,
+    img: "/csharp.svg",
     name: "C Sharp",
   },
 ];

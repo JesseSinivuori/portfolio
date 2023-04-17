@@ -1,13 +1,5 @@
 import SlideAnimation from "./SlideAnimation";
 import styles, { layout } from "../../styles/style";
-import {
-  nextjs,
-  react,
-  sanity,
-  stripe,
-  tailwindcss,
-  typescript,
-} from "../../public";
 import EcommerceImagesSection from "./EcommerceImagesSection";
 import Skill from "./Skill";
 
@@ -17,32 +9,32 @@ export default function Ecommerce(props: EcommerceProps) {
   const images = [
     {
       id: "react",
-      img: react,
+      img: "/react.svg",
       name: "React",
     },
     {
       id: "nextjs",
-      img: nextjs,
+      img: "/nextjs.svg",
       name: "Next.js",
     },
     {
       id: "typescript",
-      img: typescript,
+      img: "/typescript.svg",
       name: "TypeScript",
     },
     {
       id: "tailwindcss",
-      img: tailwindcss,
+      img: "/tailwindcss.svg",
       name: "Tailwind CSS",
     },
     {
       id: "sanity",
-      img: sanity,
+      img: "/sanity.svg",
       name: "Sanity",
     },
     {
       id: "stripe",
-      img: stripe,
+      img: "/stripe.svg",
       name: "Stripe",
     },
   ];

@@ -1,4 +1,3 @@
-import { arrowUp } from "../../public";
 import styles from "../../styles/style";
 import Image from "next/image";
 
@@ -7,18 +6,19 @@ type Props = {
 };
 
 export default function ArrowDown(props: Props) {
+  const arrowUp = "/arrow-up.svg";
   return (
     <div className={`${props.styles}`}>
-      {/**contain arrow image, make a circle around it + bounce animation */}
       <div
         className={`${styles.flexCenter}
             h-[32px] w-[32px] rounded-full`}
       >
-        {/**arrow image */}
         <Image
           src={arrowUp}
           alt="image of arrow up"
           className={`rotate-[130deg] ${styles.flexCenter}`}
+          height={24}
+          width={24}
         />
       </div>
     </div>

@@ -7,7 +7,6 @@ export { default as Ecommerce } from "./Ecommerce";
 export { default as Footer } from "./Footer";
 export { default as Game } from "./Game";
 export { default as Hero } from "./Hero";
-export { default as MapSkills } from "./MapSkills";
 export { default as ScrollArrow } from "./ScrollArrow";
 export { default as Skills } from "./Skills";
 export { default as SlideAnimation } from "./SlideAnimation";

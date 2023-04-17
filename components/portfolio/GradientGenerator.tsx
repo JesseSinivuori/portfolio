@@ -1,18 +1,15 @@
 import Image from "next/image";
-import {
-  gradientcolors,
-  gradientoutput,
-  react,
-  tailwindcss,
-  typescript,
-  vite,
-} from "../../public";
 import styles, { layout } from "../../styles/style";
 import Skill from "./Skill";
 import SlideAnimation from "./SlideAnimation";
 import Link from "next/link";
 
 export default function GradientGenerator() {
+  const gradientImages = {
+    gradientcolors: "/gradientcolors.png",
+    gradientoutput: "/gradientoutput.png",
+  };
+  const { gradientcolors, gradientoutput } = gradientImages;
   return (
     <SlideAnimation
       animation={"slide-animation-top"}
@@ -67,21 +64,25 @@ export default function GradientGenerator() {
                   className=" relative z-[3] mb-24 ml-96 w-[600px] min-w-[600px] rounded-md
                     border border-transparent object-cover opacity-75 transition-all duration-300
                     hover:border-white xss:ml-72 sm:ml-0"
+                  height={405}
+                  width={600}
                 />
               </Link>
               <Link
                 href={"https://gradient-generator-beta.vercel.app/"}
                 target="_blank"
-                className="hidden w-full justify-center sm:flex"
+                className="hidden w-full justify-center px-2 sm:flex"
                 title="Try the App"
                 rel="noreferrer noopener"
               >
                 <Image
                   src={gradientoutput}
                   alt={"image of gradient output"}
-                  className=" h-full min-h-[50px] rounded-md border
+                  className="h-full rounded-md border
                     border-transparent object-cover opacity-75
                     transition-all duration-300 hover:border-white"
+                  height={90}
+                  width={1000}
                 />
               </Link>
             </div>
@@ -107,22 +108,22 @@ export default function GradientGenerator() {
 const images = [
   {
     id: "react",
-    img: react,
+    img: "/react.svg",
     name: "React",
   },
   {
     id: "vite",
-    img: vite,
+    img: "/vite.svg",
     name: "Vite",
   },
   {
     id: "typescript",
-    img: typescript,
+    img: "/typescript.svg",
     name: "TypeScript",
   },
   {
     id: "tailwindcss",
-    img: tailwindcss,
+    img: "/tailwindcss.svg",
     name: "Tailwind CSS",
   },
 ];

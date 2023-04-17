@@ -1,38 +1,22 @@
 import styles from "../../styles/style";
-import { imgofme } from "../../public";
 import Image from "next/image";
 import SlideAnimation from "./SlideAnimation";
 import HeroGradient from "./HeroGradient";
 import Link from "next/link";
 
-type Named = {
-  name: string;
-};
-
-type Greetable = Named & {
-  greet: (phrase: string) => void;
-};
-
-//return hero section
 export default function Hero() {
-  const greet = (person: Greetable) => {
-    console.log("Hello, " + person.name);
-  };
+  const imgofme = "/imgofme.png";
+
   return (
-    //section
     <SlideAnimation animation={"slide-animation-top"}>
       <section
         id="home"
         className={`flex-col md:flex-row ${styles.paddingY} ${styles.flexCenter} relative`}
       >
-        {/**container */}
         <div
           className={`flex-1 ${styles.flexStart} z-[10] flex-col px-6 sm:px-16 xl:px-0`}
         >
-          {/**contain heading and button*/}
           <div className="flex w-full flex-wrap items-center justify-between">
-            {/**heading */}
-
             <h1
               className="flex-1 font-poppins text-[52px] font-light 
                     leading-[75px] text-white ss:text-[72px] ss:leading-[100px]"
@@ -45,18 +29,15 @@ export default function Hero() {
               </SlideAnimation>
             </h1>
           </div>
-
-          {/**text under heading */}
           <h1
-            className="w-full font-poppins text-[52px]
-                    font-semibold leading-[75px] text-white ss:text-[68px] ss:leading-[100px]"
+            className="w-full font-poppins text-[52px] font-semibold leading-[75px]
+             text-white ss:text-[68px] ss:leading-[100px]"
           >
             Software Engineer
           </h1>
           <p className={`${styles.paragraph} mt-5 max-w-[470px]`}>
             I 😍 building things.
           </p>
-          {/**button */}
           <div className="my-8 flex items-center justify-center">
             <Link
               href={"/portfolio/contact"}
@@ -72,20 +53,18 @@ export default function Hero() {
           </div>
         </div>
         <HeroGradient />
-        {/**contain image and gradient */}
         <div
           className={`flex flex-1 ${styles.flexCenter} relative my-10 md:my-0`}
         >
-          {/**image */}
           <Image
             src={imgofme}
             alt="Image of me."
             className=":w-[100%] z-[5] 
-                h-[100%] max-h-[650px] min-w-[270px] object-contain
-                "
+                h-[100%] max-h-[650px] min-w-[270px] object-contain"
+            width={650}
+            height={650}
+            priority={true}
           />
-
-          {/**gradients */}
           <div
             className={`absolute z-[0] h-[800px] min-h-[800px] w-[500px] min-w-[500px]`}
             style={{ opacity: "100%", filter: "blur(0px) invert(0)" }}
