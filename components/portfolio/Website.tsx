@@ -41,7 +41,8 @@ export default function Website() {
         >
           <SlideAnimation animation={"slide-animation-top"}>
             <div
-              className={`${layout.sectionImgReverse} flex flex-1 ${styles.flexCenter} relative my-10 md:my-0`}
+              className={`${layout.sectionImgReverse} flex ${styles.flexCenter}
+              relative left-[120px] my-10 xss:left-[80px] xs:left-0 md:my-0`}
             >
               <Image
                 src={codeimg}

@@ -31,3 +31,6 @@ export default function Skill(props: SkillProps) {
     </div>
   );
 }
+
+
+
