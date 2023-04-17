@@ -120,13 +120,11 @@ span.text-red {
   color: white;
   cursor: pointer;
   position: relative;
-  transition: transform 0.1s ease;
   border: none;
   background-color: transparent;
 }
 
 .cart-icon:hover {
-  transform: scale(1.1, 1.1);
   color: rgba(255, 255, 255, 0.5);
 }
 
