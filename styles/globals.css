@@ -1134,16 +1134,13 @@ span.text-red {
 
 .animate-top-hidden {
   opacity: 0;
-  filter: blur(10px);
   transform: translateY(-110%);
 }
 
 .animate-top-visible {
   opacity: 1;
-  filter: blur(0px);
   transform: translateY(0);
-  transition: transform 500ms ease-in-out, opacity 500ms ease-in-out,
-    filter 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
 }
 
 .animate-left-hidden {

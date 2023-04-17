@@ -42,7 +42,12 @@ export default function EcommerceImagesSection() {
     >
       <div className={`${styles.flexCenter} flex-col`}>
         <div className={`${styles.flexCenter} flex-col`} ref={ref}>
-          <Link href={"/store/home"} target="blank">
+          <Link
+            href={"/store/home"}
+            target="blank"
+            title="Try the App"
+            rel="noreferrer noopener"
+          >
             <Image
               src={ecommerce}
               alt={"image of ecommerce website"}
@@ -52,7 +57,12 @@ export default function EcommerceImagesSection() {
               `}
             />
           </Link>
-          <Link href={"/store/home"} target="blank">
+          <Link
+            href={"/store/home"}
+            target="blank"
+            title="Try the App"
+            rel="noreferrer noopener"
+          >
             <Image
               src={ecommercecart}
               alt={"image of ecommerce website cart"}
@@ -70,7 +80,12 @@ export default function EcommerceImagesSection() {
             `}
             />
           </Link>
-          <Link href={"/store/home"} target="blank">
+          <Link
+            href={"/store/home"}
+            target="blank"
+            title="Try the App"
+            rel="noreferrer noopener"
+          >
             <Image
               src={ecommercecategories}
               alt={"image of ecommerce website categories"}
@@ -85,7 +100,12 @@ export default function EcommerceImagesSection() {
               `}
             />
           </Link>
-          <Link href={"/store/home"} target="blank">
+          <Link
+            href={"/store/home"}
+            target="blank"
+            title="Try the App"
+            rel="noreferrer noopener"
+          >
             <Image
               src={ecommerceitem}
               alt={"image of ecommerce website item"}
@@ -99,7 +119,12 @@ export default function EcommerceImagesSection() {
               hover:lg:translate-x-[-25%] `}
             />
           </Link>
-          <Link href={"/store/home"} target="blank">
+          <Link
+            href={"/store/home"}
+            target="blank"
+            title="Try the App"
+            rel="noreferrer noopener"
+          >
             <Image
               src={ecommerceitem2}
               alt={"image of ecommerce website item"}
@@ -118,6 +143,7 @@ export default function EcommerceImagesSection() {
           </Link>
         </div>
         <Link
+          rel="noreferrer noopener"
           href={"/store/home"}
           target="blank"
           className={`z-[1] rounded-md border-[1px]
@@ -127,7 +153,7 @@ export default function EcommerceImagesSection() {
                 ease-in-out hover:border-[#ff0000]
                 hover:text-[#ff0000] hover:shadow-[#bc0d0d25]`}
         >
-          <span>Try the App</span>
+          Try the App
         </Link>
         <div
           className={`absolute z-[0] h-full min-h-[1400px] w-full min-w-[1000px]

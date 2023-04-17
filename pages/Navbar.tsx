@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { close, menu } from "../public/assets/portfolio";
 import { navLinks } from "../constants/index";
@@ -64,6 +64,30 @@ export default function Navbar() {
     };
   }, [toggle, setToggle]);
 
+  const projectLinks = [
+    {
+      id: "https://gradient-generator-beta.vercel.app/",
+      name: "Gradient Generator",
+    },
+    {
+      id: "/store/home",
+      name: "Ecommerce Website",
+    },
+    {
+      id: "https://delivery-fee-nu.vercel.app/",
+      name: "Delivery Fee Calculator",
+    },
+  ];
+
+  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  const scrollTo = (id: string) => {
+    const sectionRef = sectionRefs.current[id];
+    if (sectionRef) {
+      sectionRef.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div
       className={`m-auto w-full overscroll-none rounded-b-xl ${
@@ -94,24 +118,47 @@ export default function Navbar() {
             {/** nav links */}
             <ul className="hidden flex-1 list-none items-center justify-end overflow-hidden ss:flex">
               {navLinks.map((nav, index) => (
-                <Link href={`${nav.id}`} key={nav.id} className={``}>
-                  <li
-                    className={`cursor-pointer rounded-md border-[1px] border-transparent
-                p-2 font-poppins text-[16px] font-normal text-white
-                duration-100 ease-in-out
+                <div key={nav.id}>
+                  <Link
+                    href={`${nav.id}`}
+                    key={nav.id}
+                    className={``}
+                    target={`${
+                      nav.title === "Gradient Generator" ? "blank" : ""
+                    }`}
+                    rel={`${
+                      nav.title === "Gradient Generator"
+                        ? "noreferrer noopener"
+                        : ""
+                    }`}
+                  >
+                    <li
+                      className={`cursor-pointer rounded-md border-[1px] border-transparent
+                    p-2 font-poppins text-[16px] font-normal text-white
+                    duration-100 ease-in-out
                     ${currentRoute === nav.id && "text-white/50"}
                     ${
                       nav.id === "/portfolio/contact" &&
                       currentRoute !== "/portfolio/contact"
                         ? " border-[#ff0000]  hover:animate-pulse hover:text-[#ff0000]"
-                        : "hover:text-white/50"
-                    }
+                        : nav.title !== "Gradient Generator" &&
+                          "hover:text-white/50"
+                    } 
+                    ${
+                      nav.title === "Gradient Generator" &&
+                      `bg-gradient-to-r from-yellow-400 to-pink-500
+                      bg-clip-text font-bold text-transparent
+                      transition-all duration-100
+                      hover:from-yellow-400/75 hover:to-pink-500/75
+                      `
+                    } 
                     ${index === navLinks.length - 1 ? "mr-[30px]" : "mr-[25px]"}
                     `}
-                  >
-                    {nav.title}
-                  </li>
-                </Link>
+                    >
+                      {nav.title}
+                    </li>
+                  </Link>
+                </div>
               ))}
               {showCartIcon && (
                 <button
@@ -175,16 +222,36 @@ export default function Navbar() {
                   >
                     <ul className="list-none flex-col items-center rounded-md bg-primary p-1">
                       {navLinks.map((nav, index) => (
-                        <Link href={`${nav.id}`} key={nav.id}>
+                        <Link
+                          href={`${nav.id}`}
+                          key={nav.id}
+                          target={`${
+                            nav.title === "Gradient Generator" ? "blank" : ""
+                          }`}
+                          rel={`${
+                            nav.title === "Gradient Generator"
+                              ? "noreferrer noopener"
+                              : ""
+                          }`}
+                        >
                           <li
                             className={`cursor-pointer rounded-md border-[1px] border-transparent p-2 font-poppins text-[16px] text-white
                         ${currentRoute === nav.id && "text-white/50"}
                         ${
                           nav.id === "/portfolio/contact" &&
                           currentRoute !== "/portfolio/contact"
-                            ? " border-[1px] border-[#ff0000] hover:animate-pulse hover:text-[#ff0000]"
-                            : "hover:text-white/50"
-                        }
+                            ? " border-[#ff0000]  hover:animate-pulse hover:text-[#ff0000]"
+                            : nav.title !== "Gradient Generator" &&
+                              "hover:text-white/50"
+                        } 
+                        ${
+                          nav.title === "Gradient Generator" &&
+                          `bg-gradient-to-b from-yellow-400 to-pink-500
+                          bg-clip-text font-bold text-transparent
+                          transition-all duration-100
+                          hover:from-yellow-400/75 hover:to-pink-500/75
+                          `
+                        } 
                         ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}
                                              `}
                             onClick={() => setToggle((prev) => !prev)}

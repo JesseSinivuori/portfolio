@@ -58,6 +58,8 @@ export default function GradientGenerator() {
               <Link
                 href={"https://gradient-generator-beta.vercel.app/"}
                 target="blank"
+                title="Try the App"
+                rel="noreferrer noopener"
               >
                 <Image
                   src={gradientcolors}
@@ -71,6 +73,8 @@ export default function GradientGenerator() {
                 href={"https://gradient-generator-beta.vercel.app/"}
                 target="blank"
                 className="hidden w-full justify-center sm:flex"
+                title="Try the App"
+                rel="noreferrer noopener"
               >
                 <Image
                   src={gradientoutput}

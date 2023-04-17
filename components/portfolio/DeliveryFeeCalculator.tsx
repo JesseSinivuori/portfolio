@@ -106,6 +106,8 @@ export default function DeliveryFeeCalculator(
                 Calculate delivery fees. 🛴
               </p>
               <Link
+                title="Try the App"
+                rel="noreferrer noopener"
                 href={"https://delivery-fee-nu.vercel.app/"}
                 target="blank"
                 className="relative"
@@ -114,7 +116,7 @@ export default function DeliveryFeeCalculator(
                   <Image
                     src={deliveryfeecalculator}
                     alt="image of delivery fee calculator"
-                    className="relative z-[1] rounded-xl border-1 border-transparent object-cover
+                    className="border-1 relative z-[1] rounded-xl border-transparent object-cover
                transition-all duration-300 hover:border-white
               "
                     height={240}
@@ -123,6 +125,7 @@ export default function DeliveryFeeCalculator(
                 </div>
               </Link>
               <Link
+                rel="noreferrer noopener"
                 href={"https://delivery-fee-nu.vercel.app/"}
                 target="blank"
                 className={`right-[-180px] z-[1] m-8 flex rounded-md border-[1px] border-[#58f3fe]
@@ -147,12 +150,14 @@ export default function DeliveryFeeCalculator(
                 <Link
                   href={"https://delivery-fee-nu.vercel.app/"}
                   target="blank"
+                  title="Try the App"
+                  rel="noreferrer noopener"
                 >
                   <Image
                     src={deliveryfeecalculatorsettings}
                     alt="image of delivery fee calculator"
                     className={`
-                   m-8 rounded-xl border-1
+                   border-1 m-8 rounded-xl
               border-transparent object-cover opacity-75 transition-all
               duration-300 hover:border-white hover:opacity-100
               `}

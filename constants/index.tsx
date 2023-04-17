@@ -14,8 +14,8 @@ export const navLinks = [
     title: "Home",
   },
   {
-    id: "/store/home",
-    title: "Ecommerce Project",
+    id: "https://gradient-generator-beta.vercel.app/",
+    title: "Gradient Generator",
   },
   {
     id: "/portfolio/contact",
