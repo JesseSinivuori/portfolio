@@ -48,7 +48,6 @@ export default function Game() {
             loop
             autoPlay
             muted
-            controls
             className="min-w-[270px] max-w-[470px] object-contain"
           >
             <source

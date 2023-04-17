@@ -72,8 +72,8 @@ export default function Cart() {
         <div
           id="cart"
           data-testid="cart"
-          className={`cart-wrapper h-[100vh] w-full max-w-[680px] overflow-hidden overscroll-none bg-nav
-          ${showCart ? "translate-x-0" : "translate-x-full"}`}
+          className={`cart-wrapper h-[100vh] w-full max-w-[680px] translate-x-full overflow-hidden overscroll-none bg-nav
+          ${showCart && "translate-x-0"}`}
         >
           <div className={`cart-container h-[100svh] rounded-md ss:h-full `}>
             <button
