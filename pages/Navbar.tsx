@@ -91,7 +91,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`m-auto w-full overscroll-none rounded-b-xl ${
+      className={`m-auto w-screen overscroll-none rounded-b-xl ${
         showCart && "h-[100vh]"
       }`}
     >

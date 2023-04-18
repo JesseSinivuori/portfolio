@@ -33,7 +33,7 @@ export default function Layout({ children }: any) {
           />
         </div>
       </header>
-      <main className={`main-container transition-all duration-300 `}>
+      <main className={`main-container`}>
         <div
           className={`${styles.flexCenter} p-1 xss:p-2 xs:p-3 ss:p-4 ${
             showCart && "blur"
