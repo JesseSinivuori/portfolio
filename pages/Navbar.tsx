@@ -6,7 +6,6 @@ import { useStateContext } from "../context/StateContext";
 import { AiOutlineShopping } from "react-icons/ai";
 import Cart from "../components/store/Cart";
 import { useRouter } from "next/router";
-import styles from "../styles/style";
 import CloseOnBack from "../components/store/CloseOnBack";
 import OnClickOutside from "../components/helpers/OnClickOutside";
 
@@ -28,7 +27,7 @@ export default function Navbar() {
     } else {
       setShowCartIcon(false);
     }
-  }, [currentRoute]);
+  }, [currentRoute, setShowCartIcon]);
 
   //toggle mobile menu
   const [toggle, setToggle] = useState(false);
@@ -51,35 +50,24 @@ export default function Navbar() {
       removeEventListener("scroll", handleScroll);
     };
   }),
-    [setNavStyles, showCart];
+    [setNavStyles];
 
   useEffect(() => {
-    const checkWidth = () => {
-      if (window.document.body.offsetWidth > 620) {
-        setToggle((prev) => false);
-      }
-    };
-    addEventListener("resize", checkWidth);
-    return () => {
-      removeEventListener("resize", checkWidth);
-    };
+    if (toggle) {
+      const checkWidth = () => {
+        if (window.document.body.offsetWidth > 620) {
+          setToggle((prev) => false);
+        }
+      };
+      addEventListener("resize", checkWidth);
+      return () => {
+        removeEventListener("resize", checkWidth);
+      };
+    }
   }, [toggle, setToggle]);
 
-  const projectLinks = [
-    {
-      id: "https://gradient-generator-beta.vercel.app/",
-      name: "Gradient Generator",
-    },
-    {
-      id: "/store/home",
-      name: "Ecommerce Website",
-    },
-    {
-      id: "https://delivery-fee-nu.vercel.app/",
-      name: "Delivery Fee Calculator",
-    },
-  ];
-
+  {
+    /**
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const scrollTo = (id: string) => {
@@ -88,6 +76,8 @@ export default function Navbar() {
       sectionRef.scrollIntoView({ behavior: "smooth" });
     }
   };
+   */
+  }
 
   return (
     <div
@@ -192,15 +182,14 @@ export default function Navbar() {
                 onClick={() => setToggle(true)}
                 height={28}
                 width={28}
+                priority
               />
               {/** mobile menu */}
               <CloseOnBack toggleState={toggle} setToggleState={setToggle}>
                 <div
                   className={`absolute top-0 mr-4 min-w-[140px] duration-300 ease-in-out
             ${
-              toggle
-                ? "animate-top-visible mt-20 flex "
-                : " animate-top-hidden "
+              toggle ? "animate-top-visible mt-20 flex " : "animate-top-hidden"
             }`}
                 >
                   <OnClickOutside

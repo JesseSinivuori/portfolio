@@ -63,8 +63,8 @@ export default function Cart() {
         <div
           id="cart"
           data-testid="cart"
-          className={`cart-wrapper h-full w-full max-w-[680px] overflow-hidden
-          overscroll-none bg-nav transition-all duration-300
+          className={`cart-wrapper h-screen w-full max-w-[680px] overflow-hidden
+          overscroll-none bg-nav transition-all duration-500
           ${!showCart ? "translate-x-full" : "translate-x-0"}`}
         >
           <div className={`cart-container h-full rounded-md`}>
@@ -93,7 +93,7 @@ export default function Cart() {
                 </button>
               </div>
             )}
-            <div className="product-container h-full overflow-auto overscroll-none px-4 pb-[220px] ">
+            <div className="product-container relative z-[1] h-full overflow-auto overscroll-none px-4 pb-[220px] ">
               {cartItems.length >= 1 &&
                 cartItems.map((item: any) => (
                   <div
@@ -168,7 +168,7 @@ export default function Cart() {
                   </div>
                 ))}
             </div>
-            <div className="cart-bottom w-full bg-nav xs:max-w-[680px]">
+            <div className="cart-bottom relative z-[9999] w-full bg-nav xs:max-w-[680px]">
               {cartItems.length >= 1 && (
                 <>
                   <div className="total">
