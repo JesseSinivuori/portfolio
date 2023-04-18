@@ -13,7 +13,8 @@ export default function Layout({ children }: any) {
     <div
       className={`${
         darkMode && "dark"
-      } overflow-hidden overscroll-none bg-primary`}
+      } overflow-hidden overscroll-none bg-primary
+      `}
     >
       <Head>
         <title>{"Jesse's Portfolio"}</title>
@@ -35,7 +36,7 @@ export default function Layout({ children }: any) {
       </header>
       <main className={`main-container`}>
         <div
-          className={`${styles.flexCenter} p-1 xss:p-2 xs:p-3 ss:p-4 
+          className={`${styles.flexCenter} p-1 xss:p-2 xs:p-3 ss:p-4
           ${showCart && "blur"}`}
         >
           {/**content container */}

@@ -67,7 +67,7 @@ export default function Cart() {
           overscroll-none bg-nav transition-all duration-500
           ${!showCart ? "translate-x-full" : "translate-x-0"}`}
         >
-          <div className={`cart-container h-full rounded-md`}>
+          <div className={`cart-container h-[100svh] rounded-md`}>
             <button
               type="button"
               className={`cart-heading hidden pb-8 transition-all duration-100
