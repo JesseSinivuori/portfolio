@@ -8,7 +8,7 @@ export default function Canceled() {
 
   useEffect(() => {
     const contextString = localStorage.getItem("context");
-    const context = JSON.parse(contextString);
+    const context = JSON.parse(contextString ?? "{}");
 
     setCartItems(context.cartItems);
     setTotalPrice(context.totalPrice);
@@ -29,7 +29,7 @@ export default function Canceled() {
           </a>
         </p>
         <Link href={"/store/home"}>
-          <button type="button" width="300" className="btn">
+          <button type="button" className="btn w-[300px]">
             Continue Shopping
           </button>
         </Link>

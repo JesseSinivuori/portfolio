@@ -383,7 +383,7 @@ span.text-red {
   /* will-change: transform; */
   transition: all 0.5s ease-in-out;
   color: white;
-  position: fixed;
+  position: absolute;
 }
 
 .cart-container {

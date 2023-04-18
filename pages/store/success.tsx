@@ -30,7 +30,7 @@ export default function Success() {
           </a>
         </p>
         <Link href={"/store/home"}>
-          <button type="button" width="300" className="btn">
+          <button type="button" className="btn w-[300px]">
             Continue Shopping
           </button>
         </Link>

@@ -35,12 +35,11 @@ export default function Layout({ children }: any) {
       </header>
       <main className={`main-container`}>
         <div
-          className={`${styles.flexCenter} p-1 xss:p-2 xs:p-3 ss:p-4 ${
-            showCart && "blur"
-          }`}
+          className={`${styles.flexCenter} p-1 xss:p-2 xs:p-3 ss:p-4 
+          ${showCart && "blur"}`}
         >
           {/**content container */}
-          <div className={`${styles.boxWidth} `}>{children}</div>
+          <div className={`${styles.boxWidth}`}>{children}</div>
         </div>
       </main>
     </div>

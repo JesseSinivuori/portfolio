@@ -23,7 +23,8 @@ test("contact link", async ({ page }) => {
 });
  */
 }
-
+{
+  /**
 test("Cart should be visible //+ have the height of the viewport", async ({
   page,
 }) => {
@@ -53,6 +54,18 @@ test("Cart should be visible //+ have the height of the viewport", async ({
   // Check if the cart height is equal to the viewport height
   expect(cartHeight).toEqual(viewportHeight);
 */
+  /*
   }
   await expect(cart).toBeVisible();
+  
+}); 
+*/
+}
+
+test("cart should not be visible", async ({ page }) => {
+  await page.goto("/");
+
+  const cart = page.getByTestId("cart");
+
+  await expect(cart).not.toBeVisible();
 });

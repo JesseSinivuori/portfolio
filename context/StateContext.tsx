@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 import { toast } from "react-hot-toast";
 
 const Context = createContext<any | undefined>(undefined);
@@ -46,7 +46,6 @@ export default function StateContext({ children }: any) {
     }
 
     toast.success(`${qty} ${product.name} added to the cart.`);
-  
   };
 
   const onRemove = (product: { _id: any }) => {

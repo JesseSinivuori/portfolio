@@ -10,6 +10,7 @@ export default function ScrollArrow(props: Props) {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
+    if (!isVisible) return;
     let requestId: number | null | any;
     const handleScroll = () => {
       if (!requestId) {
@@ -17,8 +18,6 @@ export default function ScrollArrow(props: Props) {
           const scrollY = window.scrollY;
           if (scrollY > 50) {
             setIsVisible(false);
-          } else {
-            setIsVisible(true);
           }
           requestId = null;
         });
@@ -29,7 +28,7 @@ export default function ScrollArrow(props: Props) {
       cancelAnimationFrame(requestId);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [setIsVisible, isVisible]);
 
   return (
     <div
@@ -39,7 +38,7 @@ export default function ScrollArrow(props: Props) {
     >
       <div
         className={` scroll-animation-reverse fixed bottom-0 left-0 z-[999]
-              flex w-full animate-pulse
+              flex animate-pulse
             `}
       >
         <div

@@ -1,13 +1,8 @@
-import {
-  CategoryMenu,
-  HeroBanner,
-  Products,
-} from "../../components/store";
+import { CategoryMenu, HeroBanner, Products } from "../../components/store";
 import { client } from "../../lib/client";
 import Footer from "../../components/portfolio/Footer";
 
 export default function Home({ products, bannerData }: any) {
-  
   return (
     <>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />

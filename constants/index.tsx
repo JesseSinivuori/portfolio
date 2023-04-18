@@ -6,6 +6,18 @@ export const navLinks = [
   {
     id: "https://gradient-generator-beta.vercel.app/",
     title: "Gradient Generator",
+    target: "_blank",
+    rel: "noreferrer noopener",
+  },
+  {
+    id: "/store/home",
+    title: "Jesse's Kitchen",
+  },
+  {
+    id: "https://delivery-fee-nu.vercel.app/",
+    title: "Delivery Fee Calculator",
+    target: "_blank",
+    rel: "noreferrer noopener",
   },
   {
     id: "/portfolio/contact",

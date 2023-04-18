@@ -91,52 +91,45 @@ export default function Navbar() {
 
   return (
     <div
-      className={`m-auto w-screen overscroll-none rounded-b-xl ${
-        showCart && "h-[100vh]"
-      }`}
+      className={`overscroll-none rounded-b-xl
+      ${showCart ? "h-screen" : "h-full"}`}
     >
       <div
-        className={`${styles.flexCenter} m-auto ${navStyles} max-w-[1400px]
+        className={` m-auto ${navStyles} w-full max-w-[1400px]
         rounded-b-xl ${showCart && "blur"}
-        transition-all duration-500 `}
+        transition-all duration-300 `}
       >
-        <div className={`navbar h-full w-full py-4`}>
-          <nav className={`flex items-center justify-between`}>
+        <div className={`py-4`}>
+          <nav className={`flex items-center justify-between `}>
             <Link href={"/"}>
               <p className="ml-[20px] rounded-full bg-transparent p-[10px] font-light text-white hover:opacity-50">
                 <span className={"text-white"}>.</span>
                 &#106;
                 <span
-                  className={`text-[#70ffff] 
-                        ${
-                          currentRoute.startsWith("/store") && "text-[#ff0505]"
-                        }`}
+                  className={`text-[#70ffff] ${
+                    currentRoute.startsWith("/store") && "text-[#ff0505]"
+                  }`}
                 >
                   s
                 </span>
               </p>
             </Link>
             {/** nav links */}
-            <ul className="hidden flex-1 list-none items-center justify-end overflow-hidden ss:flex">
+            <ul className="hidden flex-1 list-none items-center justify-end overflow-hidden md:flex">
               {navLinks.map((nav, index) => (
                 <div key={nav.id}>
                   <Link
                     href={`${nav.id}`}
                     key={nav.id}
                     className={``}
-                    target={`${
-                      nav.title === "Gradient Generator" ? "_blank" : ""
-                    }`}
-                    rel={`${
-                      nav.title === "Gradient Generator"
-                        ? "noreferrer noopener"
-                        : ""
-                    }`}
+                    target={`${nav.target ?? "_self"}`}
+                    rel={`${nav.rel ?? ""}
+                    `}
                   >
                     <li
                       className={`cursor-pointer rounded-md border-[1px] border-transparent
                     p-2 font-poppins text-[16px] font-normal text-white
-                    duration-100 ease-in-out
+                    duration-100 ease-in-out 
                     ${currentRoute === nav.id && "text-white/50"}
                     ${
                       nav.id === "/portfolio/contact" &&
@@ -147,7 +140,7 @@ export default function Navbar() {
                     } 
                     ${
                       nav.title === "Gradient Generator" &&
-                      `bg-gradient-to-r from-yellow-400 to-pink-500
+                      `bg-gradient-to-r from-yellow-400 to-pink-500 
                       bg-clip-text font-bold text-transparent
                       transition-all duration-100
                       hover:from-yellow-400/75 hover:to-pink-500/75
@@ -176,7 +169,7 @@ export default function Navbar() {
               )}
             </ul>
             <div
-              className={`relative mb-0 flex w-[28px] cursor-pointer items-center justify-end ss:hidden`}
+              className={`relative mb-0 flex w-[28px] cursor-pointer items-center justify-end md:hidden`}
             >
               {showCartIcon && (
                 <button
@@ -223,19 +216,16 @@ export default function Navbar() {
                       }
                     }}
                   >
-                    <ul className="list-none flex-col items-center rounded-md bg-primary p-1">
+                    <ul
+                      className="max-h-full list-none flex-col items-center
+                    overflow-y-scroll rounded-md bg-primary p-1"
+                    >
                       {navLinks.map((nav, index) => (
                         <Link
                           href={`${nav.id}`}
                           key={nav.id}
-                          target={`${
-                            nav.title === "Gradient Generator" ? "_blank" : ""
-                          }`}
-                          rel={`${
-                            nav.title === "Gradient Generator"
-                              ? "noreferrer noopener"
-                              : ""
-                          }`}
+                          target={`${nav.target ?? "_self"}`}
+                          rel={`${nav.rel ?? ""}`}
                         >
                           <li
                             className={`cursor-pointer rounded-md border-[1px] border-transparent p-2 font-poppins text-[16px] text-white
@@ -271,7 +261,7 @@ export default function Navbar() {
           </nav>
         </div>
       </div>
-      <Cart />
+      {currentRoute.startsWith("/store/") && <Cart />}
     </div>
   );
 }
