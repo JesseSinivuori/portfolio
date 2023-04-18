@@ -15,17 +15,17 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      {isLoading ? (
-        <div className="h-screen w-full">
-          <Loading />
-        </div>
-      ) : (
-        <StateContext>
-          <Layout>
+      <StateContext>
+        <Layout>
+          {isLoading ? (
+            <div className="h-screen w-full">
+              <Loading />
+            </div>
+          ) : (
             <Component {...pageProps} />
-          </Layout>
-        </StateContext>
-      )}
+          )}
+        </Layout>
+      </StateContext>
     </>
   );
 }
