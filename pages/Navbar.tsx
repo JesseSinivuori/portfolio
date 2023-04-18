@@ -81,7 +81,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`overscroll-none rounded-b-xl
+      className={`overscroll-none rounded-b-xl 
       ${showCart ? "h-screen" : "h-full"}`}
     >
       <div
