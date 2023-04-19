@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.js", "**/*.tsx", "pages/api/stripe.ts", "components/HandleCheckout.jsx", "components/store/Cart.tsx", "pages/success.jsx", "pages/store/canceled.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.js", "**/*.tsx", "pages/api/stripe.ts", "components/HandleCheckout.jsx", "components/store/Cart.tsx", "pages/success.jsx", "pages/store/canceled.tsx"],
   "exclude": ["node_modules"]
 }

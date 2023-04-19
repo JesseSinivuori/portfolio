@@ -1,6 +1,7 @@
 import styles, { layout } from "../../styles/style";
 import SlideAnimation from "./SlideAnimation";
 import Skill from "./Skill";
+import Image from "next/image";
 
 export default function Game() {
   const mygamemp4 = "/mygamemp4.mp4";
@@ -48,6 +49,7 @@ export default function Game() {
             loop
             autoPlay
             muted
+            poster="/mygamemp4poster.jpg"
             className="min-w-[270px] max-w-[470px] object-contain"
           >
             <source
