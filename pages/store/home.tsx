@@ -1,12 +1,7 @@
+import { CategoryMenu, HeroBanner, Products } from "../../components/store";
 import { client } from "../../lib/client";
+import Footer from "../../components/portfolio/Footer";
 import Head from "next/head";
-import { Suspense, lazy } from "react";
-import Loading from "../../components/helpers/loading";
-
-const CategoryMenu = lazy(() => import("../../components/store/CategoryMenu"));
-const HeroBanner = lazy(() => import("../../components/store/HeroBanner"));
-const Products = lazy(() => import("../../components/store/Products"));
-const Footer = lazy(() => import("../../components/portfolio/Footer"));
 
 export default function Home({ products, bannerData }: any) {
   return (
@@ -14,11 +9,7 @@ export default function Home({ products, bannerData }: any) {
       <Head key={"jesseskitchen"}>
         <title>{"Jesse's Kitchen"}</title>
       </Head>
-      {!bannerData ? (
-        <Loading />
-      ) : (
-        <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-      )}
+      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
       <div className="products-heading">
         <h2>Menu</h2>
         <p></p>

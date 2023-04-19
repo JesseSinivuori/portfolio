@@ -5,12 +5,11 @@ import {
   AiFillStar,
   AiOutlineStar,
 } from "react-icons/ai";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useStateContext } from "../../../context/StateContext";
 import Image from "next/image";
 import Footer from "../../../components/portfolio/Footer";
 import { CategoryMenu, Products } from "../../../components/store";
-import Loading from "../../../components/helpers/loading";
 
 export default function ProductDetails({ products, product }: any) {
   const { image, name, details, price } = product;

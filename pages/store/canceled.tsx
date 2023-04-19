@@ -10,9 +10,9 @@ export default function Canceled() {
     const contextString = localStorage.getItem("context");
     const context = JSON.parse(contextString ?? "{}");
 
-    setCartItems(context.cartItems);
-    setTotalPrice(context.totalPrice);
-    setTotalQuantities(context.totalQuantities);
+    setCartItems(context.cartItems ?? []);
+    setTotalPrice(context.totalPrice ?? 0);
+    setTotalQuantities(context.totalQuantities ?? 0);
   }, [setCartItems, setTotalPrice, setTotalQuantities]);
 
   return (

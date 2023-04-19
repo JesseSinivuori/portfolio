@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { useStateContext } from "../../context/StateContext";
 import Product from "./Product";
 
@@ -14,14 +13,14 @@ export default function Products({ products }: ProductsProps) {
     : products;
 
   return (
-      <div className={`products-container`}>
-        <div className={`flex flex-wrap items-start justify-center`}>
-          {filteredProducts.map((item: any) => (
-            <div className="m-[10px]" key={item._id}>
-              <Product product={item} />
-            </div>
-          ))}
-        </div>
+    <div className={`products-container`}>
+      <div className={`flex flex-wrap items-start justify-center`}>
+        {filteredProducts.map((item: any) => (
+          <div className="m-[10px]" key={item._id}>
+            <Product product={item} />
+          </div>
+        ))}
       </div>
+    </div>
   );
 }

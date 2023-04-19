@@ -28,9 +28,7 @@ export default function Home() {
       <div className={`${styles.flexStart} `}>
         {/**content container */}
         <div className={`${styles.boxWidth}`}>
-          <Suspense fallback={<Loading />}>
-            <Hero />
-          </Suspense>
+          <Hero />
           <ScrollArrow />
         </div>
       </div>

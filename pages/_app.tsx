@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import Loading from "../components/helpers/loading";
 import "@stripe/stripe-js";
 
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
