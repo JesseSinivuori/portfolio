@@ -3,6 +3,8 @@ import Image from "next/image";
 import SlideAnimation from "./SlideAnimation";
 import HeroGradient from "./HeroGradient";
 import Link from "next/link";
+import { Suspense } from "react";
+import Loading from "../helpers/loading";
 
 export default function Hero() {
   const imgofme = "/imgofme.png";
@@ -55,15 +57,17 @@ export default function Hero() {
       <div
         className={`flex flex-1 ${styles.flexCenter} relative my-10 md:my-0`}
       >
-        <Image
-          src={imgofme}
-          alt="Image of me."
-          className=":w-[100%] z-[5] 
+        <Suspense fallback={<Loading />}>
+          <Image
+            src={imgofme}
+            alt="Image of me."
+            className=":w-[100%] z-[5] 
                 h-[100%] max-h-[650px] min-w-[270px] object-contain"
-          width={650}
-          height={650}
-          priority={true}
-        />
+            width={650}
+            height={650}
+            priority={true}
+          />
+        </Suspense>
         <div
           className={`absolute z-[0] h-[800px] min-h-[800px] w-[500px] min-w-[500px]`}
           style={{ opacity: "100%", filter: "blur(0px) invert(0)" }}
