@@ -1,7 +1,7 @@
-import SanityClient from "@sanity/client";
+import { createClient } from "@sanity/client";
 import ImageUrlBuilder from "@sanity/image-url";
 
-export const client = SanityClient({
+export const client = createClient({
   projectId: "y2w5k2uh",
   dataset: "production",
   apiVersion: "2022-02-19",
@@ -12,9 +12,5 @@ export const client = SanityClient({
 const builder = ImageUrlBuilder(client);
 
 export function urlFor(source: string) {
-  if (!source) {
-    return "image not found";
-  } else {
-    return builder.image(source).toString().toLowerCase();
-  }
+  return builder.image(source).toString().toLowerCase() || "";
 }

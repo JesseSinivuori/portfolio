@@ -1,4 +1,5 @@
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, Suspense, useEffect, useRef } from "react";
+import Loading from "../helpers/loading";
 
 type Props = {
   children: ReactNode;

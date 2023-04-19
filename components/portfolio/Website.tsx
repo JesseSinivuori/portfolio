@@ -45,7 +45,7 @@ export default function Website() {
               relative left-[120px] my-10 xss:left-[80px] xs:left-0 md:my-0`}
             >
               <Image
-                src={codeimg}
+                src={"/codeimg.png"}
                 alt="Image of my code."
                 className={` z-[5]
                     w-[470px]
@@ -53,9 +53,12 @@ export default function Website() {
                     object-contain
                     lg:w-[570px]
                     lg:max-w-[570px]
+                    max-h-[456px]
                     `}
                 width={570}
                 height={570}
+                placeholder="blur"
+                blurDataURL="/codeimg.png"
               />
 
               <div

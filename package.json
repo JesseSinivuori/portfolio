@@ -27,11 +27,12 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.7.1",
-    "stripe": "^11.5.0",
+    "stripe": "^11.18.0",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.32.3",
+    "@types/canvas-confetti": "^1.6.0",
     "autoprefixer": "^10.4.13",
     "cssnano": "^6.0.0",
     "eslint": "^8.37.0",

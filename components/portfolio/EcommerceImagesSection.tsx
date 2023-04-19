@@ -5,20 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export default function EcommerceImagesSection() {
-  const images = {
-    ecommerce: "/ecommerce.png",
-    ecommercecart: "/ecommercecart.png",
-    ecommercecategories: "/ecommercecategories.png",
-    ecommerceitem: "/ecommerceitem.png",
-    ecommerceitem2: "/ecommerceitem2.png",
-  };
-  const {
-    ecommerce,
-    ecommercecart,
-    ecommercecategories,
-    ecommerceitem,
-    ecommerceitem2,
-  } = images;
   const ref = useRef<HTMLDivElement>(null);
   const [imagesInView, setImagesInView] = useState(false);
 
@@ -55,7 +41,7 @@ export default function EcommerceImagesSection() {
             rel="noreferrer noopener"
           >
             <Image
-              src={ecommerce}
+              src={"/ecommerce.png"}
               alt={"image of ecommerce website"}
               className={`relative z-[3] m-52 w-[568px] min-w-[270px] rounded-xl border
               border-transparent object-cover duration-300 ease-in-out
@@ -63,6 +49,8 @@ export default function EcommerceImagesSection() {
               `}
               height={768}
               width={560}
+              placeholder="blur"
+              blurDataURL={"/ecommerce.png"}
             />
           </Link>
           <Link
@@ -72,7 +60,9 @@ export default function EcommerceImagesSection() {
             rel="noreferrer noopener"
           >
             <Image
-              src={ecommercecart}
+              src={"/ecommercecart.png"}
+              placeholder="blur"
+              blurDataURL={"/ecommercecart.png"}
               alt={"image of ecommerce website cart"}
               className={`${
                 imagesInView
@@ -96,7 +86,7 @@ export default function EcommerceImagesSection() {
             rel="noreferrer noopener"
           >
             <Image
-              src={ecommercecategories}
+              src={"/ecommercecategories.png"}
               alt={"image of ecommerce website categories"}
               className={`${
                 imagesInView
@@ -107,6 +97,8 @@ export default function EcommerceImagesSection() {
               ease-in-out hover:border-[#f02d34] hover:opacity-100 `}
               height={80}
               width={803}
+              placeholder="blur"
+              blurDataURL={"/ecommercecategories.png"}
             />
           </Link>
           <Link
@@ -116,7 +108,7 @@ export default function EcommerceImagesSection() {
             rel="noreferrer noopener"
           >
             <Image
-              src={ecommerceitem}
+              src={"/ecommerceitem.png"}
               alt={"image of ecommerce website item"}
               className={`${
                 imagesInView
@@ -128,6 +120,8 @@ export default function EcommerceImagesSection() {
               hover:lg:translate-x-[-25%] `}
               height={282}
               width={800}
+              placeholder="blur"
+              blurDataURL={"/ecommerceitem.png"}
             />
           </Link>
           <Link
@@ -137,7 +131,7 @@ export default function EcommerceImagesSection() {
             rel="noreferrer noopener"
           >
             <Image
-              src={ecommerceitem2}
+              src={"/ecommerceitem2.png"}
               alt={"image of ecommerce website item"}
               className={`${
                 imagesInView
@@ -151,6 +145,8 @@ export default function EcommerceImagesSection() {
               hover:lg:translate-x-[-35%]`}
               height={282}
               width={800}
+              placeholder="blur"
+              blurDataURL={"/ecommerceitem2.png"}
             />
           </Link>
         </div>

@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useStateContext } from "../context/StateContext";
 import styles from "../styles/style";
 import Navbar from "./Navbar";
@@ -18,9 +17,6 @@ export default function Layout({ children }: any) {
       }
       `}
     >
-      <Head>
-        <title>{"Jesse's Portfolio"}</title>
-      </Head>
       <header>
         <div className={`navbar-container`}>
           <Navbar />

@@ -24,6 +24,8 @@ export default function Skill(props: SkillProps) {
         ${["nextjs", "unity"].includes(id) && "invert"} `}
         width={80}
         height={80}
+        placeholder="blur"
+        blurDataURL={src}
       />
       <span className="p-2 font-poppins text-[18px] text-textDark/75 dark:text-textLight/75">
         {name}
@@ -31,6 +33,3 @@ export default function Skill(props: SkillProps) {
     </div>
   );
 }
-
-
-

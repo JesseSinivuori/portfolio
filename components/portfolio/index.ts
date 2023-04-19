@@ -2,7 +2,6 @@ export { default as ArrowDown } from "./ArrowDown";
 export { default as Button } from "./Button";
 export { default as Contact } from "./Contact";
 export { default as ContactBottom } from "./ContactBottom";
-export { default as ContactButton } from "./ContactButton";
 export { default as Ecommerce } from "./Ecommerce";
 export { default as Footer } from "./Footer";
 export { default as Game } from "./Game";

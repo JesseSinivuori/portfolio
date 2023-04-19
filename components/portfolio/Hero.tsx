@@ -1,14 +1,13 @@
 import styles from "../../styles/style";
 import Image from "next/image";
-import SlideAnimation from "./SlideAnimation";
-import HeroGradient from "./HeroGradient";
 import Link from "next/link";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import Loading from "../helpers/loading";
 
-export default function Hero() {
-  const imgofme = "/imgofme.png";
+const SlideAnimation = lazy(() => import("./SlideAnimation"));
+const HeroGradient = lazy(() => import("./HeroGradient"));
 
+export default function Hero() {
   return (
     <section
       id="home"
@@ -59,13 +58,15 @@ export default function Hero() {
       >
         <Suspense fallback={<Loading />}>
           <Image
-            src={imgofme}
+            src={"/imgofme.png"}
             alt="Image of me."
             className=":w-[100%] z-[5] 
                 h-[100%] max-h-[650px] min-w-[270px] object-contain"
             width={650}
             height={650}
-            priority={true}
+            placeholder="blur"
+            blurDataURL={"/imgofme.png"}
+            priority
           />
         </Suspense>
         <div

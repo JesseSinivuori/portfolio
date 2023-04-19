@@ -5,11 +5,6 @@ import SlideAnimation from "./SlideAnimation";
 import Link from "next/link";
 
 export default function GradientGenerator() {
-  const gradientImages = {
-    gradientcolors: "/gradientcolors.png",
-    gradientoutput: "/gradientoutput.png",
-  };
-  const { gradientcolors, gradientoutput } = gradientImages;
   return (
     <SlideAnimation
       animation={"slide-animation-top"}
@@ -59,13 +54,15 @@ export default function GradientGenerator() {
                 rel="noreferrer noopener"
               >
                 <Image
-                  src={gradientcolors}
+                  src={"/gradientcolors.png"}
                   alt={"image of gradient colors settings"}
                   className=" relative z-[3] mb-24 ml-96 w-[600px] min-w-[600px] rounded-md
                     border border-transparent object-cover opacity-75 transition-all duration-300
                     hover:border-white xss:ml-72 sm:ml-0"
                   height={405}
                   width={600}
+                  placeholder="blur"
+                  blurDataURL={"/gradientcolors.png"}
                 />
               </Link>
               <Link
@@ -76,13 +73,15 @@ export default function GradientGenerator() {
                 rel="noreferrer noopener"
               >
                 <Image
-                  src={gradientoutput}
+                  src={"/gradientoutput.png"}
                   alt={"image of gradient output"}
                   className="h-full rounded-md border
                     border-transparent object-cover opacity-75
                     transition-all duration-300 hover:border-white"
                   height={90}
                   width={1000}
+                  placeholder="blur"
+                  blurDataURL={"/gradientoutput.png"}
                 />
               </Link>
             </div>
