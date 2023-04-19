@@ -29,106 +29,104 @@ export default function ProductDetails({ products, product }: any) {
   }, [product, setQty]);
 
   return (
-    <Suspense fallback={<Loading />}>
-      <div>
-        <div className="product-detail-container">
-          <div>
-            <div className="image-container">
-              <Image
-                src={urlFor(image && image[index])}
-                className="product-detail-image"
-                alt={`Image of ' ${name}`}
-                height={400}
-                width={400}
-              />
-            </div>
-            {image?.length > 1 && (
-              <div className="small-images-container">
-                {image?.map((item: any, i: number) => (
-                  <Image
-                    width={200}
-                    height={200}
-                    key={item._id}
-                    src={urlFor(item)}
-                    className={
-                      i === index ? "small-image selected-image" : "small-image"
-                    }
-                    alt={`Image of ' ${name}`}
-                    onMouseEnter={() => setIndex(i)}
-                  />
-                ))}
-              </div>
-            )}
+    <div>
+      <div className="product-detail-container">
+        <div>
+          <div className="image-container">
+            <Image
+              src={urlFor(image && image[index])}
+              className="product-detail-image"
+              alt={`Image of ' ${name}`}
+              height={400}
+              width={400}
+            />
           </div>
-          <div className="product-detail-desc max-w-full flex-wrap xss:max-w-[410px]">
-            <div className="flex justify-start">
-              <h3
-                className="relative mb-4 w-[110px] rounded-xl bg-[#5a7557]
+          {image?.length > 1 && (
+            <div className="small-images-container">
+              {image?.map((item: any, i: number) => (
+                <Image
+                  width={200}
+                  height={200}
+                  key={item._id}
+                  src={urlFor(item)}
+                  className={
+                    i === index ? "small-image selected-image" : "small-image"
+                  }
+                  alt={`Image of ' ${name}`}
+                  onMouseEnter={() => setIndex(i)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="product-detail-desc max-w-full flex-wrap xss:max-w-[410px]">
+          <div className="flex justify-start">
+            <h3
+              className="relative mb-4 w-[110px] rounded-xl bg-[#5a7557]
                     p-1 font-extralight"
-              >
-                Free Delivery
-              </h3>
+            >
+              Free Delivery
+            </h3>
+          </div>
+          <h1>{name}</h1>
+          <div className="reviews">
+            <div className="stars">
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+              <AiOutlineStar />
             </div>
-            <h1>{name}</h1>
-            <div className="reviews">
-              <div className="stars">
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiOutlineStar />
-              </div>
-              <p></p>
+            <p></p>
+          </div>
+          <h4></h4>
+          <p className="">{details}</p>
+          <p className="price">{price}€</p>
+          <div className="quantity flex-wrap justify-center xss:flex xss:justify-start">
+            <div className="justify-start">
+              <h3 className="">Quantity: </h3>
             </div>
-            <h4></h4>
-            <p className="">{details}</p>
-            <p className="price">{price}€</p>
-            <div className="quantity flex-wrap justify-center xss:flex xss:justify-start">
-              <div className="justify-start">
-                <h3 className="">Quantity: </h3>
-              </div>
-              <div>
-                <p className="quantity-desc w-[110px] xss:w-[140px] xs:w-[160px]">
-                  <span className="minus" onClick={decQty}>
-                    <AiOutlineMinus />
-                  </span>
-                  <span className="num">{qty}</span>
-                  <span className="plus" onClick={incQty}>
-                    <AiOutlinePlus />
-                  </span>
-                </p>
-              </div>
+            <div>
+              <p className="quantity-desc w-[110px] xss:w-[140px] xs:w-[160px]">
+                <span className="minus" onClick={decQty}>
+                  <AiOutlineMinus />
+                </span>
+                <span className="num">{qty}</span>
+                <span className="plus" onClick={incQty}>
+                  <AiOutlinePlus />
+                </span>
+              </p>
             </div>
-            <div className="buttons ml-0 max-w-full xss:ml-[-15px]">
-              <div className="flex items-center justify-center xss:justify-start">
-                <div className="flex flex-wrap justify-center xss:justify-start xs:flex-nowrap">
-                  <button
-                    type="button"
-                    className="add-to-cart m-4"
-                    onClick={() => onAdd(product, qty)}
-                  >
-                    Add to Cart
-                  </button>
-                  <button
-                    type="button"
-                    className="buy-now m-4"
-                    onClick={() => handleBuyNow()}
-                  >
-                    Order Now
-                  </button>
-                </div>
+          </div>
+          <div className="buttons ml-0 max-w-full xss:ml-[-15px]">
+            <div className="flex items-center justify-center xss:justify-start">
+              <div className="flex flex-wrap justify-center xss:justify-start xs:flex-nowrap">
+                <button
+                  type="button"
+                  className="add-to-cart m-4"
+                  onClick={() => onAdd(product, qty)}
+                >
+                  Add to Cart
+                </button>
+                <button
+                  type="button"
+                  className="buy-now m-4"
+                  onClick={() => handleBuyNow()}
+                >
+                  Order Now
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <div className="maylike-products-wrapper">
-          <h2>Still hungry?</h2>
-          <CategoryMenu products={products} />
-          <Products products={products} />
-        </div>
-        <Footer />
       </div>
-    </Suspense>
+      <div className="maylike-products-wrapper">
+        <h2>Still hungry?</h2>
+        <CategoryMenu products={products} />
+        <Products products={products} />
+      </div>
+      <Footer />
+    </div>
   );
 }
 export const getStaticPaths = async () => {

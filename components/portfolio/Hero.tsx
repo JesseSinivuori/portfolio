@@ -56,19 +56,17 @@ export default function Hero() {
       <div
         className={`flex flex-1 ${styles.flexCenter} relative my-10 md:my-0`}
       >
-        <Suspense fallback={<Loading />}>
-          <Image
-            src={"/imgofme.png"}
-            alt="Image of me."
-            className=":w-[100%] z-[5] 
-                h-[100%] max-h-[650px] min-w-[270px] object-contain"
-            width={650}
-            height={650}
-            placeholder="blur"
-            blurDataURL={"/imgofme.png"}
-            priority
-          />
-        </Suspense>
+        <Image
+          src={"/imgofme.png"}
+          alt="Image of me."
+          className="z-[5] h-[450px] max-h-[650px] min-w-[270px] max-w-full
+            object-contain md:h-full"
+          width={650}
+          height={650}
+          placeholder="blur"
+          blurDataURL={"/imgofme.png"}
+          priority
+        />
         <div
           className={`absolute z-[0] h-[800px] min-h-[800px] w-[500px] min-w-[500px]`}
           style={{ opacity: "100%", filter: "blur(0px) invert(0)" }}

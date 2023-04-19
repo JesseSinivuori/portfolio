@@ -51,15 +51,13 @@ export default function Game() {
             poster="/mygamemp4poster.jpg"
             className="min-w-[270px] max-w-[470px] object-contain"
           >
-            <Suspense fallback={<div>Loading...</div>}>
-              <source
-                src="https://firebasestorage.googleapis.com/v0/b/portfolio-6fbcc.appspot.com/o/public-firebase%2Fmygamemp4.mp4?alt=media&token=7cced7c5-4283-446f-b513-150105115029"
-                type="video/mp4"
-              />
-              <span className={`${styles.paragraph}`}>
-                Your browser does not support the video tag.
-              </span>
-            </Suspense>
+            <source
+              src="https://firebasestorage.googleapis.com/v0/b/portfolio-6fbcc.appspot.com/o/public-firebase%2Fmygamemp4.mp4?alt=media&token=7cced7c5-4283-446f-b513-150105115029"
+              type="video/mp4"
+            />
+            <span className={`${styles.paragraph}`}>
+              Your browser does not support the video tag.
+            </span>
           </video>
         </div>
       </section>

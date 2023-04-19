@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { useStateContext } from "../../context/StateContext";
 import Product from "./Product";
-import Loading from "../helpers/loading";
 
 type ProductsProps = {
   products: any;
@@ -15,7 +14,6 @@ export default function Products({ products }: ProductsProps) {
     : products;
 
   return (
-    <Suspense fallback={<Loading />}>
       <div className={`products-container`}>
         <div className={`flex flex-wrap items-start justify-center`}>
           {filteredProducts.map((item: any) => (
@@ -25,6 +23,5 @@ export default function Products({ products }: ProductsProps) {
           ))}
         </div>
       </div>
-    </Suspense>
   );
 }

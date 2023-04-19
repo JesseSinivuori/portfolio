@@ -10,11 +10,15 @@ const Footer = lazy(() => import("../../components/portfolio/Footer"));
 
 export default function Home({ products, bannerData }: any) {
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       <Head key={"jesseskitchen"}>
         <title>{"Jesse's Kitchen"}</title>
       </Head>
-      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+      {!bannerData ? (
+        <Loading />
+      ) : (
+        <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+      )}
       <div className="products-heading">
         <h2>Menu</h2>
         <p></p>
@@ -22,7 +26,7 @@ export default function Home({ products, bannerData }: any) {
       </div>
       <Products products={products} />
       <Footer />
-    </Suspense>
+    </>
   );
 }
 
