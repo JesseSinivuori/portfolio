@@ -8,11 +8,11 @@ export default function HeroGradient() {
         style={{
           position: "absolute",
           zIndex: "0",
-          width: "75%",
-          height: "75%",
+          width: "100%",
+          height: "100%",
           background:
-            "linear-gradient(337deg, rgba(253, 133, 255, 1) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(88, 243, 254, 1) 100%)",
-          filter: "blur(295px)",
+            "linear-gradient(337deg, rgba(88, 254, 196, 1) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(88, 243, 254, 1) 100%)",
+          filter: "blur(245px)",
           opacity: "1",
           animation:
             "animateOpacity1 20s linear infinite, animateRotation1 20s linear infinite",

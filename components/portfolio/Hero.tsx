@@ -9,6 +9,7 @@ export default function Hero() {
       id="home"
       className={`flex-col md:flex-row ${styles.paddingY} ${styles.flexCenter} relative`}
     >
+      <HeroGradient />
       <div
         className={`flex-1 ${styles.flexStart} z-[10] flex-col px-6 sm:px-16 xl:px-0`}
       >
@@ -48,15 +49,14 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-      <HeroGradient />
       <div
         className={`flex flex-1 ${styles.flexCenter} relative my-10 md:my-0`}
       >
         <Image
           src={"/imgofme.png"}
           alt="Image of me."
-          className="z-[5] h-[450px] max-h-[650px] min-w-[270px] max-w-full
-            object-contain md:h-full"
+          className="z-[5] h-[450px] min-w-[270px] object-contain 
+            md:h-[650px]"
           width={650}
           height={650}
           placeholder="blur"
@@ -64,7 +64,7 @@ export default function Hero() {
           priority
         />
         <div
-          className={`absolute z-[0] h-[800px] min-h-[800px] w-[500px] min-w-[500px]`}
+          className={`absolute z-[0] h-[800px] min-h-[800px] w-[800px] min-w-[800px]`}
           style={{ opacity: "100%", filter: "blur(0px) invert(0)" }}
         >
           <div
@@ -74,7 +74,7 @@ export default function Hero() {
               width: "100%",
               height: "100%",
               background:
-                "radial-gradient(circle, rgba(0, 4, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(0, 0, 0, 1) 70%, rgba(102, 245, 236, 0) 100%)",
+                "radial-gradient(circle, rgba(0, 4, 255, 1) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(0, 0, 0, 1) 70%, rgba(102, 245, 236, 0) 100%)",
               filter: "blur(240px)",
               opacity: "0.25",
               animation: "false",
