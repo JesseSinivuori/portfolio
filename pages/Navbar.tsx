@@ -192,7 +192,7 @@ export default function Navbar() {
                 ${!toggle && "hidden"}`}
               >
                 <CloseOnBack toggleState={toggle} setToggleState={setToggle}>
-                  <div className={` mr-4 mt-20 flex max-h-full min-w-[200px]`}>
+                  <div className={` mr-4 mt-20 flex max-h-full`}>
                     <OnClickOutside
                       condition={toggle}
                       onClickOutside={() => {
@@ -206,7 +206,7 @@ export default function Navbar() {
                         }
                       }}
                     >
-                      <ul className="list-none flex-col items-center overflow-y-scroll rounded-md bg-nav p-1">
+                      <ul className="w-full list-none flex-col items-center overflow-y-scroll rounded-md bg-white bg-nav p-1">
                         {navLinks.map((nav, index) => (
                           <Link
                             href={`${nav.id}`}
