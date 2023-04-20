@@ -16,9 +16,6 @@ export default function Navbar() {
   const router = useRouter();
   const currentRoute = router.pathname;
 
-  const close = "/close.svg";
-  const menu = "/menu.svg";
-
   const [showCartIcon, setShowCartIcon] = useState(false);
 
   useEffect(() => {
@@ -32,14 +29,16 @@ export default function Navbar() {
   //toggle mobile menu
   const [toggle, setToggle] = useState(false);
 
-  const [navStyles, setNavStyles] = useState("bg-nav/0 backdrop-blur-[0px]");
+  const [navStyles, setNavStyles] = useState(
+    "bg-primary/0 backdrop-blur-[0px]"
+  );
 
   useEffect(() => {
     const handleScroll = () => {
       if (scrollY > 0) {
-        setNavStyles(`bg-nav/50 backdrop-blur-[25px]`);
+        setNavStyles(`bg-primary/50 backdrop-blur-[25px]`);
       } else {
-        setNavStyles(`bg-nav/0 backdrop-blur-[0px]`);
+        setNavStyles(`bg-primary/0 backdrop-blur-[0px]`);
       }
     };
 
@@ -176,7 +175,7 @@ export default function Navbar() {
                 </button>
               )}
               <Image
-                src={toggle ? close : menu}
+                src={toggle ? "/close.svg" : "/menu.svg"}
                 alt="menu"
                 className={`mr-[24px] h-[28px] w-[28px] object-contain
               ${toggle ? "rotate-180" : ""}  transition-all duration-300`}
@@ -206,7 +205,7 @@ export default function Navbar() {
                         }
                       }}
                     >
-                      <ul className="w-full list-none flex-col items-center overflow-y-scroll rounded-md bg-white bg-nav p-1">
+                      <ul className="w-full list-none flex-col items-center overflow-y-scroll rounded-md bg-nav p-2">
                         {navLinks.map((nav, index) => (
                           <Link
                             href={`${nav.id}`}

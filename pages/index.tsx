@@ -5,7 +5,7 @@ import DeliveryFeeCalculator from "../components/portfolio/DeliveryFeeCalculator
 import GradientGenerator from "../components/portfolio/GradientGenerator";
 import Head from "next/head";
 import { Suspense, lazy } from "react";
-import Loading from "../components/helpers/loading";
+import Loading from "../components/helpers/Loading";
 
 const Skills = lazy(() => import("../components/portfolio/Skills"));
 const Game = lazy(() => import("../components/portfolio/Game"));
