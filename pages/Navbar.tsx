@@ -214,7 +214,7 @@ export default function Navbar() {
                             rel={`${nav.rel ?? ""}`}
                           >
                             <li
-                              className={`w-full cursor-pointer rounded-md border-[1px] border-transparent p-2 font-poppins text-[16px] text-white
+                              className={`w-full min-w-full cursor-pointer rounded-md border-[1px] border-transparent p-2 font-poppins text-[16px] text-white
                               ${currentRoute === nav.id && "text-white/50"}
                               ${
                                 nav.id === "/portfolio/contact" &&
