@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "../../styles/style";
-import SlideAnimation from "./SlideAnimation";
+import { SlideAnimation } from "./index";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 

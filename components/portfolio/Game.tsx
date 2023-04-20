@@ -1,7 +1,5 @@
 import styles, { layout } from "../../styles/style";
-import SlideAnimation from "./SlideAnimation";
-import Skill from "./Skill";
-import { Suspense } from "react";
+import { SlideAnimation, Skill } from "./index";
 
 export default function Game() {
   const images = [

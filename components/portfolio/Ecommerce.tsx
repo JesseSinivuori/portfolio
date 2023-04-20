@@ -1,11 +1,7 @@
-import SlideAnimation from "./SlideAnimation";
 import styles, { layout } from "../../styles/style";
-import EcommerceImagesSection from "./EcommerceImagesSection";
-import Skill from "./Skill";
+import { Skill, EcommerceImagesSection, SlideAnimation } from "./index";
 
-type EcommerceProps = {};
-
-export default function Ecommerce(props: EcommerceProps) {
+export default function Ecommerce() {
   const skills = [
     {
       id: "react",

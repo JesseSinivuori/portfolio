@@ -32,16 +32,14 @@ export default function Navbar() {
   //toggle mobile menu
   const [toggle, setToggle] = useState(false);
 
-  const [navStyles, setNavStyles] = useState(
-    "bg-primary/0 backdrop-blur-[0px]"
-  );
+  const [navStyles, setNavStyles] = useState("bg-nav/0 backdrop-blur-[0px]");
 
   useEffect(() => {
     const handleScroll = () => {
       if (scrollY > 0) {
-        setNavStyles(`bg-primary/50 backdrop-blur-[25px]`);
+        setNavStyles(`bg-nav/50 backdrop-blur-[25px]`);
       } else {
-        setNavStyles(`bg-primary/0 backdrop-blur-[0px]`);
+        setNavStyles(`bg-nav/0 backdrop-blur-[0px]`);
       }
     };
 
@@ -111,32 +109,35 @@ export default function Navbar() {
                   <Link
                     href={`${nav.id}`}
                     key={nav.id}
-                    className={``}
                     target={`${nav.target ?? "_self"}`}
                     rel={`${nav.rel ?? ""}
                     `}
                   >
                     <li
                       className={`cursor-pointer rounded-md border-[1px] border-transparent
-                    p-2 font-poppins text-[16px] font-normal text-white
-                    duration-100 ease-in-out 
-                    ${currentRoute === nav.id && "text-white/50"}
-                    ${
-                      nav.id === "/portfolio/contact" &&
-                      currentRoute !== "/portfolio/contact"
-                        ? " border-[#ff0000] hover:text-[#ff0000]"
-                        : nav.title !== "Gradient Generator" &&
-                          "hover:text-white/50"
-                    } 
-                    ${
-                      nav.title === "Gradient Generator" &&
-                      `bg-gradient-to-r from-yellow-400 to-pink-500 
-                      bg-clip-text font-bold text-transparent
-                      transition-all duration-100
-                      hover:from-yellow-400/75 hover:to-pink-500/75
+                      p-2 font-poppins text-[16px] font-normal text-white
+                      duration-100 ease-in-out 
+                      ${currentRoute === nav.id && "text-white/50"}
+                      ${
+                        nav.id === "/portfolio/contact" &&
+                        currentRoute !== "/portfolio/contact"
+                          ? " border-[#ff0000] hover:text-[#ff0000]"
+                          : nav.title !== "Gradient Generator" &&
+                            "hover:text-white/50"
+                      } 
+                      ${
+                        nav.title === "Gradient Generator" &&
+                        `bg-gradient-to-r from-yellow-400 to-pink-500 
+                        bg-clip-text font-bold text-transparent
+                        transition-all duration-100
+                       hover:from-yellow-400/75 hover:to-pink-500/75
                       `
-                    } 
-                    ${index === navLinks.length - 1 ? "mr-[30px]" : "mr-[25px]"}
+                      } 
+                      ${
+                        index === navLinks.length - 1
+                          ? "mr-[30px]"
+                          : "mr-[25px]"
+                      }
                     `}
                     >
                       {nav.title}
@@ -179,73 +180,70 @@ export default function Navbar() {
                 alt="menu"
                 className={`mr-[24px] h-[28px] w-[28px] object-contain
               ${toggle ? "rotate-180" : ""}  transition-all duration-300`}
-                onClick={() => setToggle(true)}
+                onClick={() => setToggle((prev) => !prev)}
                 height={28}
                 width={28}
                 priority
               />
               {/** mobile menu */}
-              <CloseOnBack toggleState={toggle} setToggleState={setToggle}>
-                <div
-                  className={`absolute top-0 mr-4 min-w-[140px] duration-300 ease-in-out
-            ${
-              toggle ? "animate-top-visible mt-20 flex " : "animate-top-hidden"
-            }`}
-                >
-                  <OnClickOutside
-                    condition={toggle}
-                    onClickOutside={() => {
-                      if (toggle) {
-                        const timeout = setTimeout(() => {
-                          setToggle(false);
-                        }, 100);
-                        return () => clearTimeout(timeout);
-                      } else {
-                        return;
-                      }
-                    }}
-                  >
-                    <ul
-                      className="max-h-full list-none flex-col items-center
-                    overflow-y-scroll rounded-md bg-primary p-1"
+              <div
+                data-testid="mobile-menu"
+                className={`fixed top-0 p-2 transition-all duration-300
+                ${!toggle && "hidden"}`}
+              >
+                <CloseOnBack toggleState={toggle} setToggleState={setToggle}>
+                  <div className={` mr-4 mt-20 flex max-h-full min-w-[200px]`}>
+                    <OnClickOutside
+                      condition={toggle}
+                      onClickOutside={() => {
+                        if (toggle) {
+                          const timeout = setTimeout(() => {
+                            setToggle(false);
+                          }, 100);
+                          return () => clearTimeout(timeout);
+                        } else {
+                          return;
+                        }
+                      }}
                     >
-                      {navLinks.map((nav, index) => (
-                        <Link
-                          href={`${nav.id}`}
-                          key={nav.id}
-                          target={`${nav.target ?? "_self"}`}
-                          rel={`${nav.rel ?? ""}`}
-                        >
-                          <li
-                            className={`cursor-pointer rounded-md border-[1px] border-transparent p-2 font-poppins text-[16px] text-white
-                        ${currentRoute === nav.id && "text-white/50"}
-                        ${
-                          nav.id === "/portfolio/contact" &&
-                          currentRoute !== "/portfolio/contact"
-                            ? " border-[#ff0000] hover:text-[#ff0000]"
-                            : nav.title !== "Gradient Generator" &&
-                              "hover:text-white/50"
-                        } 
-                        ${
-                          nav.title === "Gradient Generator" &&
-                          `bg-gradient-to-br from-yellow-400 to-pink-500
-                          bg-clip-text font-bold text-transparent
-                          transition-all duration-100
-                          hover:from-yellow-400/75 hover:to-pink-500/75
-                          `
-                        } 
-                        ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}
-                                             `}
-                            onClick={() => setToggle((prev) => !prev)}
+                      <ul className="list-none flex-col items-center overflow-y-scroll rounded-md bg-nav p-1">
+                        {navLinks.map((nav, index) => (
+                          <Link
+                            href={`${nav.id}`}
+                            key={nav.id}
+                            target={`${nav.target ?? "_self"}`}
+                            rel={`${nav.rel ?? ""}`}
                           >
-                            {nav.title}
-                          </li>
-                        </Link>
-                      ))}
-                    </ul>
-                  </OnClickOutside>
-                </div>
-              </CloseOnBack>
+                            <li
+                              className={`cursor-pointer rounded-md border-[1px] border-transparent p-2 font-poppins text-[16px] text-white
+                              ${currentRoute === nav.id && "text-white/50"}
+                              ${
+                                nav.id === "/portfolio/contact" &&
+                                currentRoute !== "/portfolio/contact"
+                                  ? " border-[#ff0000] hover:text-[#ff0000]"
+                                  : nav.title !== "Gradient Generator" &&
+                                    "hover:text-white/50"
+                              } 
+                              ${
+                                nav.title === "Gradient Generator" &&
+                                `bg-gradient-to-br from-yellow-400 to-pink-500
+                              bg-clip-text font-bold text-transparent
+                              transition-all duration-100
+                             hover:from-yellow-400/75 hover:to-pink-500/75`
+                              } 
+                            ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}
+                                             `}
+                              onClick={() => setToggle((prev) => !prev)}
+                            >
+                              {nav.title}
+                            </li>
+                          </Link>
+                        ))}
+                      </ul>
+                    </OnClickOutside>
+                  </div>
+                </CloseOnBack>
+              </div>
             </div>
           </nav>
         </div>

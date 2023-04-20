@@ -1,11 +1,7 @@
 import styles from "../../styles/style";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense, lazy } from "react";
-import Loading from "../helpers/loading";
-
-const SlideAnimation = lazy(() => import("./SlideAnimation"));
-const HeroGradient = lazy(() => import("./HeroGradient"));
+import { HeroGradient, SlideAnimation } from "./index";
 
 export default function Hero() {
   return (

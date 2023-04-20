@@ -1,6 +1,4 @@
-type HeroGradientProps = {};
-
-export default function HeroGradient(props: HeroGradientProps) {
+export default function HeroGradient() {
   return (
     <div
       className={`absolute z-[0] h-full min-h-[800px] w-full min-w-[800px]`}

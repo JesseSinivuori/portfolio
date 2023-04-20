@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles, { layout } from "../../styles/style";
-import Skill from "./Skill";
-import SlideAnimation from "./SlideAnimation";
+import { SlideAnimation, Skill } from "./index";
 import Link from "next/link";
 
 export default function GradientGenerator() {

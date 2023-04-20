@@ -12,13 +12,15 @@ export default function CloseOnBack({
   setToggleState,
 }: CloseOnBackProps) {
   useEffect(() => {
-    if (toggleState) {
-      const handlePopstate = (event: any) => {
+    const handlePopstate = (event: any) => {
+      const timeout = setTimeout(() => {
         setToggleState((prev) => false);
-      };
+      }, 0);
+      return () => clearTimeout(timeout);
+    };
 
+    if (toggleState) {
       window.addEventListener("popstate", handlePopstate);
-
       return () => {
         window.removeEventListener("popstate", handlePopstate);
       };

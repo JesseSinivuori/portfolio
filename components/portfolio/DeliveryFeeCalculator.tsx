@@ -1,15 +1,10 @@
 import Image from "next/image";
 import styles, { layout } from "../../styles/style";
-import SlideAnimation from "./SlideAnimation";
+import { SlideAnimation, Skill } from "./index";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import Skill from "./Skill";
 
-type DeliveryFeeCalculatorProps = {};
-
-export default function DeliveryFeeCalculator(
-  props: DeliveryFeeCalculatorProps
-) {
+export default function DeliveryFeeCalculator() {
   const skills = [
     {
       id: "react",

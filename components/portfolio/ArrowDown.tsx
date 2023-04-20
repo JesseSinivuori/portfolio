@@ -2,7 +2,7 @@ import styles from "../../styles/style";
 import Image from "next/image";
 
 type Props = {
-  styles?: string; //add styles
+  styles?: string;
 };
 
 export default function ArrowDown(props: Props) {

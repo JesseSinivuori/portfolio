@@ -9,8 +9,7 @@ import { urlFor } from "../../lib/client";
 import getStripe from "../../lib/getStripe";
 import toast from "react-hot-toast";
 import Image from "next/image";
-import CloseOnBack from "./CloseOnBack";
-import OnClickOutside from "../helpers/OnClickOutside";
+import { OnClickOutside, CloseOnBack } from "../index";
 import copy from "copy-to-clipboard";
 
 export default function Cart() {

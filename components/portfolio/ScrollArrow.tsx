@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../../styles/style";
-import ArrowDown from "./ArrowDown";
+import { ArrowDown } from "./index";
 
 type Props = {
   styles?: string;

@@ -5,10 +5,7 @@ import Image from "next/image";
 export default function HeroBanner({ heroBanner }: any) {
   return (
     <div className="hero-banner-container">
-      <div
-        className="hero-banner-gradient
-            "
-      ></div>
+      <div className="hero-banner-gradient"></div>
       <div className="flex flex-col">
         <div className="relative flex-1">
           <div className="flex ">

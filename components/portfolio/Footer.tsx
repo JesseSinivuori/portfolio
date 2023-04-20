@@ -1,5 +1,4 @@
 import styles from "../../styles/style";
-import React from "react";
 
 type Props = {
   styles?: string;

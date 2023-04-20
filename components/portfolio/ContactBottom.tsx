@@ -1,5 +1,5 @@
 import styles from "../../styles/style";
-import { Button, SlideAnimation } from ".";
+import { Button, SlideAnimation } from "./index";
 
 export default function ContactBottom() {
   return (

@@ -61,11 +61,22 @@ test("Cart should be visible //+ have the height of the viewport", async ({
 }); 
 */
 }
-
+{
+  /**
 test("cart should not be visible", async ({ page }) => {
   await page.goto("/");
 
   const cart = page.getByTestId("cart");
 
   await expect(cart).not.toBeVisible();
+});
+*/
+}
+
+test("mobile menu should not be visible", async ({ page }) => {
+  await page.goto("/");
+
+  const mobileMenu = page.getByTestId("mobile-menu");
+
+  await expect(mobileMenu).not.toBeVisible();
 });

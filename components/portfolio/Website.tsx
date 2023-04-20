@@ -1,7 +1,6 @@
 import styles, { layout } from "../../styles/style";
 import Image from "next/image";
-import SlideAnimation from "./SlideAnimation";
-import Skill from "./Skill";
+import { SlideAnimation, Skill } from "./index";
 
 export default function Website() {
   const skills = [
@@ -48,12 +47,12 @@ export default function Website() {
                 src={"/codeimg.png"}
                 alt="Image of my code."
                 className={` z-[5]
+                    max-h-[456px]
                     w-[470px]
                     max-w-[470px]
                     object-contain
                     lg:w-[570px]
                     lg:max-w-[570px]
-                    max-h-[456px]
                     `}
                 width={570}
                 height={570}

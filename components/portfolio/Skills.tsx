@@ -1,9 +1,6 @@
-import SlideAnimation from "./SlideAnimation";
 import { mySkills } from "../../constants";
 import styles from "../../styles/style";
-import Skill from "./Skill";
-import Loading from "../helpers/loading";
-import { Suspense } from "react";
+import { Skill, SlideAnimation } from "./index";
 
 export default function Skills() {
   return (
