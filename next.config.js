@@ -10,6 +10,8 @@ const ContentSecurityPolicy = `
   script-src-elem 'self' va.vercel-scripts.com js.stripe.com;
   img-src 'self' portfolio-one-gamma-55.vercel.app;
   connect-src 'self' vitals.vercel-insights.com;
+  object-src 'none';
+  base-uri 'none';
 `;
 const securityHeaders = [
   {
