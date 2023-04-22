@@ -42,13 +42,11 @@ export default function Game() {
             </div>
           </SlideAnimation>
         </div>
-        <div
-          className={`mt-0 flex h-full w-full flex-1 flex-col items-center md:mt-8`}
-        >
+        <div className={` mt-0 flex flex-1 justify-center md:mt-8`}>
           <Image
             src="/mygamevid.webp"
             alt="video of my game"
-            className="h-[270x] min-w-[270px] max-w-[470px] object-contain"
+            className="h-[270px] min-w-[270px] max-w-[470px] object-contain"
             width={470}
             height={270}
           />
