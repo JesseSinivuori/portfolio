@@ -74,7 +74,7 @@ export default function Hero() {
               width: "100%",
               height: "100%",
               background:
-                "radial-gradient(circle, rgba(0, 4, 255, 1) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(0, 0, 0, 1) 70%, rgba(102, 245, 236, 0) 100%)",
+                "radial-gradient(circle, rgba(0, 4, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(0, 0, 0, 0) 70%, rgba(102, 245, 236, 0) 100%)",
               filter: "blur(240px)",
               opacity: "0.25",
               animation: "false",
