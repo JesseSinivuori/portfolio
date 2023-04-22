@@ -8,7 +8,7 @@ const ContentSecurityPolicy = `
   style-src-elem 'self' 'unsafe-inline' fonts.googleapis.com;
   frame-src 'self' js.stripe.com;
   script-src-elem 'self' va.vercel-scripts.com js.stripe.com;
-  img-src 'self' w3.org;
+  img-src 'self' portfolio-one-gamma-55.vercel.app;
   connect-src 'self' vitals.vercel-insights.com;
 `;
 const securityHeaders = [
