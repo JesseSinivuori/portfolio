@@ -41,7 +41,7 @@ export default function EcommerceImagesSection() {
             rel="noreferrer noopener"
           >
             <Image
-              src={"/ecommerce.png"}
+              src={"/ecommerce.webp"}
               alt={"image of ecommerce website"}
               className={`relative z-[3] m-52 w-[568px] min-w-[270px] rounded-xl border
               border-transparent object-cover duration-300 ease-in-out
@@ -50,7 +50,8 @@ export default function EcommerceImagesSection() {
               height={768}
               width={560}
               placeholder="blur"
-              blurDataURL={"/ecommerce.png"}
+              blurDataURL={"/ecommerce.webp"}
+              quality={100}
             />
           </Link>
           <Link
@@ -60,9 +61,9 @@ export default function EcommerceImagesSection() {
             rel="noreferrer noopener"
           >
             <Image
-              src={"/ecommercecart.png"}
+              src={"/ecommercecart.webp"}
               placeholder="blur"
-              blurDataURL={"/ecommercecart.png"}
+              blurDataURL={"/ecommercecart.webp"}
               alt={"image of ecommerce website cart"}
               className={`${
                 imagesInView
@@ -70,13 +71,13 @@ export default function EcommerceImagesSection() {
                   : "translate-x-[-100%] translate-y-[25%] scale-0"
               }
             absolute right-[-100px] top-[50px]
-            z-[2] w-[300px] min-w-[200px] rounded-xl
+            z-[2] w-[297px] min-w-[200px] rounded-xl
             border border-transparent object-cover
             opacity-100 duration-300 ease-in-out
             hover:border-[#f02d34] hover:opacity-100
             md:right-[100px] lg:hover:scale-[125%]`}
               height={475}
-              width={375}
+              width={297}
             />
           </Link>
           <Link
@@ -86,7 +87,7 @@ export default function EcommerceImagesSection() {
             rel="noreferrer noopener"
           >
             <Image
-              src={"/ecommercecategories.png"}
+              src={"/ecommercecategories.webp"}
               alt={"image of ecommerce website categories"}
               className={`${
                 imagesInView
@@ -98,7 +99,7 @@ export default function EcommerceImagesSection() {
               height={80}
               width={803}
               placeholder="blur"
-              blurDataURL={"/ecommercecategories.png"}
+              blurDataURL={"/ecommercecategories.webp"}
             />
           </Link>
           <Link
@@ -108,7 +109,7 @@ export default function EcommerceImagesSection() {
             rel="noreferrer noopener"
           >
             <Image
-              src={"/ecommerceitem.png"}
+              src={"/ecommerceitem.webp"}
               alt={"image of ecommerce website item"}
               className={`${
                 imagesInView
@@ -121,7 +122,7 @@ export default function EcommerceImagesSection() {
               height={282}
               width={800}
               placeholder="blur"
-              blurDataURL={"/ecommerceitem.png"}
+              blurDataURL={"/ecommerceitem.webp"}
             />
           </Link>
           <Link
@@ -131,7 +132,7 @@ export default function EcommerceImagesSection() {
             rel="noreferrer noopener"
           >
             <Image
-              src={"/ecommerceitem2.png"}
+              src={"/ecommerceitem2.webp"}
               alt={"image of ecommerce website item"}
               className={`${
                 imagesInView
@@ -146,7 +147,7 @@ export default function EcommerceImagesSection() {
               height={282}
               width={800}
               placeholder="blur"
-              blurDataURL={"/ecommerceitem2.png"}
+              blurDataURL={"/ecommerceitem2.webp"}
             />
           </Link>
         </div>

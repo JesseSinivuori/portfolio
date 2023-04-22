@@ -45,7 +45,8 @@ export default function HeroBanner({ heroBanner }: any) {
         className="hero-banner-image"
         height={850}
         width={850}
-        priority={true}
+        quality={100}
+        priority
       />
 
       <div className="flex w-full items-end justify-end">

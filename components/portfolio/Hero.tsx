@@ -53,14 +53,13 @@ export default function Hero() {
         className={`flex flex-1 ${styles.flexCenter} relative my-10 md:my-0`}
       >
         <Image
-          src={"/imgofme.png"}
+          src={"/imgofme.webp"}
           alt="Image of me."
-          className="z-[5] h-[450px] min-w-[270px] object-contain 
-            md:h-[650px]"
+          className="z-[5] h-[450px] min-w-[270px] object-contain md:h-[650px]"
           width={650}
           height={650}
           placeholder="blur"
-          blurDataURL={"/imgofme.png"}
+          blurDataURL={"/imgofme.webp"}
           priority
         />
         <div

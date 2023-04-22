@@ -101,7 +101,7 @@ export default function DeliveryFeeCalculator() {
               >
                 <div ref={ref} className="m-8">
                   <Image
-                    src={"/deliveryfeecalculator.png"}
+                    src={"/deliveryfeecalculator.webp"}
                     alt="image of delivery fee calculator"
                     className="relative z-[1] rounded-xl border border-transparent object-cover
                transition-all duration-300 hover:border-white
@@ -109,7 +109,8 @@ export default function DeliveryFeeCalculator() {
                     height={449}
                     width={240}
                     placeholder="blur"
-                    blurDataURL="/deliveryfeecalculator.png"
+                    blurDataURL="/deliveryfeecalculator.webp"
+                    quality={100}
                   />
                 </div>
               </Link>
@@ -143,7 +144,7 @@ export default function DeliveryFeeCalculator() {
                   rel="noreferrer noopener"
                 >
                   <Image
-                    src={"/deliveryfeecalculatorsettings.png"}
+                    src={"/deliveryfeecalculatorsettings.webp"}
                     alt="image of delivery fee calculator"
                     className={`
                    m-8 rounded-xl border
@@ -153,7 +154,8 @@ export default function DeliveryFeeCalculator() {
                     height={291}
                     width={640}
                     placeholder="blur"
-                    blurDataURL="/deliveryfeecalculatorsettings.png"
+                    blurDataURL="/deliveryfeecalculatorsettings.webp"
+                    quality={100}
                   />
                 </Link>
                 <p

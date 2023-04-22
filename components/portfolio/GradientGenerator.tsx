@@ -53,7 +53,7 @@ export default function GradientGenerator() {
                 rel="noreferrer noopener"
               >
                 <Image
-                  src={"/gradientcolors.png"}
+                  src={"/gradientcolors.webp"}
                   alt={"image of gradient colors settings"}
                   className=" relative z-[3] mb-24 ml-96 w-[600px] min-w-[600px] rounded-md
                     border border-transparent object-cover opacity-75 transition-all duration-300
@@ -61,7 +61,7 @@ export default function GradientGenerator() {
                   height={405}
                   width={600}
                   placeholder="blur"
-                  blurDataURL={"/gradientcolors.png"}
+                  blurDataURL={"/gradientcolors.webp"}
                 />
               </Link>
               <Link
@@ -72,7 +72,7 @@ export default function GradientGenerator() {
                 rel="noreferrer noopener"
               >
                 <Image
-                  src={"/gradientoutput.png"}
+                  src={"/gradientoutput.webp"}
                   alt={"image of gradient output"}
                   className="h-full rounded-md border
                     border-transparent object-cover opacity-75
@@ -80,7 +80,7 @@ export default function GradientGenerator() {
                   height={90}
                   width={1000}
                   placeholder="blur"
-                  blurDataURL={"/gradientoutput.png"}
+                  blurDataURL={"/gradientoutput.webp"}
                 />
               </Link>
             </div>

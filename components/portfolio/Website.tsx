@@ -26,7 +26,7 @@ export default function Website() {
     },
   ];
 
-  const codeimg = "/codeimg.png";
+  const codeimg = "/codeimg.webp";
 
   return (
     <SlideAnimation animation={"slide-animation-top"}>
@@ -44,7 +44,7 @@ export default function Website() {
               relative left-[120px] my-10 xss:left-[80px] xs:left-0 md:my-0`}
             >
               <Image
-                src={"/codeimg.png"}
+                src={"/codeimg.webp"}
                 alt="Image of my code."
                 className={` z-[5]
                     max-h-[456px]
@@ -57,7 +57,7 @@ export default function Website() {
                 width={570}
                 height={570}
                 placeholder="blur"
-                blurDataURL="/codeimg.png"
+                blurDataURL="/codeimg.webp"
               />
 
               <div

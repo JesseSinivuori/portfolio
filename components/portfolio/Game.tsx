@@ -1,5 +1,6 @@
 import styles, { layout } from "../../styles/style";
 import { SlideAnimation, Skill } from "./index";
+import Image from "next/image";
 
 export default function Game() {
   const images = [
@@ -41,22 +42,16 @@ export default function Game() {
             </div>
           </SlideAnimation>
         </div>
-        <div className={`${layout.sectionImg}`}>
-          <video
-            loop
-            autoPlay
-            muted
-            poster="/mygamemp4poster.jpg"
-            className="min-w-[270px] max-w-[470px] object-contain"
-          >
-            <source
-              src="https://firebasestorage.googleapis.com/v0/b/portfolio-6fbcc.appspot.com/o/public-firebase%2Fmygamemp4.mp4?alt=media&token=7cced7c5-4283-446f-b513-150105115029"
-              type="video/mp4"
-            />
-            <span className={`${styles.paragraph}`}>
-              Your browser does not support the video tag.
-            </span>
-          </video>
+        <div
+          className={`mt-0 flex h-full w-full flex-1 flex-col items-center md:mt-8`}
+        >
+          <Image
+            src="/mygamevid.webp"
+            alt="video of my game"
+            className="h-[270x] min-w-[270px] max-w-[470px] object-contain"
+            width={470}
+            height={270}
+          />
         </div>
       </section>
     </SlideAnimation>
