@@ -14,7 +14,7 @@ export default function Layout({ children }: any) {
 
   useEffect(() => {
     if (pathname.startsWith("/store/")) {
-      setBgColor("bg-[#0a0a0a]");
+      setBgColor("bg-store");
     } else {
       setBgColor("bg-primary");
     }
@@ -38,7 +38,7 @@ export default function Layout({ children }: any) {
               style: {
                 padding: "16px",
                 color: "white",
-                backgroundColor: "#0f0f0f",
+                backgroundColor: "#0a0a0a",
               },
             }}
           />
