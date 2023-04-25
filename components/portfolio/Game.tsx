@@ -49,6 +49,7 @@ export default function Game() {
             className="h-[270px] min-w-[270px] max-w-[470px] object-contain"
             width={470}
             height={270}
+            quality={100}
           />
         </div>
       </section>

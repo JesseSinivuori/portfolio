@@ -1,13 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { navLinks } from "../constants/index";
 import Image from "next/image";
 import { useStateContext } from "../context/StateContext";
 import { AiOutlineShopping } from "react-icons/ai";
-import Cart from "../components/store/Cart";
 import { useRouter } from "next/router";
-import CloseOnBack from "../components/store/CloseOnBack";
-import OnClickOutside from "../components/helpers/OnClickOutside";
+import { OnClickOutside, CloseOnBack, Cart } from "../components/index";
 
 //return navbar
 export default function Navbar() {
@@ -177,8 +175,8 @@ export default function Navbar() {
               <Image
                 src={toggle ? "/close.svg" : "/menu.svg"}
                 alt="menu"
-                className={`mr-[24px] h-[28px] w-[28px] object-contain
-              ${toggle ? "rotate-180" : ""}  transition-all duration-300`}
+                className={`mr-[24px] h-[28px] w-[28px] object-contain hover:opacity-50
+              ${toggle ? "rotate-180" : ""}  transition-all duration-100`}
                 onClick={() => setToggle((prev) => !prev)}
                 height={28}
                 width={28}

@@ -1,20 +1,17 @@
 import styles from "../styles/style";
-import { Hero } from "../components/portfolio";
-import Ecommerce from "../components/portfolio/Ecommerce";
-import DeliveryFeeCalculator from "../components/portfolio/DeliveryFeeCalculator";
-import GradientGenerator from "../components/portfolio/GradientGenerator";
 import Head from "next/head";
-import { Suspense, lazy } from "react";
-import Loading from "../components/helpers/Loading";
-
-const Skills = lazy(() => import("../components/portfolio/Skills"));
-const Game = lazy(() => import("../components/portfolio/Game"));
-const Website = lazy(() => import("../components/portfolio/Website"));
-const Footer = lazy(() => import("../components/portfolio/Footer"));
-const ScrollArrow = lazy(() => import("../components/portfolio/ScrollArrow"));
-const ContactBottom = lazy(
-  () => import("../components/portfolio/ContactBottom")
-);
+import {
+  Skills,
+  Game,
+  Website,
+  Footer,
+  ScrollArrow,
+  ContactBottom,
+  DeliveryFeeCalculator,
+  GradientGenerator,
+  Hero,
+  Ecommerce,
+} from "../components/index";
 
 //return home page
 export default function Home() {
