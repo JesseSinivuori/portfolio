@@ -9,13 +9,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#161616",
+        primary: "#0a0a0a",
         secondary: "#161616",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
         store: "#0a0a0a",
         storeSecondary: "#ff7070",
-        nav: "#1f1f1f",
+        nav: "#0a0a0a",
       },
       textColor: {
         textLight: "#ffffff",

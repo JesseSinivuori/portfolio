@@ -58,6 +58,7 @@ export default function Website() {
                 height={570}
                 placeholder="blur"
                 blurDataURL="/codeimg.webp"
+                quality={100}
               />
 
               <div

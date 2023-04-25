@@ -62,6 +62,7 @@ export default function GradientGenerator() {
                   width={600}
                   placeholder="blur"
                   blurDataURL={"/gradientcolors.webp"}
+                  quality={100}
                 />
               </Link>
               <Link
@@ -81,6 +82,7 @@ export default function GradientGenerator() {
                   width={1000}
                   placeholder="blur"
                   blurDataURL={"/gradientoutput.webp"}
+                  quality={100}
                 />
               </Link>
             </div>

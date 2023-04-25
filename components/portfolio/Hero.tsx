@@ -60,6 +60,7 @@ export default function Hero() {
           height={650}
           placeholder="blur"
           blurDataURL={"/imgofme.webp"}
+          quality={100}
           priority
         />
         <div

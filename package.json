@@ -21,7 +21,6 @@
     "canvas-confetti": "^1.6.0",
     "copy-to-clipboard": "^3.3.3",
     "eslint-config-next": "^13.3.0",
-    "firebase": "^9.19.1",
     "next": "^13.3.0",
     "next-sanity-image": "^6.0.0",
     "react": "^18.2.0",

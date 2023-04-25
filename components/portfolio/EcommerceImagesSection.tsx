@@ -78,6 +78,7 @@ export default function EcommerceImagesSection() {
             md:right-[100px] lg:hover:scale-[125%]`}
               height={475}
               width={297}
+              quality={100}
             />
           </Link>
           <Link
@@ -93,13 +94,14 @@ export default function EcommerceImagesSection() {
                 imagesInView
                   ? "translate-y-0 scale-100"
                   : " translate-y-[100%] scale-0"
-              } absolute left-[-50px] top-[120px] z-[1] h-20 w-[85%] rounded-xl
+              } absolute left-[-50px] top-[120px] z-[1] h-[80px] w-[85%] rounded-xl
               border border-transparent object-cover opacity-50 duration-300
               ease-in-out hover:border-[#f02d34] hover:opacity-100 `}
               height={80}
               width={803}
               placeholder="blur"
               blurDataURL={"/ecommercecategories.webp"}
+              quality={100}
             />
           </Link>
           <Link
@@ -123,6 +125,7 @@ export default function EcommerceImagesSection() {
               width={800}
               placeholder="blur"
               blurDataURL={"/ecommerceitem.webp"}
+              quality={100}
             />
           </Link>
           <Link
@@ -148,6 +151,7 @@ export default function EcommerceImagesSection() {
               width={800}
               placeholder="blur"
               blurDataURL={"/ecommerceitem2.webp"}
+              quality={100}
             />
           </Link>
         </div>

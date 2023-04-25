@@ -103,11 +103,12 @@ export default function DeliveryFeeCalculator() {
                   <Image
                     src={"/deliveryfeecalculator.webp"}
                     alt="image of delivery fee calculator"
-                    className="relative z-[1] rounded-xl border border-transparent object-cover
+                    className="relative z-[1] h-[443px] w-[238px] rounded-xl
+                    border border-transparent object-cover
                transition-all duration-300 hover:border-white
               "
-                    height={449}
-                    width={240}
+                    height={443}
+                    width={238}
                     placeholder="blur"
                     blurDataURL="/deliveryfeecalculator.webp"
                     quality={100}
@@ -147,11 +148,11 @@ export default function DeliveryFeeCalculator() {
                     src={"/deliveryfeecalculatorsettings.webp"}
                     alt="image of delivery fee calculator"
                     className={`
-                   m-8 rounded-xl border
-              border-transparent object-cover opacity-75 transition-all
-              duration-300 hover:border-white hover:opacity-100
+                   m-8 h-[290px] w-[640px]
+              rounded-xl border border-transparent object-cover
+              opacity-75 transition-all duration-300 hover:border-white hover:opacity-100
               `}
-                    height={291}
+                    height={290}
                     width={640}
                     placeholder="blur"
                     blurDataURL="/deliveryfeecalculatorsettings.webp"

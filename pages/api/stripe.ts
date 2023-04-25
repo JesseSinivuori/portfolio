@@ -1,4 +1,9 @@
-const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+import Stripe from "stripe";
+
+const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY!, {
+  apiVersion: "2022-11-15",
+  typescript: true,
+});
 
 export default async function handler(req: any, res: any) {
   if (req.method === "POST") {
@@ -19,16 +24,7 @@ export default async function handler(req: any, res: any) {
               "image-",
               "https://cdn.sanity.io/images/y2w5k2uh/production/"
             )
-            .replace(
-              "-webp",
-              ".webp",
-              "-jpeg",
-              ".jpeg",
-              "-png",
-              ".png",
-              "-svg",
-              ".svg"
-            );
+            .replace("-webp", ".webp", "-jpeg", ".jpeg", "-png", ".png");
 
           return {
             price_data: {
@@ -51,7 +47,7 @@ export default async function handler(req: any, res: any) {
         automatic_tax: { enabled: false },
       };
       // Create Checkout Sessions from body params.
-      const session = await stripe.checkout.sessions.create(params);
+      const session = await stripe.checkout.sessions.create(params as any);
       res.status(200).json(session);
     } catch (err: any) {
       res.status(err.statusCode || 500).json(err.message);

@@ -4,7 +4,6 @@ import Layout from "./Layout";
 import StateContext from "../context/StateContext";
 import { Suspense } from "react";
 import Loading from "../components/helpers/Loading";
-import "@stripe/stripe-js";
 import { Analytics } from "@vercel/analytics/react";
 
 export default function App({ Component, pageProps }: AppProps) {
