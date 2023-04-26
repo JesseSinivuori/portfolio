@@ -1,7 +1,13 @@
-import { CategoryMenu, HeroBanner, Products } from "../../components/store";
+import {
+  CategoryMenu,
+  HeroBanner,
+  Products,
+  Loading,
+  Footer,
+} from "../../components/index";
 import { client } from "../../lib/client";
-import Footer from "../../components/portfolio/Footer";
 import Head from "next/head";
+import { Suspense } from "react";
 
 export default function Home({ products, bannerData }: any) {
   return (
@@ -9,7 +15,9 @@ export default function Home({ products, bannerData }: any) {
       <Head key={"jesseskitchen"}>
         <title>{"Jesse's Kitchen"}</title>
       </Head>
-      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+      <Suspense fallback={<Loading />}>
+        <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+      </Suspense>
       <div className="products-heading">
         <h2>Menu</h2>
         <p></p>

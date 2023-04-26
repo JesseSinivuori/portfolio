@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { urlFor } from "../../lib/client";
 import Image from "next/image";
+import { Loading } from "../helpers";
+import { Suspense } from "react";
 
 type ProductProps = {
   product: any;
 };
 
-export default function Product({
-  product: { image, name, slug, price },
-}: ProductProps) {
+export default function Product({ product }: ProductProps) {
+  const { image, name, price, slug } = product;
   return (
     <div className="">
       <Link href={`/store/product/${slug.current}`}>

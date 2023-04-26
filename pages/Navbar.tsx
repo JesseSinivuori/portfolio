@@ -111,8 +111,8 @@ export default function Navbar() {
                     `}
                   >
                     <li
-                      className={`cursor-pointer rounded-md border-[1px] border-transparent
-                      p-2 font-poppins text-[16px] font-normal text-white
+                      className={`font-poppins cursor-pointer rounded-md border-[1px]
+                      border-transparent p-2 text-[16px] font-normal text-white
                       duration-100 ease-in-out 
                       ${currentRoute === nav.id && "text-white/50"}
                       ${
@@ -212,7 +212,7 @@ export default function Navbar() {
                             rel={`${nav.rel ?? ""}`}
                           >
                             <li
-                              className={`w-full min-w-[219px]  cursor-pointer rounded-md border-[1px] border-transparent p-2 font-poppins text-[16px] text-white
+                              className={`font-poppins w-full  min-w-[219px] cursor-pointer rounded-md border-[1px] border-transparent p-2 text-[16px] text-white
                               ${currentRoute === nav.id && "text-white/50"}
                               ${
                                 nav.id === "/portfolio/contact" &&
@@ -245,7 +245,7 @@ export default function Navbar() {
           </nav>
         </div>
       </div>
-      {currentRoute.startsWith("/store/") && <Cart />}
+      {currentRoute.startsWith("/store/") && showCart && <Cart />}
     </div>
   );
 }

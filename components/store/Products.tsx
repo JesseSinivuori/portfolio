@@ -1,5 +1,6 @@
+import { Suspense } from "react";
 import { useStateContext } from "../../context/StateContext";
-import Product from "./Product";
+import { Loading, Product } from "../index";
 
 type ProductsProps = {
   products: any;
@@ -17,7 +18,9 @@ export default function Products({ products }: ProductsProps) {
       <div className={`flex flex-wrap items-start justify-center`}>
         {filteredProducts.map((item: any) => (
           <div className="m-[10px]" key={item._id}>
-            <Product product={item} />
+            <Suspense fallback={<Loading />}>
+              <Product product={item} />
+            </Suspense>
           </div>
         ))}
       </div>

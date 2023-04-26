@@ -21,11 +21,6 @@ module.exports = {
         textLight: "#ffffff",
         textDark: "#000000",
       },
-      fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
-        display: ["Open Sans", "sans-serif"],
-        body: ["Open Sans", "sans-serif"],
-      },
     },
     screens: {
       xss: "375px",

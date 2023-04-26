@@ -2,11 +2,10 @@ const styles = {
   boxWidth: "xl:max-w-[1400px] w-full",
 
   heading2:
-    "font-poppins font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full",
-  paragraph:
-    "font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px] ",
+    "font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full",
+  paragraph: "font-normal text-dimWhite text-[18px] leading-[30.8px] ",
 
-  skillText: `text-center font-poppins font-normal xs:text-[22px] text-[16px] xs:leading-[53px] leading-[43px] text-white `,
+  skillText: `text-center  font-normal xs:text-[22px] text-[16px] xs:leading-[53px] leading-[43px] text-white `,
 
   flexCenter: "flex justify-center items-center",
   flexStart: "flex justify-center items-start",

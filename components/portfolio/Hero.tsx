@@ -15,7 +15,7 @@ export default function Hero() {
       >
         <div className="flex w-full flex-wrap items-center justify-between">
           <h1
-            className="flex-1 font-poppins text-[52px] font-light 
+            className="font-poppins flex-1 text-[52px] font-light 
                     leading-[75px] text-white ss:text-[72px] ss:leading-[100px]"
           >
             .&#106;ess&#101; <br className="hidden sm:block" />{" "}
@@ -27,7 +27,7 @@ export default function Hero() {
           </h1>
         </div>
         <h1
-          className="w-full font-poppins text-[52px] font-semibold leading-[75px]
+          className="font-poppins w-full text-[52px] font-semibold leading-[75px]
              text-white ss:text-[68px] ss:leading-[100px]"
         >
           Software Engineer
@@ -38,8 +38,8 @@ export default function Hero() {
         <div className="my-8 flex items-center justify-center">
           <Link
             href={"/portfolio/contact"}
-            className="rounded-md border-[1px] border-[#58f3fe]
-                py-2 px-4 font-poppins text-[18px] 
+            className="font-poppins rounded-md border-[1px]
+                border-[#58f3fe] py-2 px-4 text-[18px] 
                 font-medium text-[#ffffff] shadow-lg
                 outline-none duration-300
                 ease-in-out hover:border-[#58f3fe]
