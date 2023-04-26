@@ -1,5 +1,5 @@
 import styles from "../../styles/style";
-import { Contact, Footer } from "../../components/portfolio";
+import { Contact, Footer } from "../../components/index";
 
 //return contact page
 export default function ContactPage() {

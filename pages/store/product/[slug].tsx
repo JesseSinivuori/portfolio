@@ -8,8 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import { useStateContext } from "../../../context/StateContext";
 import Image from "next/image";
-import Footer from "../../../components/portfolio/Footer";
-import { CategoryMenu, Products } from "../../../components/store";
+import { CategoryMenu, Products, Footer } from "../../../components/index";
 
 export default function ProductDetails({ products, product }: any) {
   const { image, name, details, price } = product;

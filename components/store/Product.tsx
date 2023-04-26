@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { urlFor } from "../../lib/client";
 import Image from "next/image";
-import { Loading } from "../helpers";
-import { Suspense } from "react";
 
 type ProductProps = {
   product: any;

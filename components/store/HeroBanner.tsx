@@ -59,14 +59,6 @@ export default function HeroBanner({ heroBanner }: any) {
           {heroBanner.midText}
         </h3>
       </div>
-      {/** 
-      <div className="relative">
-        <div className="desc">
-          <h5></h5>
-          <p>{heroBanner.desc}</p>
-        </div>
-      </div>
-      */}
     </div>
   );
 }
