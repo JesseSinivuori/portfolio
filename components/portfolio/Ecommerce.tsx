@@ -37,7 +37,7 @@ export default function Ecommerce() {
 
   return (
     <SlideAnimation animation={"slide-animation-top"}>
-      <section className={` flex-col ${styles.paddingY}`}>
+      <section className={` flex-col ${styles.paddingY}`} id="jesse's_kitchen">
         <div
           className={`${layout.sectionInfo} ${styles.flexCenter} relative z-[10] flex-col`}
         >

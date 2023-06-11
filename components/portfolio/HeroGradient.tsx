@@ -2,7 +2,7 @@ export default function HeroGradient() {
   return (
     <div
       className={`absolute z-[0] h-full min-h-[800px] w-full min-w-[800px]`}
-      style={{ opacity: "100%", filter: "blur(0px) invert(0)" }}
+      style={{ opacity: "50%", filter: "blur(100px) invert(0)" }}
     >
       <div
         style={{
@@ -11,8 +11,8 @@ export default function HeroGradient() {
           width: "100%",
           height: "100%",
           background:
-            "linear-gradient(337deg, rgba(88, 254, 196, 1) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(88, 243, 254, 1) 100%)",
-          filter: "blur(245px)",
+            "linear-gradient(337deg, rgba(88, 254, 196, 1) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(88, 243, 254, 1) 100%)",
+          filter: "blur(0px)",
           opacity: "1",
           animation:
             "animateOpacity1 20s linear infinite, animateRotation1 20s linear infinite",

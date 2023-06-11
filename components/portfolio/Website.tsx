@@ -64,7 +64,7 @@ export default function Website() {
               <div
                 className={`absolute top-0 right-0 left-0 bottom-0 z-[0]
                 h-[600px] min-h-[600px] w-[400px] min-w-[400px]`}
-                style={{ opacity: "100%", filter: "blur(0px) invert(0)" }}
+                style={{ opacity: "50%", filter: "blur(200px) invert(0)" }}
               >
                 <div
                   style={{
@@ -74,7 +74,7 @@ export default function Website() {
                     height: "100%",
                     background:
                       "radial-gradient(circle, rgba(163, 88, 254, 0.5) 0%, rgba(255, 255, 255, 0.1) 70%, rgba(0, 0, 0, 1) 70%, rgba(102, 245, 236, 0) 100%)",
-                    filter: "blur(240px)",
+                    filter: "blur(0px)",
                     opacity: "1",
                   }}
                 ></div>
