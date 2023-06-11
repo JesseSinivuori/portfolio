@@ -52,7 +52,10 @@ export default function DeliveryFeeCalculator() {
 
   return (
     <SlideAnimation animation={"slide-animation-top"}>
-      <div className={`${styles.flexCenter} flex-col items-center`}>
+      <div
+        className={`${styles.flexCenter} flex-col items-center`}
+        id="delivery_fee_calculator"
+      >
         <section
           className={`${layout.section} ${styles.flexCenter} 
           m-8 mt-24 flex-col items-center
@@ -74,9 +77,9 @@ export default function DeliveryFeeCalculator() {
               width: "500%",
               height: "50%",
               background:
-                "radial-gradient(circle, rgba(88, 243, 254, 0.5) 0%, rgba(255, 255, 255, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(102, 245, 236, 0) 100%)",
-              filter: "blur(240px)",
-              opacity: "1",
+                "radial-gradient(circle, rgba(88, 243, 254, 0.5) 0%, rgba(255, 255, 255, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
+              filter: "blur(200px)",
+              opacity: "0.5",
               bottom: "0",
             }}
           ></div>
@@ -119,8 +122,8 @@ export default function DeliveryFeeCalculator() {
                 rel="noreferrer noopener"
                 href={"https://delivery-fee-nu.vercel.app/"}
                 target="_blank"
-                className={`right-[-180px] z-[1] m-8 flex rounded-md border border-[#58f3fe]
-            py-2 px-4 font-poppins text-[18px] font-medium
+                className={`font-poppins right-[-180px] z-[1] m-8 flex rounded-md border
+            border-[#58f3fe] py-2 px-4 text-[18px] font-medium
             text-[#ffffff] shadow-lg outline-none
             duration-300 ease-in-out
             hover:border-[#58f3fe] hover:text-[#58f3fe]

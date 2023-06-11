@@ -7,7 +7,7 @@ export default function Skills() {
     <SlideAnimation animation={"slide-animation-top"}>
       <section
         className={`relative z-[10] w-full flex-wrap
-        ${styles.marginY} mt-12`}
+        ${styles.marginY}`}
       >
         <h2 className={`${styles.heading2} mb-8 text-center text-[42px]`}>
           My Skills

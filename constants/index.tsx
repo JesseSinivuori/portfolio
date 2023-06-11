@@ -4,20 +4,16 @@ export const navLinks = [
     title: "Home",
   },
   {
-    id: "https://gradient-generator-beta.vercel.app/",
+    id: "gradient_generator",
     title: "Gradient Generator",
-    target: "_blank",
-    rel: "noreferrer noopener",
   },
   {
-    id: "/store/home",
+    id: "jesse's_kitchen",
     title: "Jesse's Kitchen",
   },
   {
-    id: "https://delivery-fee-nu.vercel.app/",
+    id: "delivery_fee_calculator",
     title: "Delivery Fee Calculator",
-    target: "_blank",
-    rel: "noreferrer noopener",
   },
   {
     id: "/portfolio/contact",

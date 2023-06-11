@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { navLinks } from "../constants/index";
 import Image from "next/image";
@@ -6,6 +6,97 @@ import { useStateContext } from "../context/StateContext";
 import { AiOutlineShopping } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { OnClickOutside, CloseOnBack, Cart } from "../components/index";
+
+const NavLink = ({
+  nav,
+  index,
+  navLinks,
+  currentRoute,
+}: {
+  nav: any;
+  index: number;
+  navLinks: any;
+  currentRoute: string;
+}) => (
+  <li
+    className={`font-poppins cursor-pointer select-none rounded-md border-[1px]
+    border-transparent p-2 text-[16px] font-normal text-white
+    duration-100 ease-in-out 
+    ${currentRoute === nav.id && "text-white/50"}
+    ${
+      nav.id === "/portfolio/contact" && currentRoute !== "/portfolio/contact"
+        ? " border-[#ff0000] hover:text-[#ff0000]"
+        : nav.title !== "Gradient Generator" && "hover:text-white/50"
+    } 
+    ${
+      nav.title === "Gradient Generator" &&
+      `bg-gradient-to-r from-yellow-400 to-pink-500 
+      bg-clip-text font-bold text-transparent
+      transition-all duration-100
+     hover:from-yellow-400/75 hover:to-pink-500/75
+    `
+    } 
+    ${index === navLinks.length - 1 ? "md:mr-[30px]" : "md:mr-[25px]"}
+  `}
+  >
+    {nav.title}
+  </li>
+);
+
+const NavLinks = ({
+  navLinks,
+  currentRoute,
+}: {
+  navLinks: any;
+  currentRoute: string;
+}) => {
+  const handleClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const y = element.getBoundingClientRect().y + window.scrollY - 90; // 100 is the offset
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
+  return navLinks.map((nav: any, index: number) => (
+    <div key={nav.id}>
+      {nav.id.includes("/") ? (
+        currentRoute.startsWith("/store") ? (
+          <Link
+            href={nav.id === "/" ? nav.id.replace("/", "/store/home") : nav.id}
+          >
+            <NavLink
+              nav={nav}
+              index={index}
+              navLinks={navLinks}
+              currentRoute={currentRoute}
+            />
+          </Link>
+        ) : (
+          <Link href={nav.id}>
+            <NavLink
+              nav={nav}
+              index={index}
+              navLinks={navLinks}
+              currentRoute={currentRoute}
+            />
+          </Link>
+        )
+      ) : currentRoute.startsWith("/store") ||
+        currentRoute.startsWith("/portfolio/contact") ? null : (
+        <a href={`#${nav.id}`} onClick={(event) => handleClick(event, nav.id)}>
+          <NavLink
+            nav={nav}
+            index={index}
+            navLinks={navLinks}
+            currentRoute={currentRoute}
+          />
+        </a>
+      )}
+    </div>
+  ));
+};
 
 //return navbar
 export default function Navbar() {
@@ -61,22 +152,9 @@ export default function Navbar() {
     }
   }, [toggle, setToggle]);
 
-  {
-    /**
-  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-
-  const scrollTo = (id: string) => {
-    const sectionRef = sectionRefs.current[id];
-    if (sectionRef) {
-      sectionRef.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-   */
-  }
-
   return (
     <div
-      className={`overscroll-none rounded-b-xl 
+      className={`select-none overscroll-none rounded-b-xl
       ${showCart ? "h-screen" : "h-full"}`}
     >
       <div
@@ -101,60 +179,7 @@ export default function Navbar() {
             </Link>
             {/** nav links */}
             <ul className="hidden flex-1 list-none items-center justify-end overflow-hidden md:flex">
-              {navLinks.map((nav, index) => (
-                <div key={nav.id}>
-                  <Link
-                    href={`${nav.id}`}
-                    key={nav.id}
-                    target={`${nav.target ?? "_self"}`}
-                    rel={`${nav.rel ?? ""}
-                    `}
-                  >
-                    <li
-                      className={`font-poppins cursor-pointer rounded-md border-[1px]
-                      border-transparent p-2 text-[16px] font-normal text-white
-                      duration-100 ease-in-out 
-                      ${currentRoute === nav.id && "text-white/50"}
-                      ${
-                        nav.id === "/portfolio/contact" &&
-                        currentRoute !== "/portfolio/contact"
-                          ? " border-[#ff0000] hover:text-[#ff0000]"
-                          : nav.title !== "Gradient Generator" &&
-                            "hover:text-white/50"
-                      } 
-                      ${
-                        nav.title === "Gradient Generator" &&
-                        `bg-gradient-to-r from-yellow-400 to-pink-500 
-                        bg-clip-text font-bold text-transparent
-                        transition-all duration-100
-                       hover:from-yellow-400/75 hover:to-pink-500/75
-                      `
-                      } 
-                      ${
-                        index === navLinks.length - 1
-                          ? "mr-[30px]"
-                          : "mr-[25px]"
-                      }
-                    `}
-                    >
-                      {nav.title}
-                    </li>
-                  </Link>
-                </div>
-              ))}
-              {showCartIcon && (
-                <button
-                  data-testid="cart-button"
-                  type="button"
-                  className={`cart-icon flex `}
-                  onClick={() => {
-                    setShowCart((prev: boolean) => !prev);
-                  }}
-                >
-                  <AiOutlineShopping />
-                  <span className="cart-item-qty ">{totalQuantities}</span>
-                </button>
-              )}
+              <NavLinks navLinks={navLinks} currentRoute={currentRoute} />
             </ul>
             <div
               className={`relative mb-0 flex w-[28px] cursor-pointer items-center justify-end md:hidden`}
@@ -189,53 +214,21 @@ export default function Navbar() {
                 ${!toggle && "hidden"}`}
               >
                 <CloseOnBack toggleState={toggle} setToggleState={setToggle}>
-                  <div className={` mr-4 mt-20 flex max-h-full `}>
+                  <div
+                    className={` mr-4 mt-20 flex max-h-full `}
+                    onClick={() => setToggle(false)}
+                  >
                     <OnClickOutside
                       condition={toggle}
                       onClickOutside={() => {
-                        if (toggle) {
-                          const timeout = setTimeout(() => {
-                            setToggle(false);
-                          }, 100);
-                          return () => clearTimeout(timeout);
-                        } else {
-                          return;
-                        }
+                        setToggle(false);
                       }}
                     >
-                      <ul className="w-full list-none flex-col items-center overflow-y-scroll rounded-md bg-nav p-2">
-                        {navLinks.map((nav, index) => (
-                          <Link
-                            href={`${nav.id}`}
-                            key={nav.id}
-                            target={`${nav.target ?? "_self"}`}
-                            rel={`${nav.rel ?? ""}`}
-                          >
-                            <li
-                              className={`font-poppins w-full  min-w-[219px] cursor-pointer rounded-md border-[1px] border-transparent p-2 text-[16px] text-white
-                              ${currentRoute === nav.id && "text-white/50"}
-                              ${
-                                nav.id === "/portfolio/contact" &&
-                                currentRoute !== "/portfolio/contact"
-                                  ? " border-[#ff0000] hover:text-[#ff0000]"
-                                  : nav.title !== "Gradient Generator" &&
-                                    "hover:text-white/50"
-                              } 
-                              ${
-                                nav.title === "Gradient Generator" &&
-                                `bg-gradient-to-br from-yellow-400 to-pink-500
-                              bg-clip-text font-bold text-transparent
-                              transition-all duration-100
-                             hover:from-yellow-400/75 hover:to-pink-500/75`
-                              } 
-                            ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}
-                                             `}
-                              onClick={() => setToggle((prev) => !prev)}
-                            >
-                              {nav.title}
-                            </li>
-                          </Link>
-                        ))}
+                      <ul className="w-full min-w-[220px] list-none flex-col items-center overflow-y-scroll rounded-md bg-nav p-2">
+                        <NavLinks
+                          navLinks={navLinks}
+                          currentRoute={currentRoute}
+                        />
                       </ul>
                     </OnClickOutside>
                   </div>

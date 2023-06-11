@@ -9,7 +9,7 @@ export default function GradientGenerator() {
       animation={"slide-animation-top"}
       className={`${styles.flexCenter} flex-col`}
     >
-      <div className="w-full overflow-hidden ">
+      <div className="w-full overflow-hidden " id="gradient_generator">
         <section className={` flex-col ${styles.paddingY} bg-[#0011ff]`}>
           <div
             className={`${layout.sectionInfo} ${styles.flexCenter} relative z-[10] flex-col p-4`}
@@ -92,9 +92,9 @@ export default function GradientGenerator() {
       <Link
         href={"https://gradient-generator-beta.vercel.app/"}
         target="_blank"
-        className={`z-[1] my-24
-                rounded-md border-[1px] border-[#eb51ff] py-2 px-4
-                font-poppins text-[18px] font-medium
+        className={`font-poppins z-[1]
+                my-24 rounded-md border-[1px] border-[#eb51ff] py-2
+                px-4 text-[18px] font-medium
                 text-white shadow-lg outline-none duration-300
                 ease-in-out hover:border-[#eb51ff]
                 hover:text-[#eb51ff] hover:shadow-[#eb51ff2a]`}
