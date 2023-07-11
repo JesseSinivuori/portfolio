@@ -30,18 +30,18 @@ export default function Website() {
 
   return (
     <SlideAnimation animation={"slide-animation-top"}>
-      <section className="pb-32">
+      <section className="pb-16">
         <section
           id="website"
           className={`${layout.sectionReverse}  
             ${styles.flexCenter} ${styles.boxWidth} flex-col-reverse
-            ${styles.paddingY} pt-24
+            ${styles.paddingY} justify-around pt-24
             `}
         >
           <SlideAnimation animation={"slide-animation-top"}>
             <div
-              className={`${layout.sectionImgReverse} flex ${styles.flexCenter}
-              relative left-[120px] my-10 xss:left-[80px] xs:left-0 md:my-0`}
+              className={`${layout.sectionImgReverse} flex ${styles.flexCenter} relative
+              left-[120px] my-10 xss:left-[80px] xs:left-0 md:my-0`}
             >
               <Image
                 src={"/codeimg.webp"}
@@ -83,9 +83,7 @@ export default function Website() {
           </SlideAnimation>
 
           <div
-            className={`${styles.flexCenter} mb-8 mt-8 flex-wrap sm:mb-20
-                    
-                  `}
+            className={`${styles.flexCenter} mb-8 mt-8 flex-col flex-wrap sm:mb-20`}
           >
             <div className={``}>
               <h2 className={`${styles.heading2} mb-6 text-center text-[42px]`}>
@@ -101,7 +99,7 @@ export default function Website() {
               </p>
             </div>
             <SlideAnimation animation={"slide-animation-right"}>
-              <div className={`flex-wrap ${styles.flexCenter}`}>
+              <div className={`flex-wrap ${styles.flexCenter} max-w-sm`}>
                 {skills.map((skill) => (
                   <Skill skill={skill} key={skill.id} />
                 ))}

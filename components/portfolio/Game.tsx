@@ -20,9 +20,9 @@ export default function Game() {
     <SlideAnimation animation={"slide-animation-top"}>
       <section
         id="game"
-        className={`${layout.section} ${styles.paddingY} mt-24`}
+        className={`${layout.section} ${styles.paddingY} mt-24 `}
       >
-        <div className={`${layout.sectionInfo} ${styles.flexCenter}`}>
+        <div className={`${layout.sectionInfo} ${styles.flexCenter} `}>
           <div>
             <h2
               className={`${styles.heading2} ${styles.flexCenter} mb-6 

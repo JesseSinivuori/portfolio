@@ -12,6 +12,7 @@ import {
   Hero,
   Ecommerce,
 } from "../components/index";
+import AdManager from "../components/portfolio/AdManager";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
         <div className={`${styles.boxWidth}`}>
           <Skills />
           <Website />
+          <AdManager />
           <GradientGenerator />
           <Ecommerce />
           <DeliveryFeeCalculator />
