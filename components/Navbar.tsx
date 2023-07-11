@@ -108,7 +108,7 @@ export default function Navbar() {
   const [showCartIcon, setShowCartIcon] = useState(false);
 
   useEffect(() => {
-    if (currentRoute.startsWith("/store/")) {
+    if (currentRoute.startsWith("/store")) {
       setShowCartIcon(true);
     } else {
       setShowCartIcon(false);
@@ -180,6 +180,19 @@ export default function Navbar() {
             {/** nav links */}
             <ul className="hidden flex-1 list-none items-center justify-end overflow-hidden md:flex">
               <NavLinks navLinks={navLinks} currentRoute={currentRoute} />
+              {currentRoute.startsWith("/store") && (
+                <button
+                  data-testid="cart-button-mobile"
+                  type="button"
+                  className={`cart-icon flex`}
+                  onClick={() => {
+                    setShowCart((prev: boolean) => !prev);
+                  }}
+                >
+                  <AiOutlineShopping />
+                  <span className="cart-item-qty">{totalQuantities}</span>
+                </button>
+              )}
             </ul>
             <div
               className={`relative mb-0 flex w-[28px] cursor-pointer items-center justify-end md:hidden`}
