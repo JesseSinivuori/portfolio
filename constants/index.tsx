@@ -4,6 +4,10 @@ export const navLinks = [
     title: "Home",
   },
   {
+    id: "ad_manager",
+    title: "Ad Manager",
+  },
+  {
     id: "gradient_generator",
     title: "Gradient Generator",
   },
