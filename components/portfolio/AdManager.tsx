@@ -31,7 +31,7 @@ export default function Website() {
     <SlideAnimation animation={"slide-animation-top"}>
       <section className="pb-32">
         <section
-          id="website"
+          id="ad_manager"
           className={`${layout.section}  
             ${styles.flexCenter} ${styles.boxWidth} flex-col
             ${styles.paddingY} justify-around
@@ -49,7 +49,7 @@ export default function Website() {
               >
                 {"A full stack CRUD app for managing ad campaigns. "}
                 {"Built with Next.js app router, Vercel Postgres and "}
-                {"Kysely + zod for end to end type safety."}
+                {"Kysely + Zod for end to end type safety."}
               </p>
             </div>
             <SlideAnimation animation={"slide-animation-left"}>
@@ -88,9 +88,6 @@ export default function Website() {
                   quality={100}
                 />
               </Link>
-              <span className={`${styles.paragraph} text-[14px]`}>
-                The campaigns will load slowly due to cold start.*
-              </span>
               <Link
                 rel="noreferrer noopener"
                 href={"https://ad-manager-beta.vercel.app/"}
