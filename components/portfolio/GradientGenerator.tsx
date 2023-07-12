@@ -99,7 +99,7 @@ export default function GradientGenerator() {
                 ease-in-out hover:border-[#eb51ff]
                 hover:text-[#eb51ff] hover:shadow-[#eb51ff2a]`}
       >
-        <span>Try the App</span>
+        Try the App
       </Link>
     </SlideAnimation>
   );

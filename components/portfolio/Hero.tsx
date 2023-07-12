@@ -43,7 +43,20 @@ export default function Hero() {
                 ease-in-out hover:border-[#58f3fe]
                 hover:text-[#58f3fe] hover:shadow-[#58f3fe25]"
           >
-            <span>Contact</span>
+            Contact
+          </Link>
+          <Link
+            rel="noreferrer noopener"
+            target="_blank"
+            href={"https://github.com/JesseSinivuori"}
+            className="font-poppins mx-4 rounded-md
+                 border-[1px] border-transparent bg-transparent
+                py-2 px-4 text-[18px] font-medium
+                text-[#ffffff] shadow-lg outline-none
+                duration-300 ease-in-out hover:border-[#ffffff]
+                 hover:shadow-[#ffffff]/10 "
+          >
+            Github
           </Link>
         </div>
       </div>
