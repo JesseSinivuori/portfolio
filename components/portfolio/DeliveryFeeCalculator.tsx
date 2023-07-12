@@ -130,7 +130,7 @@ export default function DeliveryFeeCalculator() {
             hover:shadow-[#58f3fe25] lg:absolute
             `}
               >
-                <span>Try the App</span>
+                Try the App
               </Link>
             </div>
             <div className="absolute left-0 bottom-10 hidden flex-col lg:block">

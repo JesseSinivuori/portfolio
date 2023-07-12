@@ -14,18 +14,19 @@ import {
 } from "../components/index";
 import AdManager from "../components/portfolio/AdManager";
 import { toast } from "react-hot-toast";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   useEffect(() => {
-    const now = new Date().getSeconds();
-    if (now === new Date().getSeconds()) {
+    const welcomeMessageShown = localStorage.getItem("welcomeMessageShown");
+    if (!welcomeMessageShown) {
       toast.success("Welcome! You can find my skills + projects below.", {
         icon: "👋",
         duration: 6000,
         position: "bottom-center",
       });
     }
+    localStorage.setItem("welcomeMessageShown", "true");
   }, []);
 
   return (
