@@ -14,7 +14,6 @@ body,
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 html {
@@ -112,17 +111,12 @@ span.text-red {
 }
 
 .cart-icon {
-  margin-right: 32px;
   font-size: 25px;
   color: white;
   cursor: pointer;
   position: relative;
   border: none;
   background-color: transparent;
-}
-
-.cart-icon:hover {
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .cart-item-qty {

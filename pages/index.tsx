@@ -14,7 +14,7 @@ import {
 } from "../components/index";
 import AdManager from "../components/portfolio/AdManager";
 import { toast } from "react-hot-toast";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
