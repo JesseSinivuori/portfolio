@@ -73,7 +73,7 @@ export default function Navbar() {
             </div>
             <Link
               href={!currentRoute.startsWith("/store") ? "/" : "/store/home"}
-              className={`${linkStyle("/")}`}
+              className={`${linkStyle("/")} p-2`}
             >
               Home
             </Link>
@@ -113,12 +113,12 @@ export const ContactLink = ({ currentRoute }: { currentRoute: string }) => (
   <Link
     href={"/portfolio/contact"}
     className={`flex cursor-pointer select-none
-    rounded-md border-[1px] border-transparent p-2 
+    rounded-md border-[1px] p-2 
     text-[16px] text-white duration-100 ease-in-out 
     ${
       currentRoute !== "/portfolio/contact"
-        ? "border-red-600 hover:text-red-600"
-        : "text-white/50"
+        ? "border-[#ff0606] hover:text-[#ff0606]"
+        : "border-transparent text-white/50"
     } `}
   >
     Contact
