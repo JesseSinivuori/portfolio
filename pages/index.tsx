@@ -11,8 +11,8 @@ import {
   GradientGenerator,
   Hero,
   Ecommerce,
+  AdManager,
 } from "../components/index";
-import AdManager from "../components/portfolio/AdManager";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
 

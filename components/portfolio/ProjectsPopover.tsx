@@ -1,8 +1,8 @@
 import Popover from "../UI/Popover";
 
-const ChartIcon = () => <div>💻</div>;
+const ChartIcon = () => <div className="scale-150">💻</div>;
 const GradientIcon = () => (
-  <div className=" h-6 w-6 rounded-full bg-gradient-to-tr  from-rose-500  to-violet-500"></div>
+  <div className=" h-6 w-6 rounded-full bg-gradient-to-tr from-rose-500 to-violet-500"></div>
 );
 const EcommerceIcon = () => <div className="scale-150">🍔</div>;
 const DeliveryFeeCalculatorIcon = () => <div className="scale-150">🛴</div>;

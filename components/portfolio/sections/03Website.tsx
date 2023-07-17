@@ -1,6 +1,6 @@
-import styles, { layout } from "../../styles/style";
+import styles, { layout } from "../../../styles/style";
 import Image from "next/image";
-import { SlideAnimation, Skill } from "./index";
+import { SlideAnimation, Skill } from "../index";
 
 export default function Website() {
   const skills = [
@@ -25,8 +25,6 @@ export default function Website() {
       name: "Tailwind CSS",
     },
   ];
-
-  const codeimg = "/codeimg.webp";
 
   return (
     <SlideAnimation animation={"slide-animation-top"}>
@@ -56,29 +54,10 @@ export default function Website() {
                     `}
                 width={570}
                 height={570}
-                placeholder="blur"
-                blurDataURL="/codeimg.webp"
                 quality={100}
               />
 
-              <div
-                className={`absolute top-0 right-0 left-0 bottom-0 z-[0]
-                h-[600px] min-h-[600px] w-[400px] min-w-[400px]`}
-                style={{ opacity: "50%", filter: "blur(200px) invert(0)" }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    zIndex: "0",
-                    width: "100%",
-                    height: "100%",
-                    background:
-                      "radial-gradient(circle, rgba(163, 88, 254, 0.5) 0%, rgba(255, 255, 255, 0.1) 70%, rgba(0, 0, 0, 1) 70%, rgba(102, 245, 236, 0) 100%)",
-                    filter: "blur(0px)",
-                    opacity: "1",
-                  }}
-                ></div>
-              </div>
+              <div className="absolute -bottom-20 -left-20 z-[0] h-[500px] w-[500px] rounded-full bg-violet-500 opacity-10 blur-[100px]"></div>
             </div>
           </SlideAnimation>
 

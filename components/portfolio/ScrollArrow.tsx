@@ -37,14 +37,14 @@ export default function ScrollArrow(props: Props) {
       }`}
     >
       <div
-        className={` scroll-animation-reverse fixed bottom-0 left-0 z-[999]
-              flex animate-pulse
-            `}
+        className={
+          "scroll-animation-reverse fixed bottom-0 left-0 z-[999] flex animate-pulse"
+        }
       >
         <div
-          className={`${styles.flexCenter} ml-1 mb-2 ss:ml-2 ss:mb-12 sm:ml-6 sm:mb-12 md:ml-6 md:mb-12 lg:ml-8 lg:mb-12 xl:ml-16 xl:mb-24`}
+          className={`${styles.flexCenter} mb-2 ml-1 ss:mb-12 ss:ml-2 sm:mb-12 sm:ml-6 md:mb-12 md:ml-6 lg:mb-12 lg:ml-8 xl:mb-24 xl:ml-16`}
         >
-          <ArrowDown styles="animate-bounce " />
+          <ArrowDown styles="animate-bounce" />
         </div>
       </div>
     </div>

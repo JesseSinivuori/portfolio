@@ -4,7 +4,7 @@ const ContentSecurityPolicy = `
   script-src 'self' 'unsafe-eval' js.stripe.com;
   style-src 'self' 'unsafe-inline';
   font-src 'self' fonts.gstatic.com;
-  media-src 'self' firebasestorage.googleapis.com;
+  media-src 'self';
   style-src-elem 'self' 'unsafe-inline' fonts.googleapis.com;
   frame-src 'self' js.stripe.com;
   script-src-elem 'self' va.vercel-scripts.com js.stripe.com;

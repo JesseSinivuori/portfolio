@@ -1,6 +1,6 @@
 import Image from "next/image";
-import styles, { layout } from "../../styles/style";
-import { SlideAnimation, Skill } from "./index";
+import styles, { layout } from "../../../styles/style";
+import { SlideAnimation, Skill } from "../index";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -58,31 +58,12 @@ export default function DeliveryFeeCalculator() {
       >
         <section
           className={`${layout.section} ${styles.flexCenter} 
-          m-8 mt-24 flex-col items-center
-          justify-center rounded-xl 
+          relative z-[0] m-8 mt-24 h-full
+          w-full flex-col items-center justify-center rounded-xl
         `}
-          style={{
-            zIndex: "0",
-            width: "100%",
-            height: "100%",
-            filter: "blur(0px)",
-            opacity: "1",
-            animation: "false",
-          }}
         >
-          <div
-            style={{
-              position: "absolute",
-              zIndex: "0",
-              width: "500%",
-              height: "50%",
-              background:
-                "radial-gradient(circle, rgba(88, 243, 254, 0.5) 0%, rgba(255, 255, 255, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%)",
-              filter: "blur(200px)",
-              opacity: "0.5",
-              bottom: "0",
-            }}
-          ></div>
+          <div className="absolute bottom-0 h-[50%] w-full rounded-full bg-cyan-500/25 blur-[100px]"></div>
+
           <div className={`flex ${styles.flexCenter}`}>
             <div className={`${styles.flexCenter} relative flex-col`}>
               <h2
@@ -112,8 +93,6 @@ export default function DeliveryFeeCalculator() {
               "
                     height={443}
                     width={238}
-                    placeholder="blur"
-                    blurDataURL="/deliveryfeecalculator.webp"
                     quality={100}
                   />
                 </div>
@@ -123,7 +102,7 @@ export default function DeliveryFeeCalculator() {
                 href={"https://delivery-fee-nu.vercel.app/"}
                 target="_blank"
                 className={`font-poppins right-[-180px] z-[1] m-8 flex rounded-md border
-            border-[#58f3fe] py-2 px-4 text-[18px] font-medium
+            border-[#58f3fe] px-4 py-2 text-[18px] font-medium
             text-[#ffffff] shadow-lg outline-none
             duration-300 ease-in-out
             hover:border-[#58f3fe] hover:text-[#58f3fe]
@@ -133,7 +112,7 @@ export default function DeliveryFeeCalculator() {
                 Try the App
               </Link>
             </div>
-            <div className="absolute left-0 bottom-10 hidden flex-col lg:block">
+            <div className="absolute bottom-10 left-0 hidden flex-col lg:block">
               <div
                 className={`${
                   imagesInView
@@ -150,15 +129,10 @@ export default function DeliveryFeeCalculator() {
                   <Image
                     src={"/deliveryfeecalculatorsettings.webp"}
                     alt="image of delivery fee calculator"
-                    className={`
-                   m-8 h-[290px] w-[640px]
-              rounded-xl border border-transparent object-cover
-              opacity-75 transition-all duration-300 hover:border-white hover:opacity-100
-              `}
+                    className={`m-8 h-[290px] w-[640px] rounded-xl border border-transparent
+                    object-cover opacity-75 transition-all duration-300 hover:border-white hover:opacity-100`}
                     height={290}
                     width={640}
-                    placeholder="blur"
-                    blurDataURL="/deliveryfeecalculatorsettings.webp"
                     quality={100}
                   />
                 </Link>
@@ -173,9 +147,7 @@ export default function DeliveryFeeCalculator() {
         </section>
         <SlideAnimation animation={"slide-animation-top"}>
           <div className={`flex-wrap ${styles.flexCenter}`}>
-            {/**map languages */}
             {skills.map((skill) => (
-              //contain language
               <Skill skill={skill} key={skill.id} />
             ))}
           </div>
