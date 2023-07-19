@@ -1,10 +1,8 @@
 export { default as ArrowDown } from "../UI/ArrowDown";
-export { default as Button } from "./Button";
 export { default as Contact } from "./Contact";
 export { default as EcommerceImagesSection } from "./EcommerceImagesSection";
 export { default as Footer } from "./Footer";
 export { default as ProjectsPopover } from "./ProjectsPopover";
-export { default as ScrollArrow } from "./ScrollArrow";
 export * from "./sections";
 export { default as Skill } from "./Skill";
 export { default as SlideAnimation } from "./SlideAnimation";

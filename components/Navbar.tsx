@@ -69,10 +69,10 @@ export default function Navbar() {
             <div className="flex flex-1">
               <HomeLogo pathname={pathname} />
             </div>
-            <div className="hidden  justify-end gap-4 xs:flex">
+            <div className="hidden justify-end gap-4 xs:flex">
               <NavLinks pathname={pathname} linkStyle={linkStyle} />
             </div>
-            <div className="flex justify-end xs:hidden ">
+            <div className="flex justify-end xs:hidden">
               <MobileMenu
                 toggleMobileMenu={toggleMobileMenu}
                 setToggleMobileMenu={setToggleMobileMenu}
@@ -125,7 +125,7 @@ const HomeLogo = ({ pathname }: { pathname: string }) => (
     <span className={"text-white"}>.</span>j
     <span
       className={`text-[#70ffff] ${
-        pathname.startsWith("/store") && "text-[#ff0505]"
+        pathname.startsWith("/store") && "text-red-600"
       }`}
     >
       s
@@ -133,7 +133,7 @@ const HomeLogo = ({ pathname }: { pathname: string }) => (
   </Link>
 );
 
-export const ContactLink = ({ pathname }: { pathname: string }) => (
+export const ContactLink = ({ pathname }: { pathname?: string }) => (
   <Link
     href={"/portfolio/contact"}
     className={`flex cursor-pointer select-none
@@ -141,7 +141,7 @@ export const ContactLink = ({ pathname }: { pathname: string }) => (
     text-[16px] text-white duration-100 ease-in-out 
     ${
       pathname !== "/portfolio/contact"
-        ? "border-[#ff0606] hover:text-[#ff0606]"
+        ? "border-red-600 hover:text-red-600"
         : "border-transparent text-white/50"
     } `}
   >
@@ -185,22 +185,28 @@ const MobileMenu = ({
   children: React.ReactNode;
 }) => (
   <div className={`relative flex w-[28px] cursor-pointer `}>
-    <Image
-      src={toggleMobileMenu ? "/close.svg" : "/menu.svg"}
-      alt="menu"
-      className={`h-[28px] w-[28px] object-contain hover:opacity-50
+    <button
+      type="button"
+      onClick={() => setToggleMobileMenu((prev) => !prev)}
+      data-testid="mobile-menu-button"
+      aria-label="toggle mobile menu"
+      aria-expanded={toggleMobileMenu ? "true" : "false"}
+    >
+      <Image
+        src={toggleMobileMenu ? "/close.svg" : "/menu.svg"}
+        alt=""
+        className={`h-[28px] w-[28px] object-contain hover:opacity-50
               ${
                 toggleMobileMenu ? "rotate-180" : ""
               }  transition-all duration-100`}
-      onClick={() => setToggleMobileMenu((prev) => !prev)}
-      height={28}
-      width={28}
-      priority
-    />
-
+        height={28}
+        width={28}
+        priority
+      />
+    </button>
     <div
       data-testid="mobile-menu"
-      className={`fixed right-0  top-0 h-screen overflow-x-clip overflow-y-scroll px-4 transition-all duration-300
+      className={`fixed right-0 top-0 h-screen overflow-x-clip overflow-y-scroll px-4 transition-all duration-300
                 ${!toggleMobileMenu && "hidden"}`}
     >
       <CloseOnBack
@@ -208,7 +214,7 @@ const MobileMenu = ({
         setToggleState={setToggleMobileMenu}
       >
         <div
-          className={`mr-4 mt-20 flex max-h-full `}
+          className={`mr-4 mt-20 flex max-h-full`}
           onClick={() => setToggleMobileMenu(false)}
         >
           <OnClickOutside

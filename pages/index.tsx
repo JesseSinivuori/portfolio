@@ -5,7 +5,6 @@ import {
   Game,
   Website,
   Footer,
-  ScrollArrow,
   ContactBottom,
   DeliveryFeeCalculator,
   GradientGenerator,
@@ -30,14 +29,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={``}>
+    <div>
       <Head key={"layout"}>
         <title>{"Jesse's Portfolio"}</title>
       </Head>
-      <div className={`${styles.flexStart} `}>
+      <div className={`${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <Hero />
-          <ScrollArrow />
         </div>
       </div>
 

@@ -47,7 +47,7 @@ export default function EcommerceImagesSection() {
               alt={"image of ecommerce website"}
               className={`relative z-[3] m-52 w-[568px] min-w-[270px] rounded-xl border
               border-transparent object-cover duration-300 ease-in-out
-              hover:border-[#f02d34] xs:max-w-full
+              hover:border-red-600 xs:max-w-full
               `}
               height={768}
               width={560}
@@ -72,7 +72,7 @@ export default function EcommerceImagesSection() {
             z-[2] w-[297px] min-w-[200px] rounded-xl
             border border-transparent object-cover
             opacity-100 duration-300 ease-in-out
-            hover:border-[#f02d34] hover:opacity-100
+            hover:border-red-600 hover:opacity-100
             md:right-[100px] lg:hover:scale-[125%]`}
               height={475}
               width={297}
@@ -94,7 +94,7 @@ export default function EcommerceImagesSection() {
                   : " translate-y-[100%] scale-0"
               } absolute left-[-50px] top-[120px] z-[1] h-[80px] w-[85%] rounded-xl
               border border-transparent object-cover opacity-50 duration-300
-              ease-in-out hover:border-[#f02d34] hover:opacity-100 `}
+              ease-in-out hover:border-red-600 hover:opacity-100 `}
               height={80}
               width={803}
               quality={100}
@@ -115,7 +115,7 @@ export default function EcommerceImagesSection() {
                   : "translate-x-[25%] scale-0"
               } absolute bottom-[180px] left-[-60px] z-[2] w-[800px] min-w-[300px]
               rounded-xl border border-transparent object-cover opacity-100 duration-300
-              ease-in-out hover:border-[#f02d34] hover:opacity-100 sm:left-[-100px]
+              ease-in-out hover:border-red-600 hover:opacity-100 sm:left-[-100px]
               hover:lg:translate-x-[-25%] `}
               height={282}
               width={800}
@@ -134,7 +134,7 @@ export default function EcommerceImagesSection() {
               className={`${
                 imagesInView
                   ? `translate-x-0 scale-100 
-                  hover:border-[#f02d34] hover:opacity-100`
+                  hover:border-red-600 hover:opacity-100`
                   : "translate-x-[25%] scale-0"
               } absolute bottom-[340px] left-[-300px] z-[1] ml-[300px] hidden
               w-[800px]  rounded-xl border
@@ -152,11 +152,11 @@ export default function EcommerceImagesSection() {
           href={"/store/home"}
           target="_blank"
           className={`font-poppins z-[1] rounded-md
-                border-[1px] border-[#ff0000] px-4 py-2 text-[18px]
+                border-[1px] border-red-600 px-4 py-2 text-[18px]
                 font-medium text-white shadow-lg
                 outline-none duration-300
-                ease-in-out hover:border-[#ff0000]
-                hover:text-[#ff0000] hover:shadow-[#bc0d0d25]`}
+                ease-in-out hover:border-red-600
+                hover:text-red-600 hover:shadow-[#bc0d0d25]`}
         >
           Try the App
         </Link>

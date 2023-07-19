@@ -16,10 +16,10 @@ export default function HeroBanner({ heroBanner }: any) {
               <p
                 className={`discount z-1 
                             absolute 
-                         top-[40%] right-[62%] rounded-xl
-                         border border-[#f02d34]
-                        p-2 text-xs font-bold text-[#f02d34]
-                      xss:top-0 xss:right-0 xss:mt-[20px]
+                         right-[62%] top-[40%] rounded-xl
+                         border border-red-600
+                        p-2 text-xs font-bold text-red-600
+                      xss:right-0 xss:top-0 xss:mt-[20px]
                       `}
               >
                 {heroBanner.smallText}

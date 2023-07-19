@@ -71,7 +71,7 @@ export default function AdManager() {
               title="Try the App"
               rel="noreferrer noopener"
             >
-              <div className="absolute z-[10] h-[300px] w-[300px] rounded-full bg-gradient-to-tl from-rose-500/20 to-pink-500/20 blur-[100px] transition-all duration-1000 hover:w-[800px] "></div>
+              <div className="absolute inset-0 z-[10] h-full w-full rounded-full bg-gradient-to-tl from-rose-500  to-pink-500 opacity-10 blur-[100px] transition-all duration-1000"></div>
               <Image
                 src={"/admanager.webp"}
                 alt="Image of my code."

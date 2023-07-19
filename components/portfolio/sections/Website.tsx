@@ -57,7 +57,7 @@ export default function Website() {
                 quality={100}
               />
 
-              <div className="absolute -bottom-20 -left-20 z-[0] h-[500px] w-[500px] rounded-full bg-violet-500 opacity-10 blur-[100px]"></div>
+              <div className="absolute -bottom-20 -left-20 z-[0] h-[500px] w-[500px] rounded-full bg-violet-500/10 blur-[100px]"></div>
             </div>
           </SlideAnimation>
 

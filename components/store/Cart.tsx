@@ -4,7 +4,7 @@ import {
   AiOutlineLeft,
   AiOutlineShopping,
 } from "react-icons/ai";
-import { useStateContext } from "../../context/StateContext";
+import { setLocalStorage, useStateContext } from "../../context/StateContext";
 import { urlFor } from "../../lib/client";
 import getStripe from "../../lib/getStripe";
 import toast from "react-hot-toast";
@@ -24,28 +24,34 @@ export default function Cart() {
   } = useStateContext();
 
   const handleCheckout = async () => {
-    handleCopy();
+    try {
+      handleCopy();
+      setLocalStorage(cartItems, totalPrice, totalQuantities);
 
-    const stripe: any = await getStripe();
+      const stripe = await getStripe();
+      if (!stripe) throw new Error("Failed to get stripe.");
 
-    const response = await fetch("/api/stripe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(cartItems),
-    });
+      const res = await fetch("/api/stripe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cartItems),
+      });
 
-    if (response.status === 500) return;
+      if (res.status === 500) throw new Error("Internal server error.");
 
-    const data = await response.json();
+      const data = await res.json();
 
-    const timeout = setTimeout(() => {
-      toast.loading("Redirecting...");
+      const timeout = setTimeout(() => {
+        toast.loading("Redirecting...");
 
-      stripe.redirectToCheckout({ sessionId: data.id });
-    }, 1000);
-    return () => clearTimeout(timeout);
+        stripe.redirectToCheckout({ sessionId: data.id });
+      }, 1000);
+      return () => clearTimeout(timeout);
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   const handleCopy = () => {
@@ -99,30 +105,11 @@ export default function Cart() {
                     className="flex flex-wrap rounded-xl even:bg-primary/75"
                     key={item._id}
                   >
-                    <div
-                      className="product relative m-[10px] flex w-full
-                flex-wrap xss:flex-row xss:flex-nowrap"
-                    >
-                      {/**
-                    <button
-                      type="button"
-                      className="remove-item absolute
-                    right-[0px] top-[0px]
-                    xss:bottom-[0px] xss:top-auto"
-                      onClick={() => onRemove(item)}
-                    >
-                      <AiOutlinePlus />
-                    </button>
-                    */}
+                    <div className="product relative m-[10px] flex w-full flex-wrap xss:flex-row xss:flex-nowrap">
                       <div>
                         <Image
                           src={urlFor(item?.image[0])}
-                          className="cart-product-image 
-                    h-[100px] max-h-[100px] 
-                    w-[100px] max-w-[100px]
-                    rounded-xl xss:h-[200px]
-                    xss:max-h-[200px] xss:w-[200px]
-                    xss:max-w-[200px]"
+                          className="cart-product-image h-[100px] max-h-[100px] w-[100px] max-w-[100px] rounded-xl xss:h-[200px] xss:max-h-[200px] xss:w-[200px] xss:max-w-[200px]"
                           alt={`Image of ${item.name}`}
                           width={180}
                           height={150}
@@ -158,12 +145,6 @@ export default function Cart() {
                         </div>
                       </div>
                     </div>
-                    {/** 
-                <span
-                  className={`border-b-1 border-[#2c2c2c] ${styles.flexCenter}
-                  w-full sm:mx-[20px] mx-[10px] m-[0px] xss:m-[10px]`}
-                ></span>
-                */}
                   </div>
                 ))}
             </div>
