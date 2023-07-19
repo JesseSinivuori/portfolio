@@ -14,7 +14,6 @@ body,
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 html {
@@ -25,17 +24,6 @@ html {
   padding: 0;
   margin: 0;
   @apply bg-primary;
-}
-
-::-webkit-scrollbar {
-  @apply bg-transparent;
-  width: 2px;
-  height: 2px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 15px;
 }
 
 a {
@@ -112,17 +100,12 @@ span.text-red {
 }
 
 .cart-icon {
-  margin-right: 32px;
   font-size: 25px;
   color: white;
   cursor: pointer;
   position: relative;
   border: none;
   background-color: transparent;
-}
-
-.cart-icon:hover {
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .cart-item-qty {
@@ -187,7 +170,7 @@ span.text-red {
   overflow: hidden;
   display: flex;
   color: white;
-  @apply border border-secondary;
+  @apply border border-nav;
 }
 
 .hero-banner-container .discount {

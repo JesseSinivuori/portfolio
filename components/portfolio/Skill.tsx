@@ -27,7 +27,7 @@ export default function Skill(props: SkillProps) {
         placeholder="blur"
         blurDataURL={src}
       />
-      <span className="p-2 font-poppins text-[18px] text-textDark/75 dark:text-textLight/75">
+      <span className="font-poppins p-2 text-[18px] text-textDark/75 dark:text-textLight/75">
         {name}
       </span>
     </div>

@@ -2,14 +2,24 @@ import Link from "next/link";
 import { urlFor } from "../../lib/client";
 import Image from "next/image";
 
+export interface Product {
+  image: string[];
+  name: string;
+  price: number;
+  slug: {
+    current: string;
+  };
+}
+
 type ProductProps = {
   product: any;
 };
 
 export default function Product({ product }: ProductProps) {
   const { image, name, price, slug } = product;
+
   return (
-    <div className="">
+    <div>
       <Link href={`/store/product/${slug.current}`}>
         <div className="product-card">
           <Image

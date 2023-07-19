@@ -12,9 +12,9 @@ export default function CloseOnBack({
   setToggleState,
 }: CloseOnBackProps) {
   useEffect(() => {
-    const handlePopstate = (event: any) => {
+    const handlePopstate = () => {
       const timeout = setTimeout(() => {
-        setToggleState((prev) => false);
+        setToggleState(false);
       }, 0);
       return () => clearTimeout(timeout);
     };

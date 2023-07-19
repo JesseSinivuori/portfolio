@@ -2,7 +2,6 @@ import {
   CategoryMenu,
   HeroBanner,
   Products,
-  Loading,
   Footer,
 } from "../../components/index";
 import { client } from "../../lib/client";

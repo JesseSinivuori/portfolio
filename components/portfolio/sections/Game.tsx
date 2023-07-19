@@ -1,5 +1,5 @@
-import styles, { layout } from "../../styles/style";
-import { SlideAnimation, Skill } from "./index";
+import styles, { layout } from "../../../styles/style";
+import { SlideAnimation, Skill } from "../index";
 import Image from "next/image";
 
 export default function Game() {

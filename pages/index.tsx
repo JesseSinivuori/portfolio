@@ -5,16 +5,15 @@ import {
   Game,
   Website,
   Footer,
-  ScrollArrow,
   ContactBottom,
   DeliveryFeeCalculator,
   GradientGenerator,
   Hero,
   Ecommerce,
+  AdManager,
 } from "../components/index";
-import AdManager from "../components/portfolio/AdManager";
 import { toast } from "react-hot-toast";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
@@ -30,14 +29,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={``}>
+    <div>
       <Head key={"layout"}>
         <title>{"Jesse's Portfolio"}</title>
       </Head>
-      <div className={`${styles.flexStart} `}>
+      <div className={`${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <Hero />
-          <ScrollArrow />
         </div>
       </div>
 

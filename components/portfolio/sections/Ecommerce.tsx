@@ -1,5 +1,5 @@
-import styles, { layout } from "../../styles/style";
-import { Skill, EcommerceImagesSection, SlideAnimation } from "./index";
+import styles, { layout } from "../../../styles/style";
+import { Skill, EcommerceImagesSection, SlideAnimation } from "../index";
 
 export default function Ecommerce() {
   const skills = [

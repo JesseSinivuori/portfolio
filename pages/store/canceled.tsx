@@ -1,18 +1,13 @@
 import Link from "next/link";
 import { BsBagX } from "react-icons/bs";
-import { useStateContext } from "../../context/StateContext";
+import { getLocalStorage, useStateContext } from "../../context/StateContext";
 import React, { useEffect } from "react";
 
 export default function Canceled() {
   const { setCartItems, setTotalPrice, setTotalQuantities } = useStateContext();
 
   useEffect(() => {
-    const contextString = localStorage.getItem("context");
-    const context = JSON.parse(contextString ?? "{}");
-
-    setCartItems(context.cartItems ?? []);
-    setTotalPrice(context.totalPrice ?? 0);
-    setTotalQuantities(context.totalQuantities ?? 0);
+    getLocalStorage(setCartItems, setTotalPrice, setTotalQuantities);
   }, [setCartItems, setTotalPrice, setTotalQuantities]);
 
   return (

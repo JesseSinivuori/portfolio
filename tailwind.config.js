@@ -10,16 +10,20 @@ module.exports = {
     extend: {
       colors: {
         primary: "#131313",
-        secondary: "#161616",
-        dimWhite: "rgba(255, 255, 255, 0.7)",
-        dimBlue: "rgba(9, 151, 124, 0.1)",
-        store: "#050505",
-        storeSecondary: "#ff7070",
-        nav: "#0a0a0a",
+        dimWhite: "rgba(255, 255, 255, 0.75)",
+        nav: "#191919",
       },
       textColor: {
         textLight: "#ffffff",
         textDark: "#000000",
+      },
+      animation: {
+        "spin-and-pulse-20s":
+          "spin 20s linear infinite, pulse 20s linear infinite",
+        "spin-and-pulse-10s":
+          "spin 10s linear infinite, pulse 10s linear infinite",
+        "spin-and-pulse-10s-reverse":
+          "spin 10s linear infinite reverse, pulse 10s linear infinite",
       },
     },
     screens: {

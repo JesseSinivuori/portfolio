@@ -1,41 +1,47 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 import { toast } from "react-hot-toast";
 
-const Context = createContext<any | undefined>(undefined);
+const Context = createContext<any>(null);
 
-export default function StateContext({ children }: any) {
-  const [showCart, setShowCart] = useState<boolean>(false);
+export default function StateContext({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState<any[]>([]);
-  const [totalPrice, setTotalPrice] = useState<number>(0);
-  const [totalQuantities, setTotalQuantities] = useState<number>(0);
-  const [qty, setQty] = useState<number>(1);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalQuantities, setTotalQuantities] = useState(0);
+  const [qty, setQty] = useState(1);
   const [category, setCategory] = useState("All");
   const [useCategoryFilter, setUseCategoryFilter] = useState(false);
 
+  useEffect(() => {
+    getLocalStorage(setCartItems, setTotalPrice, setTotalQuantities);
+  }, []);
+
   let foundProduct: { quantity: number; price: number };
-  let index: number;
 
   const onAdd = (product: any, quantity: number) => {
-    const checkProductInCart = cartItems.find(
-      (item) => item._id === product._id
-    );
+    const productIsInCart = cartItems.find((item) => item._id === product._id);
 
-    setTotalPrice(
-      (prevTotalPrice) => prevTotalPrice + product.price * quantity
-    );
-    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+    const updatedTotalPrice = totalPrice + product.price * quantity;
+    setTotalPrice(updatedTotalPrice);
 
-    if (checkProductInCart) {
+    const updatedTotalQuantities = totalQuantities + quantity;
+    setTotalQuantities(updatedTotalQuantities);
+
+    if (productIsInCart) {
       const updatedCartItems = cartItems.map((cartProduct) => {
-        if (cartProduct._id === product._id)
-          return {
+        if (cartProduct._id === product._id) {
+          const updatedItem = {
             ...cartProduct,
             quantity: cartProduct.quantity + quantity,
           };
-        if ([cartProduct._id === product._id])
-          return {
-            ...cartProduct,
-          };
+          return updatedItem;
+        } else {
+          return cartProduct;
+        }
       });
 
       setCartItems(updatedCartItems);
@@ -45,53 +51,79 @@ export default function StateContext({ children }: any) {
       setCartItems([...cartItems, { ...product }]);
     }
 
+    setLocalStorage(cartItems, updatedTotalPrice, updatedTotalQuantities);
+
     toast.success(`${qty} ${product.name} added to the cart.`);
   };
 
   const onRemove = (product: { _id: any }) => {
     foundProduct = cartItems.find((item) => item._id === product._id);
-    const newCartItems = cartItems.filter((item) => item._id !== product._id);
+    const updatedCartItems = cartItems.filter(
+      (item) => item._id !== product._id
+    );
 
-    setTotalPrice(
-      (prevTotalPrice) =>
-        prevTotalPrice - foundProduct.price * foundProduct.quantity
+    const updatedTotalPrice =
+      totalPrice - foundProduct.price * foundProduct.quantity;
+    setTotalPrice(updatedTotalPrice);
+
+    const updatedTotalQuantities = totalQuantities - foundProduct.quantity;
+    setTotalQuantities(updatedTotalQuantities);
+
+    setLocalStorage(
+      updatedCartItems,
+      updatedTotalPrice,
+      updatedTotalQuantities
     );
-    setTotalQuantities(
-      (prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity
-    );
-    setCartItems(newCartItems);
+    setCartItems(updatedCartItems);
   };
 
-  const toggleCartItemQuantity = (id: string, value: any) => {
+  const toggleCartItemQuantity = (id: string, value: "inc" | "dec") => {
     foundProduct = cartItems.find((item) => item._id === id);
-    index = cartItems.findIndex((product) => product._id === id);
 
     if (value === "inc") {
-      setCartItems(
-        cartItems.map((item) => {
-          if (item._id === id) {
-            return {
-              ...item,
-              quantity: item.quantity + 1,
-            };
-          }
-          return item;
-        })
+      const updatedCartItems = cartItems.map((item) => {
+        if (item._id === id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+        return item;
+      });
+      setCartItems(updatedCartItems);
+
+      const updatedTotalPrice = totalPrice + foundProduct.price;
+      setTotalPrice(updatedTotalPrice);
+
+      const updatedTotalQuantities = totalQuantities + 1;
+      setTotalQuantities(updatedTotalQuantities);
+
+      setLocalStorage(
+        updatedCartItems,
+        updatedTotalPrice,
+        updatedTotalQuantities
       );
-      setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
-      setTotalQuantities((prevTotalQuanties) => prevTotalQuanties + 1);
     } else if (value === "dec")
       if (foundProduct.quantity > 1) {
-        setCartItems(
-          cartItems.map((item) => {
-            if (item._id === id) {
-              return { ...item, quantity: item.quantity - 1 };
-            }
-            return item;
-          })
+        const updatedCartItems = cartItems.map((item) => {
+          if (item._id === id) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return item;
+        });
+        setCartItems(updatedCartItems);
+
+        const updatedTotalPrice = totalPrice - foundProduct.price;
+        setTotalPrice(updatedTotalPrice);
+
+        const updatedTotalQuantities = totalQuantities - 1;
+        setTotalQuantities(updatedTotalQuantities);
+
+        setLocalStorage(
+          updatedCartItems,
+          updatedTotalPrice,
+          updatedTotalQuantities
         );
-        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
-        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1);
       }
   };
 
@@ -130,7 +162,6 @@ export default function StateContext({ children }: any) {
         useCategoryFilter,
         setUseCategoryFilter,
       }}
-      key={children._id}
     >
       {children}
     </Context.Provider>
@@ -140,3 +171,37 @@ export default function StateContext({ children }: any) {
 export function useStateContext() {
   return useContext(Context);
 }
+
+export const getLocalStorage = (
+  setCartItems: React.Dispatch<React.SetStateAction<any[]>>,
+  setTotalPrice: React.Dispatch<React.SetStateAction<number>>,
+  setTotalQuantities: React.Dispatch<React.SetStateAction<number>>
+) => {
+  if (typeof window === "undefined") {
+    throw new Error("getLocalStorage should be used on client only");
+  }
+  const context = JSON.parse(localStorage.getItem("context") ?? "{}");
+  if (context !== "{}") {
+    setCartItems(context.cartItems ?? []);
+    setTotalPrice(context.totalPrice ?? 0);
+    setTotalQuantities(context.totalQuantities ?? 0);
+  }
+};
+
+export const setLocalStorage = (
+  cartItems: any,
+  totalPrice: number,
+  totalQuantities: number
+) => {
+  if (typeof window === "undefined") {
+    throw new Error("setLocalStorage should be used on client only");
+  }
+  localStorage.setItem(
+    "context",
+    JSON.stringify({
+      cartItems: cartItems,
+      totalPrice: totalPrice,
+      totalQuantities: totalQuantities,
+    })
+  );
+};
