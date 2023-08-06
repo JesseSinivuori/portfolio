@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' js.stripe.com;
+  script-src 'self' 'unsafe-eval';
   style-src 'self' 'unsafe-inline';
   font-src 'self' fonts.gstatic.com;
   media-src 'self';
   style-src-elem 'self' 'unsafe-inline' fonts.googleapis.com;
   frame-src 'self' js.stripe.com;
-  script-src-elem 'self' va.vercel-scripts.com js.stripe.com;
+  script-src-elem 'self' va.vercel-scripts.com 'unsafe-inline';
   img-src 'self' data: https://portfolio-jessesinivuori.vercel.app/;
   connect-src 'self' vitals.vercel-insights.com;
   object-src 'none';
@@ -33,16 +33,7 @@ const securityHeaders = [
 ];
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        port: "",
-        pathname: "/images/y2w5k2uh/production/**",
-      },
-    ],
-  },
+
   async headers() {
     return [
       {
