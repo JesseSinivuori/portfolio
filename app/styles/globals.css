@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #131313;
+    --color-nav: #191919;
+    color-scheme: dark;
+  }
+}
