@@ -86,7 +86,7 @@ export default function Hero() {
             <Image
               src={"/imgofme.webp"}
               alt=""
-              className="z-[5] xl:min-w-[650px] xl:max-h-[650px] lg:max-h-[550px] max-h-[450px] lg:min-w-[550px] xs:min-w-[450px] min-w-[270px] object-contain md:h-[650px] "
+              className="z-[5] w-auto h-auto xl:min-w-[650px] xl:max-h-[650px] lg:max-h-[550px] max-h-[450px] lg:min-w-[550px] xs:min-w-[450px] min-w-[270px] object-contain md:h-[650px] "
               width={650}
               height={650}
               quality={100}
