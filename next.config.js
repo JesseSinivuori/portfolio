@@ -11,7 +11,7 @@ const ContentSecurityPolicy = `
   frame-src 'self';
   script-src-elem 'self' va.vercel-scripts.com 'unsafe-inline';
   img-src 'self' data: https://portfolio-jessesinivuori.vercel.app/;
-  connect-src 'self' vitals.vercel-insights.com;
+  connect-src 'self' vitals.vercel-insights.com vercel.live;
   object-src 'none';
   base-uri 'none';
 `;
