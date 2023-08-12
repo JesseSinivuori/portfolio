@@ -25,7 +25,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# local env files
+# env files
 .env*.local
 .env
 
@@ -36,7 +36,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# turborepo
+.turbo
+
+# playwright
 /tests/examples/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+

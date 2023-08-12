@@ -1,25 +1,23 @@
-import styles from "@/app/styles/style";
-import { AnimationOnIntersection } from "../index";
+import { styles } from "@/app/styles/style";
 import Link from "next/link";
 
-export default function ContactBottom() {
+export function ContactBottom() {
   return (
-    <AnimationOnIntersection animation={"appear-from-bottom"}>
-      <div
-        id="contact-bottom"
-        className={`${styles.flexCenter} relative z-[10] m-32 flex-col`}
+    <section
+      id="contact-bottom"
+      className={`${styles.sectionPaddingY} flex justify-center items-center relative z-[10] flex-col`}
+    >
+      <Link
+        href={"/contact"}
+        className="rounded-md border 
+                dark:border-cyan-700 border-transparent px-4 py-2 text-[18px] 
+                font-medium text-white/90 shadow-lg dark:hover:border-opacity-50
+                duration-300 ease-in-out dark:bg-transparent bg-blue-700 hover:bg-blue-800
+                dark:hover:text-cyan-500"
+        data-testid="bottom-contact-button"
       >
-        <div className="absolute z-[-1] h-full w-full max-w-[400px] animate-[pulse_5s_linear_infinite] rounded-full bg-red-600/75  blur-[100px] transition-all duration-1000"></div>
-        <Link
-          data-testid="bottom-contact-button"
-          href={"/contact"}
-          className={`flex cursor-pointer select-none
-           rounded-md border-[1px] p-2 border-red-600 hover:text-red-600
-          text-[16px] text-white duration-100 ease-in-out`}
-        >
-          Contact
-        </Link>
-      </div>
-    </AnimationOnIntersection>
+        Contact
+      </Link>
+    </section>
   );
 }

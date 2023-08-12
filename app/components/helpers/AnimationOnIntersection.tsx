@@ -1,4 +1,5 @@
 "use client";
+import { ValueOf } from "next/dist/shared/lib/constants";
 import { ReactNode, useEffect, useRef, useState } from "react";
 
 interface AnimationOnIntersectionProps {
@@ -14,7 +15,17 @@ interface AnimationOnIntersectionProps {
     fromClass: string;
     toClass: string;
   };
+  duration?: Duration;
+  rootMargin?: string; //example "0px 0px -100px 0px"
 }
+
+const duration = {
+  long: "duration-1000",
+  medium: "duration-500",
+  short: "duration-300",
+} as const;
+
+type Duration = ValueOf<typeof duration>;
 
 const fromClass = {
   "slide-from-right": "opacity-0 translate-x-[100%]",
@@ -37,8 +48,11 @@ export function AnimationOnIntersection(props: AnimationOnIntersectionProps) {
     className,
     customAnimation,
     retriggerAnimation,
+    rootMargin,
+    duration,
   } = props;
-  const ref = useRef<HTMLDivElement>(null);
+  let ref = useRef<HTMLDivElement>(null);
+
   let animateFromClass = "";
   let animateToClass = "";
 
@@ -56,7 +70,7 @@ export function AnimationOnIntersection(props: AnimationOnIntersectionProps) {
 
   useEffect(() => {
     const element = ref.current;
-    const options = { rootMargin: "0px 0px -100px 0px" };
+    const options = { rootMargin: rootMargin ?? "0px 0px -100px 0px" };
 
     if (element) {
       const observer = new IntersectionObserver((entries) => {
@@ -74,12 +88,13 @@ export function AnimationOnIntersection(props: AnimationOnIntersectionProps) {
         observer.unobserve(element);
       };
     }
-  }, [animateFromClass, animateToClass, retriggerAnimation]);
+  }, [animateFromClass, animateToClass, retriggerAnimation, rootMargin]);
 
   return (
     <div
       ref={ref}
-      className={`${animationState} ${className} transition-all duration-1000`}
+      className={`${animationState} ${className} 
+      ${duration ?? "duration-500"} transition-all`}
     >
       {children}
     </div>

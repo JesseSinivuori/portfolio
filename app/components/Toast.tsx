@@ -1,16 +1,13 @@
 "use client";
 import { Toaster } from "react-hot-toast";
 
-export default function Toast() {
+export function Toast() {
   return (
     <Toaster
-      containerClassName={`mt-16 lg:mt-0 z-[9999]`}
+      containerClassName={`mt-16 z-[9999]`}
       toastOptions={{
-        style: {
-          padding: "16px",
-          color: "white",
-          backgroundColor: "var(--color-nav)",
-        },
+        className:
+          "dark:!text-white/90 !text-black/90 dark:!bg-nav !bg-navLight !p-4 !break-words",
       }}
     />
   );

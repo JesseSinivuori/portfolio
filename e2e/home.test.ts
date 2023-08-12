@@ -1,8 +1,9 @@
 import { test, expect } from "@playwright/test";
-import { heroSection, mobileMenuButton } from "./helpers/helpers";
+import { heroSection, mobileMenuButton, mobileMenu } from "./helpers/helpers";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
+  await page.waitForURL("/");
 });
 
 test.describe("/", () => {
@@ -22,25 +23,27 @@ test.describe("/", () => {
       await mobileMenuButton(page).click();
       await page
         .getByTestId("mobile-menu")
-        .getByRole("link", { name: "contact" })
+        .getByRole("link", { name: "Contact", exact: true })
         .click();
       await page.waitForURL("/contact");
-      expect(page.url()).toContain("/contact");
     } else {
       await page
         .getByRole("navigation")
-        .getByRole("link", { name: "contact" })
+        .getByRole("link", { name: "Contact", exact: true })
         .click();
       await page.waitForURL("/contact");
-      expect(page.url()).toContain("/contact");
     }
   });
 
   test("hero text and buttons is visible", async ({ page }) => {
     await heroSection(page).getByText(".jesse").isVisible();
     await heroSection(page).getByText("sinivuori", { exact: true }).isVisible();
-    await heroSection(page).getByText("Software Engineer").isVisible();
-    await heroSection(page).getByText("I 😍 building things.").isVisible();
+    await heroSection(page)
+      .getByText("Software Engineer", { exact: true })
+      .isVisible();
+    await heroSection(page)
+      .getByText("I 😍 building things.", { exact: true })
+      .isVisible();
     await heroSection(page).getByText("Contact", { exact: true }).isVisible();
     await heroSection(page).getByText("Github", { exact: true }).isVisible();
   });
@@ -52,7 +55,7 @@ test.describe("/", () => {
 
   test("contact button at the bottom of the page works", async ({ page }) => {
     await page
-      .locator("div[id=contact-bottom]")
+      .locator("#contact-bottom")
       .getByText("Contact", { exact: true })
       .click();
     await page.waitForURL("/contact");
@@ -76,5 +79,32 @@ test.describe("/", () => {
         expect(navLinks).toContain(link);
       });
     }
+  });
+  test.only("while projects popover is open, switching theme works(on mobile)", async ({
+    page,
+    isMobile,
+  }) => {
+    if (!isMobile) return;
+    await test.step("html initially has dark class", async () => {
+      await expect(page.getByRole("document")).toHaveClass(/dark bg-black/);
+    });
+    await test.step("opens mobile menu", async () => {
+      await mobileMenuButton(page).click();
+      await expect(mobileMenu(page)).toBeVisible();
+      await expect(mobileMenu(page)).toBeInViewport();
+    });
+    await test.step("opens projects popover", async () => {
+      await mobileMenu(page)
+        .getByRole("button", { name: "Projects", exact: true })
+        .click();
+      await expect(mobileMenu(page).locator("#projects-popover")).toBeVisible();
+      await expect(
+        mobileMenu(page).locator("#projects-popover")
+      ).toBeInViewport();
+    });
+    await test.step("switches theme successfully", async () => {
+      await mobileMenu(page).locator("#theme-button").click();
+      await expect(page.getByRole("document")).not.toHaveClass(/dark bg-black/);
+    });
   });
 });

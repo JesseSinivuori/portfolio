@@ -1,6 +1,6 @@
 import {
   Skills,
-  Website,
+  ThisWebsite,
   Footer,
   ContactBottom,
   DeliveryFeeCalculator,
@@ -21,7 +21,7 @@ export default function Home() {
       <AdManager />
       <GradientGenerator />
       <DeliveryFeeCalculator />
-      <Website />
+      <ThisWebsite />
       <ContactBottom />
       <Footer />
     </>
