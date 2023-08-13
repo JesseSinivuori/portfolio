@@ -1,17 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: ["./app/**/*.{js,ts,jsx,tsx,mdx,css}"],
   darkMode: "class",
   mode: "jit",
   theme: {
     extend: {
       colors: {
-        primary: "#131313",
-        nav: "#191919",
+        primary: "--color-primary",
+        light: "var(--color-light)",
+        nav: "var(--color-nav)",
+        navLight: "var(--color-navLight)",
       },
       textColor: {
-        textLight: "#ffffff",
-        textDark: "#000000",
+        textLightHeading: "white/90",
+        textDarkHeading: "black/90",
+        textLightParagraph: "white/75",
+        textDarkParagraph: "black/75",
       },
       animation: {
         "spin-and-pulse-20s":

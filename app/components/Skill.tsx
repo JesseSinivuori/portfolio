@@ -1,34 +1,41 @@
-import styles from "@/app/styles/style";
+import { styles } from "@/app/styles/style";
 import Image from "next/image";
 
-type SkillProps = {
-  skill: {
-    id: string;
-    src: string;
-    name: string;
-  };
+export interface SkillProps {
+  id: string;
+  src: string;
+  name: string;
   className?: string;
-};
+  skillTextClassName?: string;
+  skillImageClassName?: string;
+}
 
-export default function Skill(props: SkillProps) {
-  const { skill, className } = props;
-  const { id, src, name } = skill;
-
+export function Skill({
+  src,
+  name,
+  className,
+  skillTextClassName,
+  skillImageClassName,
+}: SkillProps) {
   return (
     <div
-      className={`flex flex-col items-center justify-center p-0 xs:p-4 ${className}`}
+      className={`flex flex-col items-center justify-center p-0 xs:p-4 z-[1]
+      ${className ?? ""} `}
     >
       <Image
         src={src}
         alt=""
-        className={`m-4 xss:m-8 scale-75 xss:scale-100 h-[80px] min-h-[80px] w-[80px] min-w-[80px] object-contain
-        ${["nextjs", "unity"].includes(id) && "invert"} `}
+        className={`m-6 hidden xss:block xss:m-8 scale-75 xss:scale-100 h-[80px] min-h-[80px] w-[80px] min-w-[80px] object-contain
+        ${skillImageClassName ?? ""} `}
         width={80}
         height={80}
       />
-      <span className={`p-2 text-[14px] xss:text-[16px] ${styles.paragraph}`}>
+      <p
+        className={`p-2 xss:m-0 m-2 text-[14px] xss:text-[16px] dark:border-white/10 xss:bg-transparent border dark:xss:border-transparent xss:border-transparent border-black/10 rounded-md
+        ${styles.p} ${skillTextClassName ?? ""}`}
+      >
         {name}
-      </span>
+      </p>
     </div>
   );
 }

@@ -1,8 +1,8 @@
-export { default as AdManager } from "./AdManager";
-export { default as ContactBottom } from "./ContactBottom";
-export { default as DeliveryFeeCalculator } from "./DeliveryFeeCalculator";
-export { default as Ecommerce } from "./Ecommerce";
-export { default as GradientGenerator } from "./GradientGenerator";
-export { default as Hero } from "./Hero";
-export { default as Skills } from "./Skills";
-export { default as Website } from "./Website";
+export * from "./AdManager";
+export * from "./ContactBottom";
+export * from "./DeliveryFeeCalculator";
+export * from "./Ecommerce";
+export * from "./GradientGenerator";
+export * from "./Hero";
+export * from "./Skills";
+export * from "./ThisWebsite";

@@ -1,31 +1,31 @@
 "use client";
 import { Popover as HUIPopover, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import styles from "@/app/styles/style";
+import { styles } from "@/app/styles/style";
 import Link from "next/link";
 
 interface Link {
   name: string;
   description: string;
   href: string;
-  icon: () => JSX.Element;
+  icon: JSX.Element;
 }
 
-export default function Popover({ links }: { links: Link[] }) {
+export function Popover({ links, id }: { links: Link[]; id: string }) {
   return (
-    <div className="flex w-full max-w-sm">
+    <div className="flex w-full max-w-sm" id={id}>
       <HUIPopover className="w-full">
         {({ open, close }) => (
           <>
             <HUIPopover.Button
               className={`
                 ${open ? "" : "text-opacity-75"}
-                group inline-flex w-full items-center rounded-md bg-transparent px-2 py-2 text-base font-medium text-white outline-none ring-transparent hover:text-opacity-100 hover:ring-1 hover:ring-white hover:ring-opacity-75`}
+                group inline-flex w-full items-center rounded-md bg-transparent px-2 py-2 text-base font-medium dark:text-white/75 text-black/75 outline-none ring-transparent hover:ring-1 hover:ring-black dark:hover:ring-white hover:ring-opacity-75 dark:hover:ring-opacity-75`}
             >
               <span className="flex w-full">Projects</span>
               <span
                 className={`${open ? "" : " opacity-75"}
-                  ml-2 flex h-5 w-full flex-1 text-white transition duration-150 ease-in-out group-hover:text-opacity-100 `}
+                  ml-2 flex h-5 w-full flex-1 dark:text-white/75 text-black/75 transition duration-150 ease-in-out group-hover:text-opacity-90 `}
                 aria-hidden="true"
               >
                 {ChevronDownIcon}
@@ -38,23 +38,28 @@ export default function Popover({ links }: { links: Link[] }) {
               enterTo="opacity-100 translate-y-0"
             >
               <HUIPopover.Panel className="relative left-1/2 z-10 mt-8 flex w-full max-w-sm -translate-x-1/2 transform px-4 xs:absolute sm:px-0 lg:max-w-3xl">
-                <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-nav ring-opacity-5 ">
-                  <div className="relative grid gap-8 bg-nav p-7 lg:grid-cols-2">
+                <div className="overflow-hidden rounded-lg shadow-lg ring-1 dark:ring-white/10 ring-black/10 ring-opacity-5 ">
+                  <div className="relative grid gap-8 dark:bg-nav bg-navLight p-7 lg:grid-cols-2">
                     {links.map((item) => (
                       <Link
                         onClick={close}
                         key={item.name}
                         href={item.href}
-                        className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-zinc-800/75 focus:outline-none focus-visible:ring focus-visible:ring-opacity-50 focus-visible:hover:ring-white"
+                        className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out dark:hover:bg-zinc-500/10 hover:bg-gray-500/10 focus:outline-none focus-visible:ring focus-visible:ring-opacity-50 focus-visible:hover:ring-black/90 dark:focus-visible:hover:ring-white/90"
                       >
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12">
-                          <item.icon aria-hidden="true" />
+                        <div
+                          className="flex h-10 w-10 shrink-0 items-center justify-center text-black/90 dark:text-white/90 sm:h-12 sm:w-12"
+                          aria-hidden="true"
+                        >
+                          {item.icon}
                         </div>
                         <div className="ml-4">
-                          <p className={` font-semibold text-white`}>
+                          <p
+                            className={` font-semibold dark:text-white/90 text-black/90`}
+                          >
                             {item.name}
                           </p>
-                          <p className={`text-sm ${styles.paragraph}`}>
+                          <p className={`text-sm ${styles.p}`}>
                             {item.description}
                           </p>
                         </div>

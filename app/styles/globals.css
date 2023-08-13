@@ -4,8 +4,18 @@
 
 @layer base {
   :root {
-    --color-primary: #131313;
-    --color-nav: #191919;
-    color-scheme: dark;
+    --color-primary: #000000;
+    --color-light: #ededed;
+    --color-nav: #121212;
+    --color-navLight: #eeeeee;
+    color-scheme: light dark;
+  }
+}
+
+@layer utilities {
+  .noise-filter-radial {
+    filter: url(/public/noise.webp) repeat;
+    background-blend-mode: overlay;
+    mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
   }
 }

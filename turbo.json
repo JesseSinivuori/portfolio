@@ -1,0 +1,15 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "dev": { "cache": false, "persistent": true },
+    "start": { "dependsOn": ["build"] },
+    "lint": {},
+    "typecheck": {},
+    "test:e2e": {
+      "inputs": ["app/**/*.tsx", "app/**/*.ts", "e2e/**/*.ts", "e2e/**/*.tsx"]
+    }
+  }
+}
