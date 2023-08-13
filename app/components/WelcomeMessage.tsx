@@ -6,10 +6,10 @@ export function WelcomeMessage() {
   useEffect(() => {
     const welcomeMessageShown = localStorage.getItem("welcomeMessageShown");
     if (!welcomeMessageShown) {
-      toast.success("Welcome! You can find my skills + projects below.", {
+      toast.success("Welcome! You can find my projects below.", {
         icon: "👋",
-        duration: 6000000,
-        position: "top-center",
+        duration: 6000,
+        position: "bottom-center",
       });
     }
     localStorage.setItem("welcomeMessageShown", "true");
