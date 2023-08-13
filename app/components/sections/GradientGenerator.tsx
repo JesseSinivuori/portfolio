@@ -2,8 +2,6 @@ import Image from "next/image";
 import { styles } from "@/app/styles/style";
 import { AnimationOnIntersection, Skill } from "../index";
 import Link from "next/link";
-import gradientGeneratorColors from "@/public/gradientGeneratorColors.png";
-import gradientGeneratorOutput from "@/public/gradientGeneratorOutput.png";
 
 export function GradientGenerator() {
   return (
@@ -83,6 +81,25 @@ const Gradient = () => (
   </AnimationOnIntersection>
 );
 
+const MainImage = () => (
+  <Link
+    href={"https://gradient-generator-beta.vercel.app/"}
+    target="_blank"
+    title="Try the App"
+    rel="noreferrer noopener"
+  >
+    <Image
+      src={"/gradientGeneratorColors.png"}
+      alt=""
+      className=" relative z-[3] mb-24 ml-96 w-[600px] min-w-[600px] rounded-md
+  border border-transparent object-cover opacity-75 transition-all duration-300
+  hover:border-white xss:ml-72 sm:ml-0"
+      width={600}
+      height={405}
+    />
+  </Link>
+);
+
 const OutputImage = () => (
   <Link
     href={"https://gradient-generator-beta.vercel.app/"}
@@ -92,34 +109,13 @@ const OutputImage = () => (
     rel="noreferrer noopener"
   >
     <Image
-      src={gradientGeneratorOutput}
-      blurDataURL={gradientGeneratorOutput.blurDataURL}
-      placeholder="blur"
+      src={"/gradientGeneratorOutput.png"}
       alt=""
       className="rounded-md border
   border-transparent object-cover opacity-75
   transition-all duration-300 hover:border-white"
-      quality={100}
-    />
-  </Link>
-);
-
-const MainImage = () => (
-  <Link
-    href={"https://gradient-generator-beta.vercel.app/"}
-    target="_blank"
-    title="Try the App"
-    rel="noreferrer noopener"
-  >
-    <Image
-      src={gradientGeneratorColors}
-      blurDataURL={gradientGeneratorColors.blurDataURL}
-      placeholder="blur"
-      alt=""
-      className=" relative z-[3] mb-24 ml-96 w-[600px] min-w-[600px] rounded-md
-  border border-transparent object-cover opacity-75 transition-all duration-300
-  hover:border-white xss:ml-72 sm:ml-0"
-      quality={100}
+      width={1000}
+      height={91}
     />
   </Link>
 );

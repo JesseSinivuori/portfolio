@@ -2,8 +2,6 @@ import Image from "next/image";
 import { styles } from "@/app/styles/style";
 import { AnimationOnIntersection, Skill } from "../index";
 import Link from "next/link";
-import deliveryFeeCalculator from "@/public/deliveryFeeCalculator.png";
-import deliveryFeeCalculatorSettings from "@/public/deliveryFeeCalculatorSettings.png";
 
 export function DeliveryFeeCalculator() {
   return (
@@ -15,7 +13,7 @@ export function DeliveryFeeCalculator() {
         className={`flex justify-center items-center relative z-[0] h-full w-full flex-col  rounded-xl
         `}
       >
-        <div className="absolute bottom-0 h-[50%] w-full rounded-full bg-cyan-500/25 blur-[100px]"></div>
+        <Gradient />
         <Heading />
         <Paragraph />
         <div className={`flex justify-center items-center p-4`}>
@@ -41,6 +39,18 @@ const Paragraph = () => (
     Calculate delivery fees. 🛴
   </p>
 );
+
+const Gradient = () => (
+  <AnimationOnIntersection
+    animation="appear-"
+    className="absolute w-full h-full"
+    rootMargin="0px 0px -600px 0px"
+    duration="duration-1000"
+  >
+    <div className="absolute bottom-0 h-[50%] w-full rounded-full bg-cyan-500/25 blur-[100px]"></div>
+  </AnimationOnIntersection>
+);
+
 const MainImage = () => (
   <Link
     title="Try the App"
@@ -50,25 +60,14 @@ const MainImage = () => (
     className="relative m-8"
   >
     <Image
-      src={deliveryFeeCalculator}
-      blurDataURL={deliveryFeeCalculator.blurDataURL}
-      placeholder="blur"
+      src={"/deliveryFeeCalculator.png"}
       alt=""
       className="relative z-[1] h-[442px] min-w-[237px] w-full rounded-xl 
       border border-transparent object-contain transition-all duration-300 hover:border-white"
-      quality={100}
+      width={237}
+      height={442}
     />
   </Link>
-);
-
-const Skills = () => (
-  <div
-    className={`flex-wrap flex justify-center items-center max-w-sm sm:max-w-full`}
-  >
-    {skills.map((skill) => (
-      <Skill {...skill} key={skill.id} />
-    ))}
-  </div>
 );
 
 const SettingsImage = () => (
@@ -85,19 +84,28 @@ const SettingsImage = () => (
       rel="noreferrer noopener"
     >
       <Image
-        src={deliveryFeeCalculatorSettings}
+        src={"/deliveryFeeCalculatorSettings.png"}
         alt=""
         className={`m-8 h-[290px] w-[640px] rounded-xl border border-transparent
     object-cover opacity-75 transition-all duration-300 hover:border-white hover:opacity-100`}
         height={290}
         width={640}
-        quality={100}
       />
     </Link>
     <p className={`${styles.p} flex justify-center w-full max-w-[480px] `}>
       Adjust settings. ⚙️
     </p>
   </AnimationOnIntersection>
+);
+
+const Skills = () => (
+  <div
+    className={`flex-wrap flex justify-center items-center max-w-sm sm:max-w-full`}
+  >
+    {skills.map((skill) => (
+      <Skill {...skill} key={skill.id} />
+    ))}
+  </div>
 );
 
 const TryTheAppButton = () => (

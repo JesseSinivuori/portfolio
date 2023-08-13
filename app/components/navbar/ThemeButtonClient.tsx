@@ -2,8 +2,6 @@
 import { useState } from "react";
 import { ThemeButtonEffects } from "./ThemeButtonEffects";
 
-const toggleDarkModeCookie = () => fetch("/api/theme", { method: "PATCH" });
-
 export function ThemeButtonClient({
   className,
   darkModeCookie,
@@ -16,6 +14,8 @@ export function ThemeButtonClient({
   DarkModeIcon: JSX.Element;
 }) {
   const [darkMode, setDarkMode] = useState(darkModeCookie);
+
+  const toggleDarkModeCookie = () => fetch("/api/theme", { method: "PATCH" });
 
   const handleToggleDarkMode = async () => {
     setDarkMode(!darkMode);

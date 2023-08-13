@@ -2,7 +2,6 @@ import { styles } from "@/app/styles/style";
 import Image from "next/image";
 import { AnimationOnIntersection, Skill } from "../index";
 import Link from "next/link";
-import adManager from "@/public/admanager.png";
 
 export function AdManager() {
   return (
@@ -106,12 +105,11 @@ const AdManagerImage = () => (
     rel="noreferrer noopener"
   >
     <Image
-      src={adManager}
-      blurDataURL={adManager.blurDataURL}
-      placeholder="blur"
+      src={"/adManager.png"}
       alt=""
       className="z-[-1] h-auto w-[570px] min-w-[240px] object-contain"
-      quality={100}
+      width={503}
+      height={345}
     />
   </Link>
 );

@@ -1,18 +1,10 @@
 "use client";
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { AnimationOnIntersection } from "../helpers";
 
-export function EcommerceImages({ images }: { images: StaticImageData[] }) {
-  const [
-    ecommerce,
-    ecommerceCart,
-    ecommerceCategories,
-    ecommercePizza,
-    ecommercePancakes,
-  ] = images;
-
+export function EcommerceImages() {
   const ref = useRef<HTMLDivElement>(null);
   const [imagesInView, setImagesInView] = useState(false);
 
@@ -21,14 +13,14 @@ export function EcommerceImages({ images }: { images: StaticImageData[] }) {
     if (!imageRef) return;
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setImagesInView(true);
-          }
-        });
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setImagesInView(true);
+        }
       },
       { rootMargin: "0px 0px -400px 0px" }
     );
+
     observer.observe(imageRef);
     return () => {
       observer.unobserve(imageRef);
@@ -41,14 +33,11 @@ export function EcommerceImages({ images }: { images: StaticImageData[] }) {
         className={`flex justify-center items-center flex-col relative`}
         ref={ref}
       >
-        <MainImage image={ecommerce} />
-        <CartImage imagesInView={imagesInView} image={ecommerceCart} />
-        <CategoriesImage
-          imagesInView={imagesInView}
-          image={ecommerceCategories}
-        />
-        <PizzaImage imagesInView={imagesInView} image={ecommercePizza} />
-        <PancakesImage imagesInView={imagesInView} image={ecommercePancakes} />
+        <MainImage />
+        <CartImage imagesInView={imagesInView} />
+        <CategoriesImage imagesInView={imagesInView} />
+        <PizzaImage imagesInView={imagesInView} />
+        <PancakesImage imagesInView={imagesInView} />
         <Gradient />
       </div>
     </div>
@@ -58,7 +47,7 @@ export function EcommerceImages({ images }: { images: StaticImageData[] }) {
 const imageStyle =
   "rounded-xl border border-transparent object-contain duration-500 hover:duration-300 ease-in-out hover:border-red-600/50";
 
-const MainImage = ({ image }: { image: StaticImageData }) => (
+const MainImage = () => (
   <Link
     href={"https://ecommerce-restaurant-beta.vercel.app/"}
     target="_blank"
@@ -67,24 +56,17 @@ const MainImage = ({ image }: { image: StaticImageData }) => (
     className="z-[3]"
   >
     <Image
-      src={image}
-      blurDataURL={image.blurDataURL}
-      placeholder="blur"
+      src={"/ecommerce.png"}
+      width={768}
+      height={450}
       alt=""
       className={`${imageStyle} justify-center min-w-[380px] sm:min-w-[580px] h-auto hidden sm:flex
     `}
-      quality={100}
     />
   </Link>
 );
 
-const CartImage = ({
-  imagesInView,
-  image,
-}: {
-  imagesInView: boolean;
-  image: StaticImageData;
-}) => (
+const CartImage = ({ imagesInView }: { imagesInView: boolean }) => (
   <Link
     href={"https://ecommerce-restaurant-beta.vercel.app/"}
     target="_blank"
@@ -93,7 +75,7 @@ const CartImage = ({
     className="z-[4] flex justify-center"
   >
     <Image
-      src={image}
+      src={"/ecommerceCart.png"}
       alt=""
       className={`${imageStyle} max-w-[360px] w-[90%] justify-center h-auto ${
         imagesInView
@@ -101,19 +83,13 @@ const CartImage = ({
           : "sm:translate-x-[-100%] sm:translate-y-[25%] sm:scale-0"
       } sm:absolute flex justify-center items-center sm:-right-60 sm:-top-40`}
       quality={100}
-      blurDataURL={image.blurDataURL}
-      placeholder="blur"
+      width={462}
+      height={360}
     />
   </Link>
 );
 
-const CategoriesImage = ({
-  imagesInView,
-  image,
-}: {
-  imagesInView: boolean;
-  image: StaticImageData;
-}) => (
+const CategoriesImage = ({ imagesInView }: { imagesInView: boolean }) => (
   <Link
     href={"https://ecommerce-restaurant-beta.vercel.app/"}
     target="_blank"
@@ -122,26 +98,19 @@ const CategoriesImage = ({
     className="z-[1]"
   >
     <Image
-      src={image}
-      blurDataURL={image.blurDataURL}
-      placeholder="blur"
+      src={"/ecommerceCategories.png"}
       alt=""
       className={`${
         imagesInView ? "translate-y-0 scale-100" : "translate-y-[100%] scale-0"
       } ${imageStyle} h-auto min-w-[900px] opacity-50 hover:opacity-100 hidden sm:block
       absolute -top-24 -left-20`}
-      quality={100}
+      width={900}
+      height={82}
     />
   </Link>
 );
 
-const PizzaImage = ({
-  imagesInView,
-  image,
-}: {
-  imagesInView: boolean;
-  image: StaticImageData;
-}) => (
+const PizzaImage = ({ imagesInView }: { imagesInView: boolean }) => (
   <Link
     href={"https://ecommerce-restaurant-beta.vercel.app/"}
     target="_blank"
@@ -150,26 +119,19 @@ const PizzaImage = ({
     className="z-[2]"
   >
     <Image
-      src={image}
-      blurDataURL={image.blurDataURL}
-      placeholder="blur"
+      src={"/ecommercePizza.png"}
       alt=""
       className={`${
         imagesInView ? "translate-x-0 scale-100" : "translate-x-[25%] scale-0"
       } ${imageStyle} w-[800px] min-w-[300px] h-auto lg:hover:translate-x-[-25%]
       absolute -left-[300px] -bottom-40 hidden md:block`}
-      quality={100}
+      width={768}
+      height={264}
     />
   </Link>
 );
 
-const PancakesImage = ({
-  imagesInView,
-  image,
-}: {
-  imagesInView: boolean;
-  image: StaticImageData;
-}) => (
+const PancakesImage = ({ imagesInView }: { imagesInView: boolean }) => (
   <Link
     href={"https://ecommerce-restaurant-beta.vercel.app/"}
     target="_blank"
@@ -178,15 +140,14 @@ const PancakesImage = ({
     className="z-[1]"
   >
     <Image
-      src={image}
-      blurDataURL={image.blurDataURL}
-      placeholder="blur"
+      src={"/ecommercePancakes.png"}
       alt=""
       className={`${
         imagesInView ? `translate-x-0 scale-100` : "translate-x-[25%] scale-0"
       } ${imageStyle} hover:opacity-100 opacity-25 w-[800px] h-auto lg:hover:translate-x-[-25%]
       absolute hidden md:block -left-[200px] -bottom-0`}
-      quality={100}
+      width={768}
+      height={264}
     />
   </Link>
 );

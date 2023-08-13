@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "next dev ",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -20,7 +20,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
-    "react-icons": "^4.10.1"
+    "react-icons": "^4.10.1",
+    "sharp": "^0.32.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.37.0",
@@ -30,6 +31,7 @@
     "autoprefixer": "^10.4.14",
     "eslint": "^8.47.0",
     "eslint-config-next": "^13.4.13",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "postcss": "^8.4.27",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.4.1",

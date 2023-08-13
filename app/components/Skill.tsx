@@ -31,7 +31,7 @@ export function Skill({
         height={80}
       />
       <p
-        className={`p-2 xss:m-0 m-2 text-[14px] xss:text-[16px] font-normal dark:border-white/10 xss:bg-transparent border  dark:xss:border-transparent xss:border-transparent border-black/10 rounded-md
+        className={`p-2 xss:m-0 m-2 text-[14px] xss:text-[16px] dark:border-white/10 xss:bg-transparent border dark:xss:border-transparent xss:border-transparent border-black/10 rounded-md
         ${styles.p} ${skillTextClassName ?? ""}`}
       >
         {name}

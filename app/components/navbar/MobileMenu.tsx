@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { OnClickOutside, OnPopState } from "../helpers";
 import { MobileMenuEffects } from "./MobileMenuEffects";
 
@@ -14,32 +14,10 @@ export const MobileMenu = ({
 }) => {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
 
-  useEffect(() => {
-    if (toggleMobileMenu) {
-      const checkWidth = () => {
-        if (window.document.body.offsetWidth > 620) {
-          setToggleMobileMenu(false);
-        }
-      };
-      addEventListener("resize", checkWidth);
-      return () => {
-        removeEventListener("resize", checkWidth);
-      };
-    }
-  }, [toggleMobileMenu]);
-
-  useEffect(() => {
-    if (toggleMobileMenu) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-  }, [toggleMobileMenu]);
-
   return (
     <div className={`relative flex w-[28px] cursor-pointer `}>
       <MobileMenuEffects
-        toggleMobileMenu={false}
+        toggleMobileMenu={toggleMobileMenu}
         setToggleMobileMenu={setToggleMobileMenu}
       />
       <button

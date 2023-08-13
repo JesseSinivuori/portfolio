@@ -8,7 +8,6 @@ import { cookies } from "next/headers";
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
-  display: "block",
 });
 
 export const metadata: Metadata = {

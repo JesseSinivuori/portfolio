@@ -2,21 +2,8 @@ import { styles } from "@/app/styles/style";
 import { Skill, EcommerceImages } from "../index";
 import { SkillProps } from "../Skill";
 import Link from "next/link";
-import ecommerce from "@/public/ecommerce.png";
-import ecommerceCart from "@/public/ecommerceCart.png";
-import ecommerceCategories from "@/public/ecommerceCategories.png";
-import ecommercePizza from "@/public/ecommercePizza.png";
-import ecommercePancakes from "@/public/ecommercePancakes.png";
 
 export function Ecommerce() {
-  const images = [
-    ecommerce,
-    ecommerceCart,
-    ecommerceCategories,
-    ecommercePizza,
-    ecommercePancakes,
-  ];
-
   return (
     <section
       id="jesse's_kitchen"
@@ -27,7 +14,7 @@ export function Ecommerce() {
         <Paragraph />
       </div>
       <Skills />
-      <EcommerceImages images={images} />
+      <EcommerceImages />
       <div className="flex w-full justify-center sm:pt-8">
         <TryTheAppButton />
       </div>

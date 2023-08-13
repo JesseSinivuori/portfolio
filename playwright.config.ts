@@ -81,12 +81,14 @@ export default defineConfig({
     trace: "on-first-retry",
   },
 
+  timeout: 1000 * 60,
+
   /* Configure projects for major browsers */
   projects: !process.env.CI ? projects : CIProjects,
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "turbo start",
+    command: "pnpm run start",
     url: baseUrl,
     reuseExistingServer: !process.env.CI,
   },

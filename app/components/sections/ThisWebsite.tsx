@@ -1,8 +1,7 @@
 import { styles } from "@/app/styles/style";
 import Image from "next/image";
-import { Skill } from "../index";
+import { AnimationOnIntersection, Skill } from "../index";
 import { SkillProps } from "../Skill";
-import thisWebsiteCode from "@/public/thisWebsiteCode.png";
 
 export function ThisWebsite() {
   return (
@@ -55,17 +54,24 @@ const Skills = () => (
 );
 
 const CodeImageGradient = () => (
-  <div className="absolute m-auto -bottom-40 -left-40 z-[0] h-[150%] w-[150%] rounded-full bg-violet-700/10 blur-[100px]"></div>
+  <AnimationOnIntersection
+    animation="appear-"
+    retriggerAnimation={true}
+    className="absolute w-full h-full"
+    rootMargin="0px 0px -400px 0px"
+    duration="duration-1000"
+  >
+    <div className="absolute m-auto -bottom-40 -left-40 z-[0] h-[150%] w-[150%] rounded-full bg-violet-700/10 blur-[100px]"></div>
+  </AnimationOnIntersection>
 );
 
 const CodeImage = () => (
   <Image
-    src={thisWebsiteCode}
-    blurDataURL={thisWebsiteCode.blurDataURL}
-    placeholder="blur"
+    src={"/thisWebsiteCode.png"}
     alt=""
     className={`z-[5] h-auto p-8 xss:p-0 w-full ml-64 xs:ml-36 ss:ml-4 sm:ml-0 max-w-[600px] min-w-[570px] object-contain`}
-    quality={100}
+    width={570}
+    height={647}
   />
 );
 

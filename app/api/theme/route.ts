@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-export function PATCH(req: NextRequest, res: NextResponse) {
+export function PATCH(_req: NextRequest, _res: NextResponse) {
   const darkModeCookie = cookies().get("darkMode");
 
   if (darkModeCookie?.value) {
