@@ -54,7 +54,9 @@ pnpm dlx playwright install
 ### 2. Run the dev or production build
 ```bash
 pnpm dev
-# or
+```
+#### or
+```bash
 pnpm start
 ```
 
