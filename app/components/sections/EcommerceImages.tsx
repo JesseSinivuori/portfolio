@@ -54,6 +54,7 @@ const MainImage = () => (
     title="Try the App"
     rel="noreferrer noopener"
     className="z-[3]"
+    tabIndex={-1}
   >
     <Image
       src={"/ecommerce.png"}
@@ -73,6 +74,7 @@ const CartImage = ({ imagesInView }: { imagesInView: boolean }) => (
     title="Try the App"
     rel="noreferrer noopener"
     className="z-[4] flex justify-center"
+    tabIndex={-1}
   >
     <Image
       src={"/ecommerceCart.png"}
@@ -96,6 +98,7 @@ const CategoriesImage = ({ imagesInView }: { imagesInView: boolean }) => (
     title="Try the App"
     rel="noreferrer noopener"
     className="z-[1]"
+    tabIndex={-1}
   >
     <Image
       src={"/ecommerceCategories.png"}
@@ -117,6 +120,7 @@ const PizzaImage = ({ imagesInView }: { imagesInView: boolean }) => (
     title="Try the App"
     rel="noreferrer noopener"
     className="z-[2]"
+    tabIndex={-1}
   >
     <Image
       src={"/ecommercePizza.png"}
@@ -138,6 +142,7 @@ const PancakesImage = ({ imagesInView }: { imagesInView: boolean }) => (
     title="Try the App"
     rel="noreferrer noopener"
     className="z-[1]"
+    tabIndex={-1}
   >
     <Image
       src={"/ecommercePancakes.png"}

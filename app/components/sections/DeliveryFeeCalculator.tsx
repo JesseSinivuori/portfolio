@@ -16,17 +16,24 @@ export function DeliveryFeeCalculator() {
         <Gradient />
         <Heading />
         <Paragraph />
-        <div className={`flex justify-center items-center p-4`}>
-          <div className={`flex justify-center items-center relative flex-col`}>
+        <Skills />
+        <div
+          className={`flex justify-center items-center p-4 max-w-full w-full`}
+        >
+          <div
+            className={`flex justify-center items-center relative flex-col w-full`}
+          >
             <MainImage />
-            <TryTheAppButton />
+            <div className="flex flex-wrap justify-center mt-8 gap-4 z-[1] lg:absolute mr-0 lg:-mr-[680px]">
+              <TryTheAppButton />
+              <GithubButton />
+            </div>
           </div>
           <div className="absolute bottom-0 left-0 hidden flex-col lg:block mb-8">
             <SettingsImage />
           </div>
         </div>
       </div>
-      <Skills />
     </section>
   );
 }
@@ -58,6 +65,7 @@ const MainImage = () => (
     href={"https://delivery-fee-nu.vercel.app/"}
     target="_blank"
     className="relative m-8"
+    tabIndex={-1}
   >
     <Image
       src={"/deliveryFeeCalculator.png"}
@@ -82,6 +90,7 @@ const SettingsImage = () => (
       target="_blank"
       title="Try the App"
       rel="noreferrer noopener"
+      tabIndex={-1}
     >
       <Image
         src={"/deliveryFeeCalculatorSettings.png"}
@@ -113,15 +122,32 @@ const TryTheAppButton = () => (
     rel="noreferrer noopener"
     href={"https://delivery-fee-nu.vercel.app/"}
     target="_blank"
-    className={`right-[-280px] z-[1] m-8 flex rounded-md border border-transparent
-dark:border-cyan-500 px-4 py-2 text-[18px] font-medium shadow-lg outline-none
+    className={` z-[1] flex rounded-md border border-transparent
+dark:border-cyan-500 px-4 py-2 text-[18px] font-medium shadow-lg
 duration-300 ease-in-out
-dark:hover:border-cyan-500 dark:hover:text-cyan-500 lg:absolute
+dark:hover:border-cyan-500 dark:hover:text-cyan-500 
 bg-blue-700 dark:bg-transparent text-white/90 
 dark:text-white/90 hover:bg-blue-800 dark:hover:border-opacity-50
 `}
   >
     Try the App
+  </Link>
+);
+
+const GithubButton = () => (
+  <Link
+    data-testid="hero-github-button"
+    rel="noreferrer noopener"
+    target="_blank"
+    href={"https://github.com/JesseSinivuori/delivery-fee-calculator"}
+    className="rounded-md
+ border dark:border-transparent bg-primary/10
+px-4 py-2 text-[18px] font-medium border-transparent
+dark:text-white/90 text-black/90 shadow-lg
+duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
+ hover:text-black/75"
+  >
+    Github
   </Link>
 );
 

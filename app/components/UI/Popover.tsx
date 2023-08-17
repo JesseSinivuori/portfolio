@@ -20,7 +20,7 @@ export function Popover({ links, id }: { links: Link[]; id: string }) {
             <HUIPopover.Button
               className={`
                 ${open ? "" : "text-opacity-75"}
-                group inline-flex w-full items-center rounded-md bg-transparent px-2 py-2 text-base font-medium dark:text-white/75 text-black/75 outline-none ring-transparent hover:ring-1 hover:ring-black dark:hover:ring-white hover:ring-opacity-75 dark:hover:ring-opacity-75`}
+                group inline-flex w-full items-center rounded-md bg-transparent px-2 py-2 text-base font-medium dark:text-white/75 text-black/75 focus-visible:ring outline-none ring-transparent hover:ring-1 hover:ring-black/90 dark:ring-white/90 focus:ring-black/90 dark:hover:ring-white/90 hover:ring-opacity-75 dark:hover:ring-opacity-75`}
             >
               <span className="flex w-full">Projects</span>
               <span

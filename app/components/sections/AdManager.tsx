@@ -17,7 +17,10 @@ export function AdManager() {
       <div className="flex justify-center relative items-center my-10 w-full flex-col px-0 sm:px-10">
         <Gradient />
         <AdManagerImage />
-        <TryTheAppButton />
+        <div className="pt-8 flex justify-center items-start flex-wrap gap-4">
+          <TryTheAppButton />
+          <GithubButton />
+        </div>
       </div>
     </section>
   );
@@ -74,7 +77,7 @@ const TryTheAppButton = () => (
     rel="noreferrer noopener"
     href={"https://ad-manager-beta.vercel.app/"}
     target="_blank"
-    className="z-[1] mt-12
+    className="z-[1]
   rounded-md border  border-transparent bg-pink-700 dark:bg-transparent text-white/90 px-4 py-2
   text-[18px] font-medium dark:text-white/90 hover:bg-pink-800
   shadow-lg duration-300 dark:border-pink-500
@@ -85,12 +88,28 @@ const TryTheAppButton = () => (
   </Link>
 );
 
+const GithubButton = () => (
+  <Link
+    data-testid="hero-github-button"
+    rel="noreferrer noopener"
+    target="_blank"
+    href={"https://github.com/JesseSinivuori/ad-manager"}
+    className="rounded-md
+ border dark:border-transparent bg-primary/10
+px-4 py-2 text-[18px] font-medium border-transparent
+dark:text-white/90 text-black/90 shadow-lg
+duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
+ hover:text-black/75"
+  >
+    Github
+  </Link>
+);
+
 const Gradient = () => (
   <AnimationOnIntersection
     animation="appear-"
     className="absolute z-[-1] top-0 h-[150%] w-[300%] duration-[2s] -rotate-12"
     rootMargin="0px 0px -300px 0px"
-    retriggerAnimation={true}
   >
     <div className="noise-filter-radial dark:opacity-50 opacity-50 absolute z-[-1] h-full w-full bg-gradient-to-tl from-fuchsia-500  to-pink-500"></div>
   </AnimationOnIntersection>
@@ -103,6 +122,7 @@ const AdManagerImage = () => (
     className="px-2"
     title="Try the App"
     rel="noreferrer noopener"
+    tabIndex={-1}
   >
     <Image
       src={"/adManager.png"}

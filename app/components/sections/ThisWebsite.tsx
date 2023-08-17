@@ -2,26 +2,28 @@ import { styles } from "@/app/styles/style";
 import Image from "next/image";
 import { AnimationOnIntersection, Skill } from "../index";
 import { SkillProps } from "../Skill";
+import Link from "next/link";
 
 export function ThisWebsite() {
   return (
     <section
       id="website"
       className={`${styles.sectionPaddingY} flex items-center flex-col-reverse md:flex-row
-    justify-evenly overflow-hidden dark:overflow-visible bg-black relative`}
+    justify-evenly overflow-hidden dark:overflow-visible bg-black dark:bg-transparent relative`}
     >
       <div className={`flex justify-center items-center relative p-4`}>
         <CodeImage />
         <CodeImageGradient />
       </div>
       <div
-        className={`flex justify-center h-full w-full items-center mb-8 flex-col flex-wrap sm:mb-20`}
+        className={`flex justify-center h-full w-full items-center mb-8 flex-col flex-wrap sm:mb-20 z-[1]`}
       >
         <div className="p-4">
           <Heading />
           <Paragraph />
         </div>
         <Skills />
+        <GithubButton />
       </div>
     </section>
   );
@@ -56,7 +58,6 @@ const Skills = () => (
 const CodeImageGradient = () => (
   <AnimationOnIntersection
     animation="appear-"
-    retriggerAnimation={true}
     className="absolute w-full h-full"
     rootMargin="0px 0px -400px 0px"
     duration="duration-1000"
@@ -73,6 +74,22 @@ const CodeImage = () => (
     width={570}
     height={647}
   />
+);
+
+const GithubButton = () => (
+  <Link
+    data-testid="hero-github-button"
+    rel="noreferrer noopener"
+    target="_blank"
+    href={"https://github.com/JesseSinivuori/portfolio"}
+    className="rounded-md mt-8
+ border bg-primary/10
+px-4 py-2 text-[18px] font-medium
+text-white/90 shadow-lg border-white/25
+duration-300 ease-in-out hover:border-white/50"
+  >
+    Github
+  </Link>
 );
 
 const skills: SkillProps[] = [

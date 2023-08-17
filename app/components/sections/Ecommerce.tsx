@@ -15,8 +15,9 @@ export function Ecommerce() {
       </div>
       <Skills />
       <EcommerceImages />
-      <div className="flex w-full justify-center sm:pt-8">
+      <div className="flex flex-wrap w-full gap-4 justify-center items-start md:mt-8 sm:-mt-16 z-[1]">
         <TryTheAppButton />
+        <GithubButton />
       </div>
     </section>
   );
@@ -52,13 +53,29 @@ const TryTheAppButton = () => (
     rel="noreferrer noopener"
     href={"https://ecommerce-restaurant-beta.vercel.app/"}
     target="_blank"
-    className={`z-[1] rounded-md mb-8
+    className={`z-[1] rounded-md
         border-[1px] border-red-700 px-4 py-2 text-[18px]
         font-medium text-white shadow-lg duration-300
         ease-in-out hover:border-red-700
         hover:text-red-700 dark:hover:border-opacity-50`}
   >
     Try the App
+  </Link>
+);
+
+const GithubButton = () => (
+  <Link
+    data-testid="hero-github-button"
+    rel="noreferrer noopener"
+    target="_blank"
+    href={"https://github.com/JesseSinivuori/ecommerce"}
+    className="rounded-md
+ border bg-primary/10
+px-4 py-2 text-[18px] font-medium border-transparent
+text-white/90 shadow-lg
+duration-300 ease-in-out hover:border-white/50"
+  >
+    Github
   </Link>
 );
 

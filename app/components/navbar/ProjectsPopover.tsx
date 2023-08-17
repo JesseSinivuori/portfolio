@@ -4,8 +4,8 @@ export function ProjectsPopover() {
   return <Popover links={links} id="projects-popover" />;
 }
 
-const ChartIcon = <div className="scale-150">💻</div>;
-const GradientIcon = (
+const AdManagerIcon = <div className="scale-150">💻</div>;
+const GradientGeneratorIcon = (
   <div className=" h-6 w-6 rounded-full bg-gradient-to-tr from-rose-500 to-violet-500"></div>
 );
 const EcommerceIcon = <div className="scale-150">🍔</div>;
@@ -22,13 +22,13 @@ const links = [
     name: "Ad Manager",
     description: "A full stack CRUD app for managing ad campaigns",
     href: "/#ad_manager",
-    icon: ChartIcon,
+    icon: AdManagerIcon,
   },
   {
     name: "Gradient Generator",
     description: "Create, test, animate and save gradients",
     href: "/#gradient_generator",
-    icon: GradientIcon,
+    icon: GradientGeneratorIcon,
   },
   {
     name: "Deliver Fee Calculator",
