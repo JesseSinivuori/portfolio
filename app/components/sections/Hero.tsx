@@ -13,7 +13,7 @@ export function Hero() {
         <H1 />
         <H2 />
         <Paragraph />
-        <div className="my-8">
+        <div className="my-8 flex flex-wrap justify-center gap-4">
           <ContactLink />
           <GithubLink />
         </div>
@@ -48,23 +48,6 @@ const Paragraph = () => (
   <p className={`${styles.p} mt-16 max-w-[470px]`}>I 😍 building things.</p>
 );
 
-const GithubLink = () => (
-  <Link
-    data-testid="hero-github-button"
-    rel="noreferrer noopener"
-    target="_blank"
-    href={"https://github.com/JesseSinivuori"}
-    className="mx-4 rounded-md
- border dark:border-transparent bg-primary/10
-px-4 py-2 text-[18px] font-medium border-transparent
-dark:text-white/90 text-black/90 shadow-lg outline-none 
-duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
- hover:text-black/75"
-  >
-    Github
-  </Link>
-);
-
 const ContactLink = () => (
   <Link
     href={"/contact"}
@@ -76,6 +59,23 @@ dark:hover:text-cyan-500 "
     data-testid="hero-contact-button"
   >
     Contact
+  </Link>
+);
+
+const GithubLink = () => (
+  <Link
+    data-testid="hero-github-button"
+    rel="noreferrer noopener"
+    target="_blank"
+    href={"https://github.com/JesseSinivuori"}
+    className="mx-4 rounded-md
+ border dark:border-transparent bg-primary/10
+px-4 py-2 text-[18px] font-medium border-transparent
+dark:text-white/90 text-black/90 shadow-lg
+duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
+ hover:text-black/75"
+  >
+    Github
   </Link>
 );
 

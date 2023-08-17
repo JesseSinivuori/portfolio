@@ -9,7 +9,7 @@ export const styles = {
 
   h2: `${textOpacity.high} font-semibold xs:text-[48px] text-[40px] leading-[62px] ss:leading-[82px]`,
   p: `${textOpacity.medium} text-[18px]`,
-  link: `${textOpacity.medium} text-[18px]  hover:dark:text-white/90 hover:text-black/90 duration-100 ease-in-out cursor-pointer`,
+  link: `${textOpacity.medium} text-base hover:dark:text-white/90 hover:text-black/90 duration-100 ease-in-out cursor-pointer`,
 
   sectionPaddingY: "sm:py-16 py-6",
 };

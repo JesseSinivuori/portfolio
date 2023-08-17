@@ -18,13 +18,18 @@ https://portfolio-jessesinivuori.vercel.app/
 git clone https://github.com/JesseSinivuori/portfolio.git
 ```
 
-### 2. Install
+### 2. Navigate to the project folder
+```bash
+cd ./portfolio
+```
+
+### 3. Install
 
 ```bash
 pnpm install
 ```
 
-### 3.
+### 4.
 ### Run development server
 
 ```bash

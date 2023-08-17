@@ -25,6 +25,7 @@ export function ThemeButtonClient({
   return (
     <>
       <button
+        type="button"
         id="theme-button"
         onClick={() => handleToggleDarkMode()}
         className={`${className ?? ""} hover:opacity-50 opacity-75`}
