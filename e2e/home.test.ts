@@ -88,7 +88,7 @@ test("nav links are rendered", async ({ page, isMobile }) => {
     });
   }
 });
-test.only("while projects popover is open, switching theme works(on mobile)", async ({
+test("while projects popover is open, switching theme works(on mobile)", async ({
   page,
   isMobile,
 }) => {
