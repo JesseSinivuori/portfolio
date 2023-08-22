@@ -9,7 +9,7 @@ export function GradientGenerator() {
       id="gradient_generator"
       className={`${styles.sectionPaddingY} flex justify-center items-center flex-col `}
     >
-      <div className="w-full overflow-hidden bg-blue-700 z-[1] relative">
+      <div className="w-full overflow-hidden bg-blue-700/90 z-[1] relative">
         <div className={`w-full h-full flex-col `}>
           <div
             className={`flex justify-center items-center flex-col p-4 relative z-[1]`}

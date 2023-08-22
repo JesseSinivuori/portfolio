@@ -1,4 +1,4 @@
-import { NavbarClient } from "./NavbarClient";
+import { NavbarEffects } from "./NavbarEffects";
 import { MobileMenu } from "./MobileMenu";
 import Link from "next/link";
 import { NavLinks } from "./NavLinks";
@@ -9,7 +9,7 @@ export function Navbar() {
       className={`fixed left-0 right-0 top-0 z-[9999] select-none overscroll-none`}
     >
       <div className={`max-w-[1400px] m-auto transition-all duration-1000`}>
-        <NavbarClient navStyles={[navbarBelowTopStyle, navbarAtTopStyle]}>
+        <NavbarEffects navStyles={[navbarBelowTopStyle, navbarAtTopStyle]}>
           <nav>
             <div className="flex w-full items-center gap-4 px-8 py-4 ">
               <div className="flex flex-1">
@@ -30,7 +30,7 @@ export function Navbar() {
               </div>
             </div>
           </nav>
-        </NavbarClient>
+        </NavbarEffects>
       </div>
     </div>
   );

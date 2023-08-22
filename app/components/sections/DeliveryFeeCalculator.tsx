@@ -10,7 +10,7 @@ export function DeliveryFeeCalculator() {
       className={`flex justify-center items-center flex-col ${styles.sectionPaddingY}`}
     >
       <div
-        className={`flex justify-center items-center relative z-[0] h-full w-full flex-col  rounded-xl
+        className={`flex justify-center items-center relative z-[0] h-full w-full flex-col 
         `}
       >
         <Gradient />
@@ -50,7 +50,7 @@ const Paragraph = () => (
 const Gradient = () => (
   <AnimationOnIntersection
     animation="appear-"
-    className="absolute w-full h-full"
+    className="absolute z-[-1] w-full h-full"
     rootMargin="0px 0px -600px 0px"
     duration="duration-1000"
   >
