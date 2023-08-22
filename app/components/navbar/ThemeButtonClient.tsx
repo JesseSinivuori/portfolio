@@ -26,7 +26,9 @@ export function ThemeButtonClient({
     <>
       <button
         type="button"
-        id="theme-button"
+        aria-label={`${
+          darkMode ? "switch to light mode" : "switch to dark mode"
+        }`}
         onClick={() => handleToggleDarkMode()}
         className={`${className ?? ""} hover:opacity-50 opacity-75`}
       >

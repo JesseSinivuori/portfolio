@@ -114,7 +114,7 @@ test("while projects popover is open, switching theme works(on mobile)", async (
     ).toBeInViewport();
 
     await test.step("switches theme successfully", async () => {
-      await mobileMenu(page).locator("#theme-button").click();
+      await mobileMenu(page).getByLabel("switch to light mode").click();
 
       await expect(page.getByRole("document")).not.toHaveClass(/dark bg-black/);
     });
