@@ -7,15 +7,15 @@ export function Ecommerce() {
   return (
     <section
       id="jesse's_kitchen"
-      className={`${styles.sectionPaddingY} flex flex-col justify-center items-center bg-black dark:bg-transparent overflow-hidden dark:overflow-visible`}
+      className={`${styles.sectionPaddingY} relative flex flex-col justify-center items-center bg-black dark:bg-transparent overflow-visible`}
     >
-      <div className="flex justify-center items-center relative z-[10] flex-col w-full p-4">
+      <div className="flex justify-center items-center relative flex-col w-full p-4">
         <Heading />
         <Paragraph />
       </div>
       <Skills />
       <EcommerceImages />
-      <div className="flex flex-wrap w-full gap-4 justify-center items-start md:mt-8 sm:-mt-16 z-[1]">
+      <div className="flex flex-wrap w-full gap-4 justify-center items-start md:mt-8 sm:-mt-16">
         <TryTheAppButton />
         <GithubButton />
       </div>
@@ -37,12 +37,15 @@ const Paragraph = () => (
 );
 
 const Skills = () => (
-  <div className="flex-wrap flex justify-center items-center w-full xs:min-w-[480px] xs:max-w-[680px] lg:max-w-full relative z-[1]">
+  <div className="flex-wrap flex justify-center items-center w-full xs:min-w-[480px] xs:max-w-[680px] lg:max-w-full relative ">
     {skills.map((skill) => (
       <Skill
         {...skill}
         key={skill.id}
-        skillTextClassName="text-white/75 border-white/10"
+        logoTextClassName="text-white/75 border-white/10"
+        cardClassName="!bg-nav border-white/10 dark:!border-white/10"
+        descriptionClassName="text-white/90"
+        cardLogoTextClassName="!text-blue-500"
       />
     ))}
   </div>
@@ -55,7 +58,7 @@ const TryTheAppButton = () => (
     target="_blank"
     className={`z-[1] rounded-md
         border-[1px] border-red-700 px-4 py-2 text-[18px]
-        font-medium text-white shadow-lg duration-300
+        font-medium text-white/90 shadow-lg duration-300
         ease-in-out hover:border-red-700
         hover:text-red-700 dark:hover:border-opacity-50`}
   >
@@ -84,31 +87,50 @@ const skills: SkillProps[] = [
     id: "react",
     src: "/react.svg",
     name: "React",
+    link: "https://react.dev/",
+    description:
+      "The JavaScript library for building user interfaces. React applications are built from reusable pieces of code called components.",
   },
   {
     id: "nextjs",
     src: "/nextjs.svg",
     name: "Next.js",
-    skillImageClassName: "invert",
+    cardLogoClassName: "invert",
+    logoClassName: "invert",
+    link: "https://nextjs.org/",
+    description:
+      "The React framework for building fast and scalable full stack web applications, with features like React Server Components and Server Side Rendering.",
   },
   {
     id: "typescript",
     src: "/typescript.svg",
     name: "TypeScript",
+    link: "https://www.typescriptlang.org/",
+    description:
+      "Like JavaScript, but with syntax for types, which allows you to catch errors instantly and makes it highly scalable.",
   },
   {
     id: "tailwindcss",
     src: "/tailwindcss.svg",
     name: "Tailwind CSS",
+    link: "https://tailwindcss.com/",
+    description:
+      "The CSS framework that enables you to write your styles without making multiple files. Perfect for writing modular pieces, like React components and extremely fast prototyping.",
   },
   {
     id: "sanity",
     src: "/sanity.svg",
     name: "Sanity",
+    link: "https://www.sanity.io/",
+    description:
+      "A headless CMS(Content Management System), that lets you update the contents of your site in real-time. Useful for blogs, e-commerce sites, etc.",
   },
   {
     id: "stripe",
     src: "/stripe.svg",
     name: "Stripe",
+    link: "https://stripe.com/",
+    description:
+      "A payments solutions provider. Developers can integrate Stripe's API's to their own applications.",
   },
 ];

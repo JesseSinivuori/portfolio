@@ -45,7 +45,9 @@ const H2 = () => (
 );
 
 const Paragraph = () => (
-  <p className={`${styles.p} mt-16 max-w-[470px]`}>I 😍 building things.</p>
+  <p className={`${styles.p} mt-16 w-full text-center`}>
+    I 😍 building responsive, modern, fast and beautiful applications.
+  </p>
 );
 
 const ContactLink = () => (

@@ -7,6 +7,7 @@ import {
   GradientGenerator,
   Hero,
   Ecommerce,
+  TicTacToe,
   AdManager,
   WelcomeMessage,
 } from "./components/index";
@@ -17,6 +18,7 @@ export default function Home() {
       <WelcomeMessage />
       <Hero />
       <Skills />
+      <TicTacToe />
       <Ecommerce />
       <AdManager />
       <GradientGenerator />

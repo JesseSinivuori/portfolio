@@ -6,3 +6,4 @@ export * from "./GradientGenerator";
 export * from "./Hero";
 export * from "./Skills";
 export * from "./ThisWebsite";
+export * from "./TicTacToe";
