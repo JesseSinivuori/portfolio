@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { styles } from "@/app/styles/style";
-import { AnimationOnIntersection, Skill } from "../index";
+import { AnimationOnIntersection, Skill, SkillProps } from "../index";
 import Link from "next/link";
 
 export function GradientGenerator() {
@@ -51,26 +51,38 @@ const Paragraph = () => (
   </p>
 );
 
-const skills = [
+const skills: SkillProps[] = [
   {
     id: "react",
     src: "/react.svg",
     name: "React",
+    link: "https://react.dev/",
+    description:
+      "The JavaScript library for building user interfaces. React applications are built from reusable pieces of code called components.",
   },
   {
     id: "vite",
     src: "/vite.svg",
     name: "Vite",
+    link: "",
+    description:
+      "A lightning-fast frontend build tool, that offers a rich set of features such as hot module replacement and efficient cold boot, improving the modern web development experience.",
   },
   {
     id: "typescript",
     src: "/typescript.svg",
     name: "TypeScript",
+    link: "https://www.typescriptlang.org/",
+    description:
+      "Like JavaScript, but with syntax for types, which allows you to catch errors instantly and makes it highly scalable.",
   },
   {
     id: "tailwindcss",
     src: "/tailwindcss.svg",
     name: "Tailwind CSS",
+    link: "https://tailwindcss.com/",
+    description:
+      "The CSS framework that enables you to write your styles without making multiple files. Perfect for writing modular pieces, like React components and extremely fast prototyping.",
   },
 ];
 
@@ -134,7 +146,9 @@ const Skills = () => (
       <Skill
         {...skill}
         key={skill.id}
-        skillTextClassName="text-white/75 border-white/10"
+        logoTextClassName="text-white/75 border-white/10"
+        cardLogoTextClassName="dark:!text-blue-400 !text-blue-500"
+        cardClassName="dark:!bg-blue-900 !border-black/10 dark:!border-white/10"
       />
     ))}
   </div>

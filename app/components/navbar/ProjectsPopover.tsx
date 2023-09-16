@@ -9,9 +9,17 @@ const GradientGeneratorIcon = (
   <div className=" h-6 w-6 rounded-full bg-gradient-to-tr from-rose-500 to-violet-500"></div>
 );
 const EcommerceIcon = <div className="scale-150">🍔</div>;
+const TicTacToeIcon = <div className="scale-150">🕹️</div>;
 const DeliveryFeeCalculatorIcon = <div className="scale-150">🛴</div>;
 
 const links = [
+  {
+    name: "Tic-Tac-Toe",
+    description:
+      "A full stack real-time app. Play against ChatGPT or invite a friend.",
+    href: "/#tic-tac-toe",
+    icon: TicTacToeIcon,
+  },
   {
     name: "Ecommerce Website",
     description: "A full stack restaurant themed ecommerce website",

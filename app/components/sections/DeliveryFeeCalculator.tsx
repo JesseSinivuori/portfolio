@@ -112,7 +112,12 @@ const Skills = () => (
     className={`flex-wrap flex justify-center items-center max-w-sm sm:max-w-full`}
   >
     {skills.map((skill) => (
-      <Skill {...skill} key={skill.id} />
+      <Skill
+        {...skill}
+        key={skill.id}
+        cardClassName="!border-black/10 dark:!border-white/10"
+        cardLogoTextClassName="dark:!text-blue-500 !text-blue-700"
+      />
     ))}
   </div>
 );
@@ -156,20 +161,32 @@ const skills = [
     id: "react",
     src: "/react.svg",
     name: "React",
+    link: "https://react.dev/",
+    description:
+      "The JavaScript library for building user interfaces. React applications are built from reusable pieces of code called components.",
   },
   {
     id: "vite",
     src: "/vite.svg",
     name: "Vite",
+    link: "",
+    description:
+      "A lightning-fast frontend build tool, that offers a rich set of features such as hot module replacement and efficient cold boot, improving the modern web development experience.",
   },
   {
     id: "typescript",
     src: "/typescript.svg",
     name: "TypeScript",
+    link: "https://www.typescriptlang.org/",
+    description:
+      "Like JavaScript, but with syntax for types, which allows you to catch errors instantly and makes it highly scalable.",
   },
   {
     id: "tailwindcss",
     src: "/tailwindcss.svg",
     name: "Tailwind CSS",
+    link: "https://tailwindcss.com/",
+    description:
+      "The CSS framework that enables you to write your styles without making multiple files. Perfect for writing modular pieces, like React components and extremely fast prototyping.",
   },
 ];

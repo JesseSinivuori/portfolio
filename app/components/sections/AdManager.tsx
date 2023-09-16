@@ -1,6 +1,6 @@
 import { styles } from "@/app/styles/style";
 import Image from "next/image";
-import { AnimationOnIntersection, Skill } from "../index";
+import { AnimationOnIntersection, Skill, SkillProps } from "../index";
 import Link from "next/link";
 
 export function AdManager() {
@@ -40,34 +40,52 @@ const Paragraph = () => (
   </p>
 );
 
-const skills = [
+const skills: SkillProps[] = [
   {
     id: "react",
     src: "/react.svg",
     name: "React",
+    link: "https://react.dev/",
+    description:
+      "The JavaScript library for building user interfaces. React applications are built from reusable pieces of code called components.",
   },
   {
     id: "nextjs",
     src: "/nextjs.svg",
     name: "Next.js",
-    skillImageClassName: "dark:invert",
+    cardLogoClassName: "dark:invert",
+    logoClassName: "dark:invert",
+    link: "https://nextjs.org/",
+    description:
+      "The React framework for building fast and scalable full stack web applications, with features like React Server Components and Server Side Rendering.",
   },
   {
     id: "typescript",
     src: "/typescript.svg",
     name: "TypeScript",
+    link: "https://www.typescriptlang.org/",
+    description:
+      "Like JavaScript, but with syntax for types, which allows you to catch errors instantly and makes it highly scalable.",
   },
   {
     id: "postgresql",
     src: "/postgresql.svg",
     name: "PostgreSQL",
+    link: "https://www.postgresql.org/",
+    description:
+      "An open-source, powerful, reliable, consistent relational database management system known for its advanced features and extensibility.",
   },
 ];
 
 const Skills = () => (
   <div className={`flex-wrap flex justify-center items-center max-w-sm`}>
     {skills.map((skill) => (
-      <Skill {...skill} key={skill.id} />
+      <Skill
+        {...skill}
+        key={skill.id}
+        cardClassName="!border-black/10 dark:!border-white/10"
+        cardLogoTextClassName="dark:!text-blue-500 !text-blue-700"
+      />
     ))}
   </div>
 );

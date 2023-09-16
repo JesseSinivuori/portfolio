@@ -9,14 +9,14 @@ export function ThisWebsite() {
     <section
       id="website"
       className={`${styles.sectionPaddingY} flex items-center flex-col-reverse md:flex-row
-    justify-evenly overflow-hidden dark:overflow-visible bg-black dark:bg-transparent relative`}
+    justify-evenly overflow-visible bg-black dark:bg-transparent relative`}
     >
-      <div className={`flex justify-center items-center relative p-4`}>
+      <div className={`flex justify-center items-center relative w-full`}>
         <CodeImage />
         <CodeImageGradient />
       </div>
       <div
-        className={`flex justify-center h-full w-full items-center mb-8 flex-col flex-wrap sm:mb-20 z-[1]`}
+        className={`flex justify-center h-full w-full items-center mb-8 flex-col flex-wrap sm:mb-20`}
       >
         <div className="p-4">
           <Heading />
@@ -49,7 +49,11 @@ const Skills = () => (
       <Skill
         {...skill}
         key={skill.id}
-        skillTextClassName="text-white/75 border-white/10"
+        logoTextClassName="text-white/75 border-white/10"
+        cardClassName="!bg-nav !border-white/10"
+        descriptionClassName="!text-white/75"
+        cardLogoTextClassName="!text-blue-500"
+        descriptionPosition="left"
       />
     ))}
   </div>
@@ -97,21 +101,34 @@ const skills: SkillProps[] = [
     id: "react",
     src: "/react.svg",
     name: "React",
+    link: "https://react.dev/",
+    description:
+      "The JavaScript library for building user interfaces. React applications are built from reusable pieces of code called components.",
   },
   {
     id: "nextjs",
     src: "/nextjs.svg",
     name: "Next.js",
-    skillImageClassName: "invert",
+    cardLogoClassName: "invert",
+    logoClassName: "invert",
+    link: "https://nextjs.org/",
+    description:
+      "The React framework for building fast and scalable full stack web applications, with features like React Server Components and Server Side Rendering.",
   },
   {
     id: "typescript",
     src: "/typescript.svg",
     name: "TypeScript",
+    link: "https://www.typescriptlang.org/",
+    description:
+      "Like JavaScript, but with syntax for types, which allows you to catch errors instantly and makes it highly scalable.",
   },
   {
     id: "tailwindcss",
     src: "/tailwindcss.svg",
     name: "Tailwind CSS",
+    link: "https://tailwindcss.com/",
+    description:
+      "The CSS framework that enables you to write your styles without making multiple files. Perfect for writing modular pieces, like React components and extremely fast prototyping.",
   },
 ];
