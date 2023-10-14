@@ -21,16 +21,16 @@ export function TicTacToe() {
           <Carousel
             className="hidden md:flex"
             iconClassName="!text-zinc-50/90"
-            images={[
-              <MainImage key={"MainImage"} />,
-              <LeaderboardImage key={"LeaderboardImage"} />,
-              <MatchHistoryImage key={"MatchHistoryImage"} />,
+            carouselObjects={[
+              { content: <MainImage />, label: "The Game" },
+              { content: <LeaderboardImage />, label: "Leaderboard" },
+              { content: <MatchHistoryImage />, label: "Match History" },
             ]}
           />
           <MainImage className="md:hidden flex" />
         </TicTacToeFireWorks>
       </div>
-      <div className="flex p-8 flex-wrap w-full gap-4 justify-center items-start md:mt-8 sm:-mt-16 z-[1]">
+      <div className="flex p-8 flex-wrap w-full gap-4 justify-center items-start sm:pt-16 z-[1]">
         <TryTheAppButton />
         <GithubButton />
       </div>

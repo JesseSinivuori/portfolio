@@ -10,9 +10,17 @@ const GradientGeneratorIcon = (
 );
 const EcommerceIcon = <div className="scale-150">🍔</div>;
 const TicTacToeIcon = <div className="scale-150">🕹️</div>;
+const NewsIcon = <div className="scale-150">📰</div>;
 const DeliveryFeeCalculatorIcon = <div className="scale-150">🛴</div>;
 
 const links = [
+  {
+    name: "News Website",
+    description:
+      "A full stack app. See the top news or search for what you want.",
+    href: "/#news",
+    icon: NewsIcon,
+  },
   {
     name: "Tic-Tac-Toe",
     description:
