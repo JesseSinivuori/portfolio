@@ -73,7 +73,7 @@ const GithubButton = () => (
     target="_blank"
     href={"https://github.com/JesseSinivuori/ecommerce"}
     className="rounded-md
- border bg-primary/10
+ border bg-primary/10 z-[0]
 px-4 py-2 text-[18px] font-medium border-transparent
 text-white/90 shadow-lg
 duration-300 ease-in-out hover:border-white/50"
