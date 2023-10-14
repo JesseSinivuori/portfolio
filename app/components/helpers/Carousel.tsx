@@ -5,9 +5,11 @@ import { useRef, useState } from "react";
 export function Carousel({
   images,
   className,
+  iconClassName,
 }: {
   images: JSX.Element[];
   className?: string;
+  iconClassName?: string;
 }) {
   const imageRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,12 +35,22 @@ export function Carousel({
       <div className="flex" ref={imageRef}>
         {images[currentIndex]}
       </div>
-      <div className="flex gap-16 hover:opacity-75">
-        <button type="button" onClick={handleClickLeft} className="p-4">
-          <ArrowLeftIcon />
+      <div className="flex gap-16">
+        <button
+          type="button"
+          aria-hidden
+          onClick={handleClickLeft}
+          className="p-4 hover:opacity-75"
+        >
+          <ArrowLeftIcon className={iconClassName || ""} />
         </button>
-        <button type="button" onClick={handleClickRight} className="p-4">
-          <ArrowLeftIcon className="rotate-180" />
+        <button
+          type="button"
+          aria-hidden
+          onClick={handleClickRight}
+          className="p-4 hover:opacity-75"
+        >
+          <ArrowLeftIcon className={`rotate-180 ${iconClassName || ""}`} />
         </button>
       </div>
     </div>
@@ -52,7 +64,9 @@ const ArrowLeftIcon = ({ className }: { className?: string }) => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className={`${className || ""} w-6 h-6`}
+    className={`${
+      className || ""
+    } w-6 h-6 dark:text-zinc-50/90 text-zinc-950/90`}
   >
     <path
       strokeLinecap="round"

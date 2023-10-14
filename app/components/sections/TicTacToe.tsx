@@ -20,6 +20,7 @@ export function TicTacToe() {
         <TicTacToeFireWorks>
           <Carousel
             className="hidden md:flex"
+            iconClassName="!text-zinc-50/90"
             images={[
               <MainImage key={"MainImage"} />,
               <LeaderboardImage key={"LeaderboardImage"} />,
