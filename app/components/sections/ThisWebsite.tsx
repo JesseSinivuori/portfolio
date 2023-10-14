@@ -87,7 +87,7 @@ const GithubButton = () => (
     target="_blank"
     href={"https://github.com/JesseSinivuori/portfolio"}
     className="rounded-md mt-8
- border bg-primary/10
+ border bg-primary/10 z-[0]
 px-4 py-2 text-[18px] font-medium
 text-white/90 shadow-lg border-white/25
 duration-300 ease-in-out hover:border-white/50"

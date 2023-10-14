@@ -46,7 +46,12 @@ export function Skill({
         >
           <div className="flex-col flex justify-center items-center ">
             <Logo src={src} className={cardLogoClassName ?? ""} />
-            <Link href={link ?? ""} rel="noopener" target="_blank">
+            <Link
+              href={link ?? ""}
+              rel="noopener"
+              target="_blank"
+              tabIndex={-1}
+            >
               <LogoName
                 name={name}
                 className={`${
