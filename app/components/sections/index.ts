@@ -7,3 +7,4 @@ export * from "./Hero";
 export * from "./Skills";
 export * from "./ThisWebsite";
 export * from "./TicTacToe";
+export * from "./News";

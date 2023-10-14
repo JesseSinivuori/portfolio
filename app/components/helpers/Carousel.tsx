@@ -2,27 +2,34 @@
 
 import { useRef, useState } from "react";
 
+type CarouselObjectProps = {
+  content: JSX.Element;
+  label: string;
+};
+
 export function Carousel({
-  images,
+  carouselObjects,
   className,
   iconClassName,
 }: {
-  images: JSX.Element[];
+  carouselObjects: CarouselObjectProps[];
   className?: string;
   iconClassName?: string;
 }) {
   const imageRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const prevIndex =
+    (currentIndex - 1 + carouselObjects.length) % carouselObjects.length;
+  const nextIndex = (currentIndex + 1) % carouselObjects.length;
+
   const handleClickLeft = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
+    setCurrentIndex(prevIndex);
     imageRef.current?.scrollIntoView({ block: "center" });
   };
 
   const handleClickRight = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex(nextIndex);
     imageRef.current?.scrollIntoView({ block: "center" });
   };
 
@@ -33,24 +40,32 @@ export function Carousel({
       } flex flex-col justify-center items-center gap-8 py-4`}
     >
       <div className="flex" ref={imageRef}>
-        {images[currentIndex]}
+        {carouselObjects[currentIndex].content}
       </div>
-      <div className="flex gap-16">
-        <button
-          type="button"
-          aria-hidden
-          onClick={handleClickLeft}
-          className="p-4 hover:opacity-75"
-        >
-          <ArrowLeftIcon className={iconClassName || ""} />
-        </button>
+      <div className={`flex gap-16 ${iconClassName || ""}`}>
+        {carouselObjects.length > 2 && (
+          <button
+            type="button"
+            aria-hidden
+            onClick={handleClickLeft}
+            className="p-4 hover:opacity-75"
+          >
+            <span className="flex gap-4">
+              <ArrowLeftIcon className={iconClassName || ""} />
+              {carouselObjects[prevIndex].label}
+            </span>
+          </button>
+        )}
         <button
           type="button"
           aria-hidden
           onClick={handleClickRight}
           className="p-4 hover:opacity-75"
         >
-          <ArrowLeftIcon className={`rotate-180 ${iconClassName || ""}`} />
+          <span className="flex gap-4">
+            {carouselObjects[nextIndex].label}
+            <ArrowLeftIcon className={`rotate-180 ${iconClassName || ""}`} />
+          </span>
         </button>
       </div>
     </div>

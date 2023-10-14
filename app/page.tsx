@@ -10,6 +10,7 @@ import {
   TicTacToe,
   AdManager,
   WelcomeMessage,
+  News,
 } from "./components/index";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <WelcomeMessage />
       <Hero />
       <Skills />
+      <News />
       <TicTacToe />
       <Ecommerce />
       <AdManager />
