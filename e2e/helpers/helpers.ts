@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test/types/test";
+import { Page } from "@playwright/test";
 
 export const mobileMenuButton = (page: Page) =>
   page.getByLabel("toggle mobile menu");
