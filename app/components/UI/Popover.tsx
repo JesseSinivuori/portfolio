@@ -8,7 +8,7 @@ interface Link {
 	name: string;
 	description: string;
 	href: string;
-	icon: JSX.Element;
+	icon: React.JSX.Element;
 }
 
 export function Popover({ links, id }: { links: Link[]; id: string }) {

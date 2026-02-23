@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 
 type CarouselObjectProps = {
-	content: JSX.Element;
+	content: React.JSX.Element;
 	label: string;
 };
 
@@ -82,6 +82,7 @@ const ArrowLeftIcon = ({ className }: { className?: string }) => (
 		className={`${
 			className || ""
 		} w-6 h-6 dark:text-zinc-50/90 text-zinc-950/90`}
+		aria-hidden="true"
 	>
 		<path
 			strokeLinecap="round"

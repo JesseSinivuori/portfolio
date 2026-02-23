@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { styles } from "@/app/styles/style";
 import { Carousel } from "../helpers/Carousel";
-import { Skill } from "../index";
-import type { SkillProps } from "../Skill";
+import { Skill, type SkillProps } from "../Skill";
 
 export function News() {
 	return (

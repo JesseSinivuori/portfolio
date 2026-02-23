@@ -9,8 +9,8 @@ export const MobileMenu = ({
 	MobileMenuIcon,
 }: {
 	children: React.ReactNode;
-	MobileMenuCloseIcon: JSX.Element;
-	MobileMenuIcon: JSX.Element;
+	MobileMenuCloseIcon: React.JSX.Element;
+	MobileMenuIcon: React.JSX.Element;
 }) => {
 	const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
 
@@ -37,9 +37,11 @@ export const MobileMenu = ({
                   ${!toggleMobileMenu && "hidden"}`}
 			>
 				<OnPopState onPopState={() => setToggleMobileMenu(false)}>
-					<div
+					<button
 						className={`mt-20 flex flex-col items-end`}
 						onClick={() => setToggleMobileMenu(false)}
+						type="button"
+						aria-label="close mobile menu"
 					>
 						<OnClickOutside
 							condition={toggleMobileMenu}
@@ -52,7 +54,7 @@ export const MobileMenu = ({
 								{children}
 							</div>
 						</OnClickOutside>
-					</div>
+					</button>
 				</OnPopState>
 			</div>
 		</div>

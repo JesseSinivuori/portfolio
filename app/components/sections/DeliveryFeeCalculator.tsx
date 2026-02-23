@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { styles } from "@/app/styles/style";
-import { AnimationOnIntersection, Skill } from "../index";
+import { AnimationOnIntersection } from "../helpers/AnimationOnIntersection";
+import { Skill } from "../Skill";
 
 export function DeliveryFeeCalculator() {
 	return (

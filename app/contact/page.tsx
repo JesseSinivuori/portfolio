@@ -1,5 +1,6 @@
 import { styles } from "@/app/styles/style";
-import { Contact, Footer } from "../components/index";
+import { Contact } from "./Contact";
+import { Footer } from "../components/Footer";
 
 export default function ContactPage() {
 	return (

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { styles } from "@/app/styles/style";
-import { AnimationOnIntersection, Skill } from "../index";
-import type { SkillProps } from "../Skill";
+import { AnimationOnIntersection } from "../helpers/AnimationOnIntersection";
+import { Skill, type SkillProps } from "../Skill";
 
 export function ThisWebsite() {
 	return (

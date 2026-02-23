@@ -1,9 +1,9 @@
 import { cookies } from "next/headers";
 import { ThemeButtonClient } from "./ThemeButtonClient";
 
-export function ThemeButton({ className }: { className?: string }) {
+export async function ThemeButton({ className }: { className?: string }) {
 	const darkModeCookie: boolean = JSON.parse(
-		cookies().get("darkMode")?.value ?? "true",
+		(await cookies()).get("darkMode")?.value ?? "true",
 	);
 
 	return (
