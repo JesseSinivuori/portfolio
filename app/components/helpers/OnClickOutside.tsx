@@ -2,27 +2,27 @@
 import { useEffect, useRef } from "react";
 
 type OnClickOutsideProps = {
-  children: React.ReactNode;
-  condition?: boolean;
-  onClickOutside: () => void;
+	children: React.ReactNode;
+	condition?: boolean;
+	onClickOutside: () => void;
 };
 
 export const OnClickOutside = (props: OnClickOutsideProps) => {
-  const { children, condition, onClickOutside } = props;
+	const { children, condition, onClickOutside } = props;
 
-  const ref = useRef<HTMLDivElement>(null);
+	const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutSide = (e: MouseEvent) => {
-      if (condition && !ref.current?.contains(e.target as Node)) {
-        onClickOutside();
-      }
-    };
-    document.addEventListener("click", handleClickOutSide);
-    return () => {
-      document.removeEventListener("click", handleClickOutSide);
-    };
-  }, [ref, onClickOutside, condition]);
+	useEffect(() => {
+		const handleClickOutSide = (e: MouseEvent) => {
+			if (condition && !ref.current?.contains(e.target as Node)) {
+				onClickOutside();
+			}
+		};
+		document.addEventListener("click", handleClickOutSide);
+		return () => {
+			document.removeEventListener("click", handleClickOutSide);
+		};
+	}, [ref, onClickOutside, condition]);
 
-  return <div ref={ref}>{children}</div>;
+	return <div ref={ref}>{children}</div>;
 };
