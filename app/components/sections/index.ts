@@ -4,7 +4,7 @@ export * from "./DeliveryFeeCalculator";
 export * from "./Ecommerce";
 export * from "./GradientGenerator";
 export * from "./Hero";
+export * from "./News";
 export * from "./Skills";
 export * from "./ThisWebsite";
 export * from "./TicTacToe";
-export * from "./News";

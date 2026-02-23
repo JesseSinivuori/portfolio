@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --color-primary: #000000;
-    --color-light: #ededed;
-    --color-nav: #121212;
-    --color-navLight: #eeeeee;
-    color-scheme: light dark;
-  }
+	:root {
+		--color-primary: #000000;
+		--color-light: #ededed;
+		--color-nav: #121212;
+		--color-navLight: #eeeeee;
+		color-scheme: light dark;
+	}
 }
 
 @layer utilities {
-  .noise-filter-radial {
-    filter: url(/public/noise.webp) repeat;
-    background-blend-mode: overlay;
-    mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
-  }
+	.noise-filter-radial {
+		filter: url(/public/noise.webp) repeat;
+		background-blend-mode: overlay;
+		mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
+	}
 }
