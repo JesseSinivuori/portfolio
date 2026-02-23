@@ -24,8 +24,7 @@ export function NavbarEffects({
 		return () => {
 			removeEventListener("scroll", handleScroll);
 		};
-	}),
-		[navStylesState];
+	}, [navbarAtTopStyle, navbarBelowTopStyle]);
 
 	useEffect(() => {
 		if (scrollY > 0) {

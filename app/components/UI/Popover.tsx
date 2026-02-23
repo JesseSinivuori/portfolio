@@ -4,14 +4,14 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { styles } from "@/app/styles/style";
 
-interface Link {
+interface LinkProps {
 	name: string;
 	description: string;
 	href: string;
 	icon: React.JSX.Element;
 }
 
-export function Popover({ links, id }: { links: Link[]; id: string }) {
+export function Popover({ links, id }: { links: LinkProps[]; id: string }) {
 	return (
 		<div className="flex w-full max-w-sm" id={id}>
 			<HUIPopover className="w-full">
@@ -82,6 +82,7 @@ const ChevronDownIcon = (
 		viewBox="0 0 24 24"
 		fill="currentColor"
 		className="h-6 w-6"
+		aria-hidden="true"
 	>
 		<path
 			fillRule="evenodd"

@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { type NextRequest, NextResponse } from "next/server";
 
-export async function PATCH(_req: NextRequest, _res: NextResponse) {
+export async function PATCH(_req: NextRequest) {
 	const cookieStore = await cookies();
 	const darkModeCookie = cookieStore.get("darkMode");
 

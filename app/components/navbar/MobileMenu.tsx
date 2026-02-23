@@ -37,10 +37,12 @@ export const MobileMenu = ({
                   ${!toggleMobileMenu && "hidden"}`}
 			>
 				<OnPopState onPopState={() => setToggleMobileMenu(false)}>
-					<button
+					{/** biome-ignore lint/a11y/useKeyWithClickEvents: - */}
+					{/** biome-ignore lint/a11y/noStaticElementInteractions: - */}
+					{/** biome-ignore lint/a11y/useAriaPropsSupportedByRole: - */}
+					<div
 						className={`mt-20 flex flex-col items-end`}
 						onClick={() => setToggleMobileMenu(false)}
-						type="button"
 						aria-label="close mobile menu"
 					>
 						<OnClickOutside
@@ -54,7 +56,7 @@ export const MobileMenu = ({
 								{children}
 							</div>
 						</OnClickOutside>
-					</button>
+					</div>
 				</OnPopState>
 			</div>
 		</div>

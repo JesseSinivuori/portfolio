@@ -12,6 +12,7 @@ export const OnClickOutside = (props: OnClickOutsideProps) => {
 
 	const ref = useRef<HTMLDivElement>(null);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: ref is needed
 	useEffect(() => {
 		const handleClickOutSide = (e: MouseEvent) => {
 			if (condition && !ref.current?.contains(e.target as Node)) {

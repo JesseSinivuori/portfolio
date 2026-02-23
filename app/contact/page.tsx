@@ -1,6 +1,6 @@
 import { styles } from "@/app/styles/style";
-import { Contact } from "./Contact";
 import { Footer } from "../components/Footer";
+import { Contact } from "./Contact";
 
 export default function ContactPage() {
 	return (

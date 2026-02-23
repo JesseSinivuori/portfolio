@@ -7,7 +7,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
+		"lint": "biome check --write",
 		"typecheck": "tsc",
 		"test:e2e": "playwright test",
 		"turbo": "turbo --no-daemon"

@@ -58,6 +58,7 @@ const MobileMenuCloseIcon = () => (
 		strokeWidth={1.5}
 		stroke="currentColor"
 		className="w-7 h-7"
+		aria-hidden="true"
 	>
 		<path
 			strokeLinecap="round"
@@ -75,6 +76,7 @@ const MobileMenuIcon = () => (
 		strokeWidth={1.5}
 		stroke="currentColor"
 		className="w-7 h-7"
+		aria-hidden="true"
 	>
 		<path
 			strokeLinecap="round"
