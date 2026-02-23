@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 
 type CarouselObjectProps = {
-  content: JSX.Element;
+  content: React.JSX.Element;
   label: string;
 };
 

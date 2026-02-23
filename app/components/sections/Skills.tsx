@@ -1,6 +1,5 @@
 import { styles } from "@/app/styles/style";
-import { Skill } from "../index";
-import { SkillProps } from "../Skill";
+import { Skill, SkillProps } from "../Skill";
 
 export function Skills() {
   return (

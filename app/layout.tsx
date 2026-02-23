@@ -1,9 +1,11 @@
-import { Navbar, Toast } from "./components/index";
+
 import { Poppins } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./styles/globals.css";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
+import { Toast } from "./components/Toast";
+import { Navbar } from "./components/navbar/Navbar";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "800"],
@@ -15,13 +17,13 @@ export const metadata: Metadata = {
   description: "Jesse's Portfolio",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const darkModeCookie: boolean = JSON.parse(
-    cookies().get("darkMode")?.value ?? "true"
+    (await cookies()).get("darkMode")?.value ?? "true"
   );
 
   return (

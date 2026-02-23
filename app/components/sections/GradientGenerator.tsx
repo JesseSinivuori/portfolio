@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { styles } from "@/app/styles/style";
-import { AnimationOnIntersection, Skill, SkillProps } from "../index";
 import Link from "next/link";
+import { Skill, SkillProps } from "../Skill";
+import { AnimationOnIntersection } from "../helpers/AnimationOnIntersection";
 
 export function GradientGenerator() {
   return (

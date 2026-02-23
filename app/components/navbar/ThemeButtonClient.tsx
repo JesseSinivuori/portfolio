@@ -10,8 +10,8 @@ export function ThemeButtonClient({
 }: {
   className?: string;
   darkModeCookie: boolean;
-  LightModeIcon: JSX.Element;
-  DarkModeIcon: JSX.Element;
+  LightModeIcon: React.JSX.Element;
+  DarkModeIcon: React.JSX.Element;
 }) {
   const [darkMode, setDarkMode] = useState(darkModeCookie);
 

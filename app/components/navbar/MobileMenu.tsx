@@ -9,8 +9,8 @@ export const MobileMenu = ({
   MobileMenuIcon,
 }: {
   children: React.ReactNode;
-  MobileMenuCloseIcon: JSX.Element;
-  MobileMenuIcon: JSX.Element;
+  MobileMenuCloseIcon: React.JSX.Element;
+  MobileMenuIcon: React.JSX.Element;
 }) => {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
 

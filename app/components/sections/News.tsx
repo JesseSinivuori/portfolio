@@ -1,6 +1,5 @@
 import { styles } from "@/app/styles/style";
-import { Skill } from "../index";
-import { SkillProps } from "../Skill";
+import { Skill, SkillProps } from "../Skill";
 import Link from "next/link";
 import Image from "next/image";
 import { Carousel } from "../helpers/Carousel";

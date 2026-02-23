@@ -1,7 +1,7 @@
 import { styles } from "@/app/styles/style";
-import { Skill, EcommerceImages } from "../index";
-import { SkillProps } from "../Skill";
+import { Skill, SkillProps } from "../Skill";
 import Link from "next/link";
+import { EcommerceImages } from "./EcommerceImages";
 
 export function Ecommerce() {
   return (
