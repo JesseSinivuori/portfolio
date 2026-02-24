@@ -1,5 +1,5 @@
 # My Portfolio
-https://portfolio-jessesinivuori.vercel.app/
+https://jesse-sinivuori.vercel.app/
 ## Tech Stack:
 - [React](https://react.dev/) - The JavaScript Library
 - [Next.js](https://nextjs.org/) - A Full Stack React Framework
