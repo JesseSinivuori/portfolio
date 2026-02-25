@@ -17,9 +17,10 @@ export function News() {
 				<Skills />
 				<Carousel
 					className="hidden md:flex"
+					loadingFallback={<NewsCarouselLoadingFallback />}
 					carouselObjects={[
-						{ content: <NewsArticleShowcase />, label: "Articles" },
-						{ content: <LandingPage />, label: "Landing Page" },
+						{ content: <NewsArticleShowcase />, label: "See Articles" },
+						{ content: <LandingPage />, label: "See Landing Page" },
 					]}
 				/>
 				<NewsArticleShowcase className="md:hidden flex" />
@@ -162,6 +163,10 @@ const LandingPage = () => (
 
 const Gradient = () => (
 	<div className="noise-filter-radial bg-gradient-to-t from-blue-300 w-[150%] h-[100%] z-[-1] absolute"></div>
+);
+
+const NewsCarouselLoadingFallback = () => (
+	<div className="w-[min(100%,1100px)] h-[560px] rounded-xl border border-blue-200/60 dark:border-blue-500/30 bg-gradient-to-br from-blue-100/80 via-zinc-100/70 to-blue-200/70 dark:from-zinc-900/80 dark:via-zinc-800/70 dark:to-blue-950/40 animate-pulse" />
 );
 
 function NewsArticleShowcase({ className }: { className?: string }) {

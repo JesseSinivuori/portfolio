@@ -13,9 +13,11 @@
 		"turbo": "turbo --no-daemon"
 	},
 	"dependencies": {
+		"@ai-sdk/react": "^3.0.102",
 		"@biomejs/biome": "^2.4.4",
 		"@headlessui/react": "^2.2.9",
 		"@vercel/analytics": "^1.1.1",
+		"ai": "^6.0.100",
 		"canvas-confetti": "^1.9.0",
 		"copy-to-clipboard": "^3.3.3",
 		"next": "^16.1.6",

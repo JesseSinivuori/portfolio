@@ -20,10 +20,11 @@ export function TicTacToe() {
 					<Carousel
 						className="hidden md:flex"
 						iconClassName="!text-zinc-50/90"
+						loadingFallback={<TicTacToeCarouselLoadingFallback />}
 						carouselObjects={[
-							{ content: <MainImage />, label: "The Game" },
-							{ content: <LeaderboardImage />, label: "Leaderboard" },
-							{ content: <MatchHistoryImage />, label: "Match History" },
+							{ content: <MainImage />, label: "See The Game" },
+							{ content: <LeaderboardImage />, label: "See Leaderboard" },
+							{ content: <MatchHistoryImage />, label: "See Match History" },
 						]}
 					/>
 					<MainImage className="md:hidden flex" />
@@ -241,4 +242,8 @@ const MatchHistoryImage = () => (
 
 const Gradient = () => (
 	<div className="noise-filter-radial dark:bg-gradient-to-t from-green-300 w-[150%] h-[100%] z-[-1] absolute"></div>
+);
+
+const TicTacToeCarouselLoadingFallback = () => (
+	<div className="w-[min(100%,1100px)] h-[684px] rounded-xl border border-white/20 dark:border-green-500/40 bg-gradient-to-br from-green-700/45 via-emerald-600/30 to-zinc-900/40 dark:from-green-900/50 dark:via-emerald-900/30 dark:to-zinc-950/50 animate-pulse" />
 );
