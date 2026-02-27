@@ -30,13 +30,20 @@ function errorResponse(message: string, status: number) {
 }
 
 const LOGS_DIR = join(process.cwd(), ".logs");
+const ENABLE_STRUCTURED_LOGS = process.env.NODE_ENV !== "production";
 
 function writeStructuredLog(subdir: string, label: string, payload: unknown) {
-	const dir = join(LOGS_DIR, subdir);
-	mkdirSync(dir, { recursive: true });
-	const filePath = join(dir, `${new Date().toISOString().slice(0, 10)}.log`);
-	const line = `[${new Date().toISOString()}] ${label}\n${JSON.stringify(payload, null, 2)}\n\n`;
-	appendFileSync(filePath, line, "utf8");
+	if (!ENABLE_STRUCTURED_LOGS) return;
+
+	try {
+		const dir = join(LOGS_DIR, subdir);
+		mkdirSync(dir, { recursive: true });
+		const filePath = join(dir, `${new Date().toISOString().slice(0, 10)}.log`);
+		const line = `[${new Date().toISOString()}] ${label}\n${JSON.stringify(payload, null, 2)}\n\n`;
+		appendFileSync(filePath, line, "utf8");
+	} catch {
+		// Ignore logging failures in environments with read-only filesystems.
+	}
 }
 
 const ModeSchema = z.enum(["recruiter", "manager", "engineer"]);

@@ -66,12 +66,7 @@ export function Chat({ hasServerApiKey }: { hasServerApiKey: boolean }) {
 				],
 			},
 		],
-		onData: (event) => {
-			console.log("event", event);
-		},
 	});
-
-	console.log("messages", messages);
 
 	const { scrollRef } = useAutoScroll({
 		autoScroll: true,
