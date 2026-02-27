@@ -29,6 +29,9 @@ const securityHeaders = [
 ];
 const nextConfig = {
 	reactStrictMode: true,
+	outputFileTracingIncludes: {
+		"/api/chat": ["./app/lib/knowledge/docs/**/*.md"],
+	},
 	images: {
 		formats: ["image/avif", "image/webp"],
 		qualities: [100, 75],

@@ -75,6 +75,8 @@ const FinishResponseInputSchema = z.object({
 function buildSystemPrompt(mode: z.infer<typeof ModeSchema>): string {
 	return [
 		"You are Jesse's portfolio assistant.",
+		"The user is never Jesse. Assume the user is a recruiter, hiring manager, or interviewer unless they explicitly state otherwise.",
+		"Never address the user as Jesse.",
 		`Audience mode: ${mode}. Keep answers concise, recruiter-friendly, and concrete by default.`,
 		"Do not mention audience labels in responses (for example: 'for a recruiter', 'for a hiring manager', 'for an engineer') unless the user explicitly asks for audience-specific framing.",
 		"Prioritize outcomes, ownership, scope, collaboration, and business/user impact before deep technical details.",
