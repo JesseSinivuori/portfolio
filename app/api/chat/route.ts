@@ -19,6 +19,7 @@ import {
 import { verifyToken } from "@/app/lib/token";
 
 export const runtime = "nodejs";
+export const maxDuration = 120;
 
 function errorResponse(message: string, status: number) {
 	return new Response(message, {
