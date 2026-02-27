@@ -3,6 +3,7 @@ import Link from "next/link";
 import { styles } from "@/app/styles/style";
 import { AnimationOnIntersection } from "../helpers/AnimationOnIntersection";
 import { Skill, type SkillProps } from "../Skill";
+import { TellMeMoreLink } from "../TellMeMoreLink";
 
 export function ThisWebsite() {
 	return (
@@ -23,7 +24,10 @@ export function ThisWebsite() {
 					<Paragraph />
 				</div>
 				<Skills />
-				<GithubButton />
+				<div className="mt-8 flex justify-center items-start flex-wrap gap-4">
+					<GithubButton />
+					<TellMeMoreButton />
+				</div>
 			</div>
 		</section>
 	);
@@ -86,7 +90,7 @@ const GithubButton = () => (
 		rel="noreferrer noopener"
 		target="_blank"
 		href={"https://github.com/JesseSinivuori/portfolio"}
-		className="rounded-md mt-8
+		className="rounded-md
  border bg-primary/10 z-[0]
 px-4 py-2 text-[18px] font-medium
 text-white/90 shadow-lg border-white/25
@@ -94,6 +98,19 @@ duration-300 ease-in-out hover:border-white/50"
 	>
 		Github
 	</Link>
+);
+
+const TellMeMoreButton = () => (
+	<TellMeMoreLink
+		projectId="portfolio-github"
+		className="rounded-md
+ border bg-primary/10 z-[0]
+px-4 py-2 text-[18px] font-medium
+text-white/90 shadow-lg border-white/25
+duration-300 ease-in-out hover:border-white/50"
+	>
+		Tell me more
+	</TellMeMoreLink>
 );
 
 const skills: SkillProps[] = [

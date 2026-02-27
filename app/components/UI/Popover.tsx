@@ -1,7 +1,7 @@
 "use client";
 import { Popover as HUIPopover, Transition } from "@headlessui/react";
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, type MouseEvent } from "react";
 import { styles } from "@/app/styles/style";
 
 interface LinkProps {
@@ -9,9 +9,41 @@ interface LinkProps {
 	description: string;
 	href: string;
 	icon: React.JSX.Element;
+	featured?: boolean;
 }
 
 export function Popover({ links, id }: { links: LinkProps[]; id: string }) {
+	const handleLinkClick = (
+		event: MouseEvent<HTMLAnchorElement>,
+		href: string,
+		close: () => void,
+	) => {
+		close();
+		if (typeof window === "undefined") return;
+		if (window.location.pathname !== "/") return;
+		if (!href.startsWith("/#") && !href.startsWith("#")) return;
+
+		const hash = href.includes("#") ? href.split("#")[1] : "";
+		const targetId = decodeURIComponent(hash || "");
+		if (!targetId) return;
+
+		const target = document.getElementById(targetId);
+		if (!target) return;
+
+		event.preventDefault();
+		const basePath = `${window.location.pathname}${window.location.search}`;
+		window.history.replaceState(null, "", basePath);
+
+		window.requestAnimationFrame(() => {
+			window.history.replaceState(
+				null,
+				"",
+				`${basePath}#${encodeURIComponent(targetId)}`,
+			);
+			target.scrollIntoView({ behavior: "smooth", block: "start" });
+		});
+	};
+
 	return (
 		<div className="flex w-full max-w-sm" id={id}>
 			<HUIPopover className="w-full">
@@ -42,10 +74,16 @@ export function Popover({ links, id }: { links: LinkProps[]; id: string }) {
 									<div className="relative grid gap-8 dark:bg-nav bg-navLight p-7 lg:grid-cols-2">
 										{links.map((item) => (
 											<Link
-												onClick={close}
+												onClick={(event) =>
+													handleLinkClick(event, item.href, close)
+												}
 												key={item.name}
 												href={item.href}
-												className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out dark:hover:bg-zinc-500/10 hover:bg-gray-500/10 focus:outline-none focus-visible:ring focus-visible:ring-opacity-50 focus-visible:hover:ring-black/90 dark:focus-visible:hover:ring-white/90"
+												className={`-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out focus:outline-none focus-visible:ring focus-visible:ring-opacity-50 focus-visible:hover:ring-black/90 dark:focus-visible:hover:ring-white/90 ${
+													item.featured
+														? "border border-blue-700/40 dark:border-cyan-300/45 dark:hover:bg-zinc-500/10 hover:bg-gray-500/10"
+														: "dark:hover:bg-zinc-500/10 hover:bg-gray-500/10"
+												}`}
 											>
 												<div
 													className="flex h-10 w-10 shrink-0 items-center justify-center text-black/90 dark:text-white/90 sm:h-12 sm:w-12"
@@ -54,10 +92,13 @@ export function Popover({ links, id }: { links: LinkProps[]; id: string }) {
 													{item.icon}
 												</div>
 												<div className="ml-4">
-													<p
-														className={` font-semibold dark:text-white/90 text-black/90`}
-													>
+													<p className="flex items-center gap-2 font-semibold dark:text-white/90 text-black/90">
 														{item.name}
+														{item.featured ? (
+															<span className="rounded-full bg-blue-700 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white dark:bg-cyan-500/20 dark:text-cyan-300">
+																New
+															</span>
+														) : null}
 													</p>
 													<p className={`text-sm ${styles.p}`}>
 														{item.description}

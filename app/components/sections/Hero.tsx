@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { styles } from "@/app/styles/style";
-import { AnimationOnIntersection } from "../helpers";
+import { AnimationOnIntersection, useTokenizedHref } from "../helpers";
 
 export function Hero() {
 	return (
@@ -50,19 +52,23 @@ const Paragraph = () => (
 	</p>
 );
 
-const ContactLink = () => (
-	<Link
-		href={"/contact"}
-		className="rounded-md border 
+const ContactLink = () => {
+	const contactHref = useTokenizedHref("/contact");
+
+	return (
+		<Link
+			href={contactHref}
+			className="rounded-md border 
 dark:border-cyan-700 border-transparent px-4 py-2 text-[18px] 
 font-medium text-white/90 shadow-lg dark:hover:border-opacity-50
 duration-300 ease-in-out dark:bg-transparent bg-blue-700 hover:bg-blue-800
 dark:hover:text-cyan-500 "
-		data-testid="hero-contact-button"
-	>
-		Contact
-	</Link>
-);
+			data-testid="hero-contact-button"
+		>
+			Contact
+		</Link>
+	);
+};
 
 const GithubLink = () => (
 	<Link

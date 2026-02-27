@@ -1,14 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import { styles } from "@/app/styles/style";
+import { useTokenizedHref } from "../helpers";
 
 export function ContactBottom() {
+	const contactHref = useTokenizedHref("/contact");
+
 	return (
 		<section
 			id="contact-bottom"
 			className={`${styles.sectionPaddingY} flex justify-center items-center relative z-[10] flex-col`}
 		>
 			<Link
-				href={"/contact"}
+				href={contactHref}
 				className="rounded-md border 
                 dark:border-cyan-700 border-transparent px-4 py-2 text-[18px] 
                 font-medium text-white/90 shadow-lg dark:hover:border-opacity-50

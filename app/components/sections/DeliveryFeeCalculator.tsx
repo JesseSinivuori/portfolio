@@ -3,6 +3,7 @@ import Link from "next/link";
 import { styles } from "@/app/styles/style";
 import { AnimationOnIntersection } from "../helpers/AnimationOnIntersection";
 import { Skill } from "../Skill";
+import { TellMeMoreLink } from "../TellMeMoreLink";
 
 export function DeliveryFeeCalculator() {
 	return (
@@ -25,9 +26,12 @@ export function DeliveryFeeCalculator() {
 						className={`flex justify-center items-center relative flex-col w-full`}
 					>
 						<MainImage />
-						<div className="flex flex-wrap justify-center mt-8 gap-4 z-[1] lg:absolute mr-0 lg:-mr-[680px]">
+						<div className="mt-8 flex flex-wrap justify-center gap-4 z-[1] lg:absolute mr-0 lg:-mr-[680px]">
 							<TryTheAppButton />
 							<GithubButton />
+							<div className="basis-full flex justify-center">
+								<TellMeMoreButton />
+							</div>
 						</div>
 					</div>
 					<div className="absolute bottom-0 left-0 hidden flex-col lg:block mb-8">
@@ -155,6 +159,20 @@ duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
 	>
 		Github
 	</Link>
+);
+
+const TellMeMoreButton = () => (
+	<TellMeMoreLink
+		projectId="delivery-fee-calculator"
+		className="rounded-md
+ border dark:border-transparent bg-primary/10
+px-4 py-2 text-[18px] font-medium border-transparent
+dark:text-white/90 text-black/90 shadow-lg
+duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
+ hover:text-black/75"
+	>
+		Tell me more
+	</TellMeMoreLink>
 );
 
 const skills = [

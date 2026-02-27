@@ -3,6 +3,7 @@ import Link from "next/link";
 import { styles } from "@/app/styles/style";
 import { Carousel } from "../helpers/Carousel";
 import { Skill, type SkillProps } from "../Skill";
+import { TellMeMoreLink } from "../TellMeMoreLink";
 import TicTacToeFireWorks from "./TicTacToeFireWorks";
 
 export function TicTacToe() {
@@ -33,6 +34,7 @@ export function TicTacToe() {
 			<div className="flex p-8 flex-wrap w-full gap-4 justify-center items-start sm:pt-16 z-[1]">
 				<TryTheAppButton />
 				<GithubButton />
+				<TellMeMoreButton />
 			</div>
 		</section>
 	);
@@ -99,6 +101,20 @@ const GithubButton = () => (
 	>
 		Github
 	</Link>
+);
+
+const TellMeMoreButton = () => (
+	<TellMeMoreLink
+		projectId="tic-tac-toe"
+		className="rounded-md
+    border dark:border-transparent bg-primary/10
+   px-4 py-2 text-[18px] font-medium border-transparent
+   dark:text-white/90 text-black/90 shadow-lg
+   duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
+    hover:text-black/75"
+	>
+		Tell me more
+	</TellMeMoreLink>
 );
 
 const skills: SkillProps[] = [

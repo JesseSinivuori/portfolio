@@ -21,8 +21,8 @@ export function Carousel({
 	const imageRef = useRef<HTMLDivElement>(null);
 	const slideRefs = useRef<Array<HTMLDivElement | null>>([]);
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const [slideReady, setSlideReady] = useState<boolean[]>(
-		() => carouselObjects.map(() => false),
+	const [slideReady, setSlideReady] = useState<boolean[]>(() =>
+		carouselObjects.map(() => false),
 	);
 	const fallbackNode = loadingFallback || <CarouselLoadingFallback />;
 
@@ -42,7 +42,7 @@ export function Carousel({
 
 	useEffect(() => {
 		setSlideReady(carouselObjects.map(() => false));
-	}, [carouselObjects.length]);
+	}, [carouselObjects]);
 
 	useEffect(() => {
 		const slide = slideRefs.current[currentIndex];
@@ -51,9 +51,7 @@ export function Carousel({
 		const images = Array.from(slide.querySelectorAll("img"));
 		if (images.length === 0) {
 			setSlideReady((prev) =>
-				prev.map((ready, index) =>
-					index === currentIndex ? true : ready,
-				),
+				prev.map((ready, index) => (index === currentIndex ? true : ready)),
 			);
 			return;
 		}
@@ -68,9 +66,7 @@ export function Carousel({
 			pendingImages -= 1;
 			if (pendingImages <= 0) {
 				setSlideReady((prev) =>
-					prev.map((ready, index) =>
-						index === currentIndex ? true : ready,
-					),
+					prev.map((ready, index) => (index === currentIndex ? true : ready)),
 				);
 			}
 		};
@@ -88,9 +84,7 @@ export function Carousel({
 
 		if (pendingImages === 0) {
 			setSlideReady((prev) =>
-				prev.map((ready, index) =>
-					index === currentIndex ? true : ready,
-				),
+				prev.map((ready, index) => (index === currentIndex ? true : ready)),
 			);
 		}
 
@@ -110,10 +104,7 @@ export function Carousel({
 				className || ""
 			} flex flex-col justify-center items-center gap-8 py-4`}
 		>
-			<div
-				className="flex relative w-full justify-center"
-				ref={imageRef}
-			>
+			<div className="flex relative w-full justify-center" ref={imageRef}>
 				{isSlideLoading && (
 					<div className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none">
 						{fallbackNode}
@@ -129,9 +120,7 @@ export function Carousel({
 							}}
 							className={`transition-opacity duration-300 ${
 								isActive
-									? `relative ${
-											isSlideLoading ? "opacity-0" : "opacity-100"
-										}`
+									? `relative ${isSlideLoading ? "opacity-0" : "opacity-100"}`
 									: "absolute inset-0 opacity-0 pointer-events-none"
 							}`}
 							aria-hidden={!isActive}

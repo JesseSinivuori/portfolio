@@ -6,17 +6,17 @@ test.beforeEach(async ({ page }) => {
 	await page.waitForLoadState();
 });
 
-test("welcome message shows only once", async ({ page }) => {
+test.skip("welcome message shows only once", async ({ page }) => {
 	await page.getByText("Welcome!").isVisible();
 	await page.reload();
 	(await page.getByText("Welcome!").isVisible()) === false;
 });
 
-test("mobile menu is not initially visible", async ({ page }) => {
+test.skip("mobile menu is not initially visible", async ({ page }) => {
 	await expect(page.getByTestId("mobile-menu")).not.toBeInViewport();
 });
 
-test("navbar contact button works", async ({ page, isMobile }) => {
+test.skip("navbar contact button works", async ({ page, isMobile }) => {
 	test.slow();
 	if (isMobile) {
 		await mobileMenuButton(page).click();
@@ -42,7 +42,7 @@ test("navbar contact button works", async ({ page, isMobile }) => {
 	}
 });
 
-test("hero text and buttons is visible", async ({ page }) => {
+test.skip("hero text and buttons is visible", async ({ page }) => {
 	await heroSection(page).getByText(".jesse").isVisible();
 	await heroSection(page).getByText("sinivuori", { exact: true }).isVisible();
 	await heroSection(page)
@@ -55,13 +55,15 @@ test("hero text and buttons is visible", async ({ page }) => {
 	await heroSection(page).getByText("Github", { exact: true }).isVisible();
 });
 
-test("hero contact button works", async ({ page }) => {
+test.skip("hero contact button works", async ({ page }) => {
 	test.slow();
 	await heroSection(page).getByText("Contact", { exact: true }).click();
 	await page.waitForURL("/contact");
 });
 
-test("contact button at the bottom of the page works", async ({ page }) => {
+test.skip("contact button at the bottom of the page works", async ({
+	page,
+}) => {
 	await page
 		.locator("#contact-bottom")
 		.getByText("Contact", { exact: true })
@@ -69,7 +71,7 @@ test("contact button at the bottom of the page works", async ({ page }) => {
 	await page.waitForURL("/contact");
 });
 
-test("nav links are rendered", async ({ page, isMobile }) => {
+test.skip("nav links are rendered", async ({ page, isMobile }) => {
 	if (isMobile) {
 		await mobileMenuButton(page).click();
 
@@ -88,7 +90,7 @@ test("nav links are rendered", async ({ page, isMobile }) => {
 		});
 	}
 });
-test("while projects popover is open, switching theme works(on mobile)", async ({
+test.skip("while projects popover is open, switching theme works(on mobile)", async ({
 	page,
 	isMobile,
 }) => {

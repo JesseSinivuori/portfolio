@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { styles } from "@/app/styles/style";
 import { Skill, type SkillProps } from "../Skill";
+import { TellMeMoreLink } from "../TellMeMoreLink";
 import { EcommerceImages } from "./EcommerceImages";
 
 export function Ecommerce() {
@@ -18,6 +19,7 @@ export function Ecommerce() {
 			<div className="flex flex-wrap w-full gap-4 justify-center items-start md:mt-8 sm:-mt-16">
 				<TryTheAppButton />
 				<GithubButton />
+				<TellMeMoreButton />
 			</div>
 		</section>
 	);
@@ -80,6 +82,19 @@ duration-300 ease-in-out hover:border-white/50"
 	>
 		Github
 	</Link>
+);
+
+const TellMeMoreButton = () => (
+	<TellMeMoreLink
+		projectId="ecommerce-restaurant"
+		className="rounded-md
+ border bg-primary/10 z-[0]
+px-4 py-2 text-[18px] font-medium border-transparent
+text-white/90 shadow-lg
+duration-300 ease-in-out hover:border-white/50"
+	>
+		Tell me more
+	</TellMeMoreLink>
 );
 
 const skills: SkillProps[] = [
