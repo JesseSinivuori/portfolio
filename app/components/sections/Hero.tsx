@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { styles } from "@/app/styles/style";
-import { AnimationOnIntersection } from "../helpers";
+import { AnimationOnIntersection, useTokenizedHref } from "../helpers";
 
 export function Hero() {
 	return (
@@ -50,19 +52,23 @@ const Paragraph = () => (
 	</p>
 );
 
-const ContactLink = () => (
-	<Link
-		href={"/contact"}
-		className="rounded-md border 
+const ContactLink = () => {
+	const contactHref = useTokenizedHref("/contact");
+
+	return (
+		<Link
+			href={contactHref}
+			className="rounded-md border 
 dark:border-cyan-700 border-transparent px-4 py-2 text-[18px] 
 font-medium text-white/90 shadow-lg dark:hover:border-opacity-50
 duration-300 ease-in-out dark:bg-transparent bg-blue-700 hover:bg-blue-800
 dark:hover:text-cyan-500 "
-		data-testid="hero-contact-button"
-	>
-		Contact
-	</Link>
-);
+			data-testid="hero-contact-button"
+		>
+			Contact
+		</Link>
+	);
+};
 
 const GithubLink = () => (
 	<Link
@@ -89,8 +95,8 @@ const Gradient = () => (
 		}}
 		className="w-full h-full absolute duration-[3s] z-[-1]"
 	>
-		<div className="noise-filter-radial blur-[1px] overflow-hidden -left-60 -top-40 absolute h-[800px] w-[1800px] -rotate-[5deg] bg-gradient-to-br from-cyan-500 z-[-2]"></div>
-		<div className="noise-filter-radial blur-[1px] overflow-hidden -left-40 top-20 absolute h-[800px] w-[1800px] -rotate-[10deg] bg-gradient-to-br dark:from-emerald-500 from-blue-500 z-[-1]"></div>
-		<div className="noise-filter-radial blur-[1px] overflow-hidden -left-20 top-0 absolute h-[800px] w-[1800px] -rotate-[25deg] bg-gradient-to-br dark:from-blue-700 from-fuchsia-500 z-[-3]"></div>
+		<div className="noise-filter-radial absolute -left-60 -top-40 h-[840px] w-[1840px] -rotate-[5deg] overflow-hidden bg-gradient-to-br from-cyan-400/80 via-cyan-500/45 to-transparent blur-[18px] z-[-2]"></div>
+		<div className="noise-filter-radial absolute -left-40 top-20 h-[840px] w-[1840px] -rotate-[10deg] overflow-hidden bg-gradient-to-br from-blue-500/70 via-blue-500/35 to-transparent dark:from-emerald-400/70 dark:via-emerald-500/30 blur-[18px] z-[-1]"></div>
+		<div className="noise-filter-radial absolute -left-20 top-0 h-[840px] w-[1840px] -rotate-[25deg] overflow-hidden bg-gradient-to-br from-fuchsia-500/70 via-fuchsia-500/30 to-transparent dark:from-blue-700/70 dark:via-blue-700/30 blur-[20px] z-[-3]"></div>
 	</AnimationOnIntersection>
 );

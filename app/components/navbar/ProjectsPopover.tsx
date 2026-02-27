@@ -12,8 +12,16 @@ const EcommerceIcon = <div className="scale-150">🍔</div>;
 const TicTacToeIcon = <div className="scale-150">🕹️</div>;
 const NewsIcon = <div className="scale-150">📰</div>;
 const DeliveryFeeCalculatorIcon = <div className="scale-150">🛴</div>;
+const AskMeAnythingIcon = <div className="scale-150">🤖</div>;
 
 const links = [
+	{
+		name: "Ask Me Anything",
+		description: "An AI chatbot with a knowledge base about my work",
+		href: "/#chat",
+		icon: AskMeAnythingIcon,
+		featured: true,
+	},
 	{
 		name: "News Website",
 		description:

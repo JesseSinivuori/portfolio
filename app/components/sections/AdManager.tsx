@@ -3,6 +3,7 @@ import Link from "next/link";
 import { styles } from "@/app/styles/style";
 import { AnimationOnIntersection } from "../helpers/AnimationOnIntersection";
 import { Skill, type SkillProps } from "../Skill";
+import { TellMeMoreLink } from "../TellMeMoreLink";
 
 export function AdManager() {
 	return (
@@ -21,6 +22,7 @@ export function AdManager() {
 				<div className="pt-8 flex justify-center items-start flex-wrap gap-4">
 					<TryTheAppButton />
 					<GithubButton />
+					<TellMeMoreButton />
 				</div>
 			</div>
 		</section>
@@ -122,6 +124,20 @@ duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
 	>
 		Github
 	</Link>
+);
+
+const TellMeMoreButton = () => (
+	<TellMeMoreLink
+		projectId="ad-manager"
+		className="rounded-md
+ border dark:border-transparent bg-primary/10
+px-4 py-2 text-[18px] font-medium border-transparent
+dark:text-white/90 text-black/90 shadow-lg
+duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
+ hover:text-black/75"
+	>
+		Tell me more
+	</TellMeMoreLink>
 );
 
 const Gradient = () => (

@@ -1,12 +1,14 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTokenizedHref } from "../helpers";
 
 export const ContactLink = () => {
 	const pathname = usePathname();
+	const contactHref = useTokenizedHref("/contact");
 	return (
 		<Link
-			href={"/contact"}
+			href={contactHref}
 			className={`rounded-md border-transparent p-2 dark:bg-transparent bg-blue-700 
          duration-100 ease-in-out border flex
         ${

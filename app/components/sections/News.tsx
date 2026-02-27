@@ -3,6 +3,7 @@ import Link from "next/link";
 import { styles } from "@/app/styles/style";
 import { Carousel } from "../helpers/Carousel";
 import { Skill, type SkillProps } from "../Skill";
+import { TellMeMoreLink } from "../TellMeMoreLink";
 
 export function News() {
 	return (
@@ -17,9 +18,10 @@ export function News() {
 				<Skills />
 				<Carousel
 					className="hidden md:flex"
+					loadingFallback={<NewsCarouselLoadingFallback />}
 					carouselObjects={[
-						{ content: <NewsArticleShowcase />, label: "Articles" },
-						{ content: <LandingPage />, label: "Landing Page" },
+						{ content: <NewsArticleShowcase />, label: "See Articles" },
+						{ content: <LandingPage />, label: "See Landing Page" },
 					]}
 				/>
 				<NewsArticleShowcase className="md:hidden flex" />
@@ -27,6 +29,7 @@ export function News() {
 			<div className="flex p-8 flex-wrap w-full gap-4 justify-center items-start md:pt-8 pt-24 z-[1]">
 				<TryTheAppButton />
 				<GithubButton />
+				<TellMeMoreButton />
 			</div>
 		</section>
 	);
@@ -93,6 +96,20 @@ const GithubButton = () => (
 	>
 		Github
 	</Link>
+);
+
+const TellMeMoreButton = () => (
+	<TellMeMoreLink
+		projectId="news-website"
+		className="rounded-md
+    border dark:border-transparent bg-primary/10
+   px-4 py-2 text-[18px] font-medium border-transparent
+   dark:text-white/90 text-black/90 shadow-lg
+   duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
+    hover:text-black/75"
+	>
+		Tell me more
+	</TellMeMoreLink>
 );
 
 const skills: SkillProps[] = [
@@ -162,6 +179,10 @@ const LandingPage = () => (
 
 const Gradient = () => (
 	<div className="noise-filter-radial bg-gradient-to-t from-blue-300 w-[150%] h-[100%] z-[-1] absolute"></div>
+);
+
+const NewsCarouselLoadingFallback = () => (
+	<div className="w-[min(100%,1100px)] h-[560px] rounded-xl border border-blue-200/60 dark:border-blue-500/30 bg-gradient-to-br from-blue-100/80 via-zinc-100/70 to-blue-200/70 dark:from-zinc-900/80 dark:via-zinc-800/70 dark:to-blue-950/40 animate-pulse" />
 );
 
 function NewsArticleShowcase({ className }: { className?: string }) {

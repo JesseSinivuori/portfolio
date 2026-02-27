@@ -44,6 +44,32 @@ pnpm start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Chat Token Setup
+
+Create a `.env.local` file using `.env.example` and set:
+
+- `OPENROUTER_API_KEY`
+- `TOKEN_JWT_SECRET`
+- `ADMIN_TOKEN_UI_SECRET`
+
+Generate secrets in terminal:
+
+```bash
+# TOKEN_JWT_SECRET
+openssl rand -base64 48
+
+# ADMIN_TOKEN_UI_SECRET
+openssl rand -base64 48
+```
+
+### Generate a 30-day token from the UI
+
+1. Start the app with `pnpm dev`.
+2. Open [http://localhost:3000/admin/tokens](http://localhost:3000/admin/tokens).
+3. Enter `ADMIN_TOKEN_UI_SECRET` and optional label.
+4. Click **Create token**.
+5. Use the generated URL (`/?accessToken=...`) to access chat.
+
 ## Running E2E tests
 
 ### 1. Install playwright browsers

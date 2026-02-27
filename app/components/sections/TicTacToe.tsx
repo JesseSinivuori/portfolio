@@ -3,6 +3,7 @@ import Link from "next/link";
 import { styles } from "@/app/styles/style";
 import { Carousel } from "../helpers/Carousel";
 import { Skill, type SkillProps } from "../Skill";
+import { TellMeMoreLink } from "../TellMeMoreLink";
 import TicTacToeFireWorks from "./TicTacToeFireWorks";
 
 export function TicTacToe() {
@@ -20,10 +21,11 @@ export function TicTacToe() {
 					<Carousel
 						className="hidden md:flex"
 						iconClassName="!text-zinc-50/90"
+						loadingFallback={<TicTacToeCarouselLoadingFallback />}
 						carouselObjects={[
-							{ content: <MainImage />, label: "The Game" },
-							{ content: <LeaderboardImage />, label: "Leaderboard" },
-							{ content: <MatchHistoryImage />, label: "Match History" },
+							{ content: <MainImage />, label: "See The Game" },
+							{ content: <LeaderboardImage />, label: "See Leaderboard" },
+							{ content: <MatchHistoryImage />, label: "See Match History" },
 						]}
 					/>
 					<MainImage className="md:hidden flex" />
@@ -32,6 +34,7 @@ export function TicTacToe() {
 			<div className="flex p-8 flex-wrap w-full gap-4 justify-center items-start sm:pt-16 z-[1]">
 				<TryTheAppButton />
 				<GithubButton />
+				<TellMeMoreButton />
 			</div>
 		</section>
 	);
@@ -98,6 +101,20 @@ const GithubButton = () => (
 	>
 		Github
 	</Link>
+);
+
+const TellMeMoreButton = () => (
+	<TellMeMoreLink
+		projectId="tic-tac-toe"
+		className="rounded-md
+    border dark:border-transparent bg-primary/10
+   px-4 py-2 text-[18px] font-medium border-transparent
+   dark:text-white/90 text-black/90 shadow-lg
+   duration-300 ease-in-out dark:hover:border-white/50 hover:border-black/50
+    hover:text-black/75"
+	>
+		Tell me more
+	</TellMeMoreLink>
 );
 
 const skills: SkillProps[] = [
@@ -241,4 +258,8 @@ const MatchHistoryImage = () => (
 
 const Gradient = () => (
 	<div className="noise-filter-radial dark:bg-gradient-to-t from-green-300 w-[150%] h-[100%] z-[-1] absolute"></div>
+);
+
+const TicTacToeCarouselLoadingFallback = () => (
+	<div className="w-[min(100%,1100px)] h-[684px] rounded-xl border border-white/20 dark:border-green-500/40 bg-gradient-to-br from-green-700/45 via-emerald-600/30 to-zinc-900/40 dark:from-green-900/50 dark:via-emerald-900/30 dark:to-zinc-950/50 animate-pulse" />
 );

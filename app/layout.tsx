@@ -33,8 +33,9 @@ export default async function RootLayout({
 			}`}
 			style={{ colorScheme: darkModeCookie ? "dark" : "light" }}
 		>
-			<body className="overflow-x-clip">
-				<div className="m-auto px-4 pt-24 xss:px-8 flex w-full flex-col overflow-hidden">
+			<body className="relative overflow-x-clip">
+				<div className="pointer-events-none fixed inset-0 z-[1] bg-[url('/noise.webp')] [background-size:64px_64px] bg-repeat opacity-[0.22] mix-blend-overlay" />
+				<div className="relative z-[2] m-auto px-4 pt-24 xss:px-8 flex w-full flex-col overflow-hidden">
 					<header>
 						<Toast />
 						<Navbar />
