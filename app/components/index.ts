@@ -8,4 +8,3 @@ export * from "./sections";
 export * from "./sections/EcommerceImages";
 export * from "./Toast";
 export * from "./UI";
-export * from "./WelcomeMessage";
