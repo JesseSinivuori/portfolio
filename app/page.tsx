@@ -9,14 +9,12 @@ import { Hero } from "./components/sections/Hero";
 import { News } from "./components/sections/News";
 import { ThisWebsite } from "./components/sections/ThisWebsite";
 import { TicTacToe } from "./components/sections/TicTacToe";
-import { WelcomeMessage } from "./components/WelcomeMessage";
 
 export default function Home() {
 	const hasServerApiKey = Boolean(process.env.OPENROUTER_API_KEY?.trim());
 
 	return (
 		<>
-			<WelcomeMessage />
 			<Hero />
 			<Chat hasServerApiKey={hasServerApiKey} />
 			<News />
