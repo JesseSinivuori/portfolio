@@ -29,6 +29,9 @@ const securityHeaders = [
 ];
 const nextConfig = {
 	reactStrictMode: true,
+	turbopack: {
+		root: __dirname,
+	},
 	outputFileTracingIncludes: {
 		"/api/chat": ["./app/lib/knowledge/docs/**/*.md"],
 	},

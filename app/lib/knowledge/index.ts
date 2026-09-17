@@ -18,6 +18,7 @@ const KNOWLEDGE_FILE_NAMES = [
 	"portfolio-source.md",
 	"architecture-tradeoffs.md",
 	"current-job-experience.md",
+	"private-projects.md",
 ] as const;
 
 const DOCS_DIR = join(process.cwd(), "app/lib/knowledge/docs");
