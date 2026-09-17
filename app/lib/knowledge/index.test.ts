@@ -128,3 +128,22 @@ describe.skip("searchKnowledge", () => {
 		).toThrow();
 	});
 });
+
+describe("Docker and CI/CD knowledge coverage", () => {
+	it.each([
+		"Docker experience",
+		"CI/CD pipelines",
+		"containerization",
+	])("finds current-role evidence for %s", (query) => {
+		const result = searchKnowledge({
+			query,
+			category: null,
+			projectId: null,
+			limit: 8,
+		});
+
+		expect(
+			result.results.some((item) => item.id === "current-job-experience"),
+		).toBe(true);
+	});
+});

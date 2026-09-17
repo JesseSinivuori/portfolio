@@ -9,13 +9,13 @@ import { buildProjectTellMeMorePrompt } from "@/app/lib/chat-prompts";
 import { AnimationOnIntersection } from "../helpers";
 
 const starterQuestions = [
-	"Summarize Jesse’s experience, strengths, and role fit for a senior full-stack role.",
-	"Summarize Jesse’s AI/LLM knowledge and how he uses AI in day-to-day software development.",
-	"Give me the strongest examples of Jesse’s measurable impact and ownership.",
+	"Summarize Jesse’s experience, strengths, and fit for a full-stack product engineering role.",
+	"How does Jesse use AI and LLMs in day-to-day software development?",
+	"What do Jesse’s public and private projects show about his technical range and ownership?",
 ];
 
 const introText =
-	"I’m Jesse, a full-stack engineer focused on shipping reliable, production-ready products with measurable impact. Ask me anything, or paste a job posting and I’ll explain how my background fits.";
+	"I’m Jesse, a full-stack engineer who builds reliable, production-ready products end to end. Ask about my experience, projects, or how I could fit your team — or paste a job posting link and I’ll map my background to it.";
 
 const InputSchema = z.object({
 	text: z.preprocess(
@@ -31,6 +31,7 @@ type ChatPartLike = {
 	type?: string;
 	text?: string;
 	state?: string;
+	data?: unknown;
 	output?: unknown;
 	input?: unknown;
 	args?: unknown;
@@ -209,6 +210,18 @@ export function Chat({ hasServerApiKey }: { hasServerApiKey: boolean }) {
 													key={`${message.id}-search-${index}`}
 													text={searchState.text}
 													animated={searchState.animated}
+												/>
+											);
+										}
+
+										if (isWebFetchStatusPart(chatPart)) {
+											const webFetchState = getWebFetchUiState(chatPart);
+											if (!webFetchState) return null;
+											return (
+												<SearchKnowledgeMessage
+													key={`${message.id}-web-fetch-${index}`}
+													text={webFetchState.text}
+													animated={webFetchState.animated}
 												/>
 											);
 										}
@@ -613,6 +626,28 @@ function getSearchKnowledgeUiState(
 	}
 
 	return { text: "Knowledge base search interrupted.", animated: false };
+}
+
+const WebFetchStatusSchema = z.object({
+	state: z.enum(["loading", "completed", "failed"]),
+	url: z.string().url(),
+});
+
+function isWebFetchStatusPart(part: ChatPartLike | undefined) {
+	return part?.type === "data-web-fetch-status";
+}
+
+function getWebFetchUiState(part: ChatPartLike | undefined) {
+	const parsed = WebFetchStatusSchema.safeParse(part?.data);
+	if (!parsed.success || parsed.data.state === "failed") {
+		return { text: "Couldn’t read linked page.", animated: false };
+	}
+
+	if (parsed.data.state === "completed") {
+		return null;
+	}
+
+	return { text: "Looking at linked page...", animated: true };
 }
 
 function toChatPartLike(part: unknown): ChatPartLike | undefined {
